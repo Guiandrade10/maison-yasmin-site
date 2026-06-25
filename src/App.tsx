@@ -1,0 +1,32 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import { SiteLayout } from '@/components/SiteLayout'
+import About from '@/pages/About'
+import Contact from '@/pages/Contact'
+import Experience from '@/pages/Experience'
+import Faq from '@/pages/Faq'
+import Home from '@/pages/Home'
+import Journal from '@/pages/Journal'
+import JournalPost from '@/pages/JournalPost'
+import NotFound from '@/pages/NotFound'
+import Services from '@/pages/Services'
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route element={<SiteLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/servicos" element={<Services />} />
+          <Route path="/experiencia" element={<Experience />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/journal" element={<Journal />} />
+          <Route path="/journal/:slug" element={<JournalPost />} />
+          <Route path="/contacto" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </Router>
+  )
+}
