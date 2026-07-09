@@ -7,7 +7,22 @@ export default {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      colors: {
+        "azul-safira":      "rgb(var(--azul-safira) / <alpha-value>)",
+        "azul-noite":       "rgb(var(--azul-noite) / <alpha-value>)",
+        "azul-real":        "rgb(var(--azul-real) / <alpha-value>)",
+        "azul-claro":       "rgb(var(--azul-claro) / <alpha-value>)",
+        "dourado":          "rgb(var(--dourado-champanhe) / <alpha-value>)",
+        "ouro-claro":       "rgb(var(--ouro-claro) / <alpha-value>)",
+        "ouro-rose":        "rgb(var(--ouro-rose) / <alpha-value>)",
+        "marfim":           "rgb(var(--marfim) / <alpha-value>)",
+      },
+      fontFamily: {
+        serif: ["Cinzel", "Playfair Display", "Georgia", "serif"],
+        sans:  ["Montserrat", "Lato", "system-ui", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

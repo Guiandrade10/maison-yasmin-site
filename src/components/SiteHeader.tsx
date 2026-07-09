@@ -16,12 +16,12 @@ export function SiteHeader() {
 
   const items = useMemo<NavItem[]>(
     () => [
-      { to: '/sobre', label: 'About' },
-      { to: '/servicos', label: 'Packages' },
-      { to: '/experiencia', label: 'Process' },
+      { to: '/sobre', label: 'Sobre' },
+      { to: '/servicos', label: 'Serviços' },
+      { to: '/experiencia', label: 'Processo' },
       { to: '/faq', label: 'FAQ' },
-      { to: '/journal', label: 'Journal' },
-      { to: '/contacto', label: 'Contact' },
+      { to: '/journal', label: 'Blog' },
+      { to: '/contacto', label: 'Contacto' },
     ],
     [],
   )
@@ -29,30 +29,30 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 transition',
+        'sticky top-0 z-50 transition-all duration-200',
         scrolled
-          ? 'bg-[rgba(var(--my-warm-white),0.78)] backdrop-blur-md ring-1 ring-inset ring-[rgba(var(--my-sand),0.7)]'
+          ? 'bg-[rgba(250,247,240,0.92)] backdrop-blur-md ring-1 ring-inset ring-[rgba(220,199,161,0.5)]'
           : 'bg-transparent',
       )}
     >
       <Container className="flex h-16 items-center justify-between">
         <NavLink
           to="/"
-          className="font-[var(--my-font-serif)] text-lg tracking-[0.08em] no-underline"
+          className="font-serif text-sm tracking-[0.22em] text-[rgb(var(--azul-safira))] no-underline hover:text-[rgb(var(--azul-noite))]"
           onClick={() => setOpen(false)}
         >
           {siteConfig.name.toUpperCase()}
         </NavLink>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {items.slice(0, 5).map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
                 cn(
-                  'text-sm text-[rgb(var(--my-dark-brown))] no-underline transition hover:text-[rgb(var(--my-black))]',
-                  isActive && 'text-[rgb(var(--my-black))]',
+                  'text-xs font-medium tracking-[0.1em] text-[rgb(var(--azul-safira))] no-underline transition-opacity duration-200 hover:opacity-70',
+                  isActive && 'opacity-100 underline underline-offset-4 decoration-[rgb(var(--dourado-champanhe))]',
                 )
               }
             >
@@ -60,27 +60,22 @@ export function SiteHeader() {
             </NavLink>
           ))}
           <Button to="/contacto" size="sm">
-            Request Proposal
+            Solicitar Proposta
           </Button>
         </nav>
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(var(--my-ivory),0.7)] text-[rgb(var(--my-black))] ring-1 ring-inset ring-[rgba(var(--my-sand),0.8)] transition hover:bg-[rgb(var(--my-ivory))] md:hidden"
-          aria-label="Open menu"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(241,230,200,0.7)] text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(220,199,161,0.8)] transition hover:bg-[rgb(var(--ouro-rose))] md:hidden"
+          aria-label="Abrir menu"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
         </button>
       </Container>
 
-      <div
-        className={cn(
-          'md:hidden',
-          open ? 'block' : 'hidden',
-        )}
-      >
-        <div className="bg-[rgb(var(--my-warm-white))] px-5 pb-6 pt-2 ring-1 ring-inset ring-[rgba(var(--my-sand),0.7)]">
+      <div className={cn('md:hidden', open ? 'block' : 'hidden')}>
+        <div className="bg-[rgb(var(--marfim))] px-5 pb-6 pt-2 ring-1 ring-inset ring-[rgba(220,199,161,0.5)]">
           <div className="flex flex-col gap-1">
             {items.map((item) => (
               <NavLink
@@ -89,8 +84,8 @@ export function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    'rounded-xl px-3 py-2 text-sm text-[rgb(var(--my-dark-brown))] no-underline transition hover:bg-[rgb(var(--my-ivory))] hover:text-[rgb(var(--my-black))]',
-                    isActive && 'bg-[rgb(var(--my-ivory))] text-[rgb(var(--my-black))]',
+                    'rounded-xl px-3 py-2 text-sm text-[rgb(var(--azul-safira))] no-underline transition hover:bg-[rgb(var(--ouro-rose))]',
+                    isActive && 'bg-[rgb(var(--ouro-rose))] font-medium',
                   )
                 }
               >
@@ -101,7 +96,7 @@ export function SiteHeader() {
 
           <div className="mt-4">
             <Button to="/contacto" className="w-full" size="lg">
-              Request Proposal
+              Solicitar Proposta
             </Button>
           </div>
         </div>
@@ -109,4 +104,3 @@ export function SiteHeader() {
     </header>
   )
 }
-

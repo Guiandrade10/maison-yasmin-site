@@ -18,7 +18,12 @@ export function Accordion({ items, className }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <div className={cn('divide-y divide-[rgba(var(--my-sand),0.9)] rounded-3xl bg-[rgba(var(--my-warm-white),0.65)] ring-1 ring-inset ring-[rgba(var(--my-sand),0.8)]', className)}>
+    <div
+      className={cn(
+        'divide-y divide-[rgba(220,199,161,0.4)] rounded-3xl bg-[rgba(250,247,240,0.65)] ring-1 ring-inset ring-[rgba(220,199,161,0.5)]',
+        className,
+      )}
+    >
       {items.map((item, idx) => {
         const isOpen = openIndex === idx
         const buttonId = `${baseId}-btn-${idx}`
@@ -34,17 +39,27 @@ export function Accordion({ items, className }: Props) {
               aria-controls={panelId}
               onClick={() => setOpenIndex((v) => (v === idx ? null : idx))}
             >
-              <span className="text-sm font-medium text-[rgb(var(--my-black))]">{item.title}</span>
-              <ChevronDown className={cn('h-4 w-4 shrink-0 text-[rgb(var(--my-dark-brown))] transition', isOpen && 'rotate-180')} />
+              <span className="text-sm font-medium text-[rgb(var(--azul-safira))]">{item.title}</span>
+              <ChevronDown
+                className={cn(
+                  'h-4 w-4 shrink-0 text-[rgb(var(--dourado-champanhe))] transition-transform duration-200',
+                  isOpen && 'rotate-180',
+                )}
+              />
             </button>
             <div
               id={panelId}
               role="region"
               aria-labelledby={buttonId}
-              className={cn('grid transition-[grid-template-rows] duration-300 ease-out', isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}
+              className={cn(
+                'grid transition-[grid-template-rows] duration-300 ease-out',
+                isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
+              )}
             >
               <div className="overflow-hidden">
-                <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))]">{item.content}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--azul-safira))] opacity-75">
+                  {item.content}
+                </p>
               </div>
             </div>
           </div>
@@ -53,4 +68,3 @@ export function Accordion({ items, className }: Props) {
     </div>
   )
 }
-

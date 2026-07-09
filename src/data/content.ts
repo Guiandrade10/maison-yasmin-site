@@ -1,3 +1,56 @@
+export type Pilar = {
+  id: string
+  title: string
+  description: string
+}
+
+export type Testimonial = {
+  name: string
+  location: string
+  text: string
+}
+
+export const pilares: Pilar[] = [
+  {
+    id: 'excelencia',
+    title: 'Excelência',
+    description: 'Busca constante pela perfeição em cada detalhe, do primeiro contato ao último momento.',
+  },
+  {
+    id: 'proposito',
+    title: 'Propósito',
+    description: 'Transformamos sonhos em histórias reais, com intenção e cuidado em cada escolha.',
+  },
+  {
+    id: 'elegancia',
+    title: 'Elegância',
+    description: 'Sofisticação que se revela na simplicidade — o refinamento está no que não se exagera.',
+  },
+  {
+    id: 'confianca',
+    title: 'Confiança',
+    description: 'Relações verdadeiras, baseadas em transparência, clareza e presença ao longo de todo o processo.',
+  },
+  {
+    id: 'memorias',
+    title: 'Memórias',
+    description: 'Transformamos momentos em lembranças eternas, celebrações que ficam para sempre.',
+  },
+]
+
+export const testimonials: Testimonial[] = [
+  {
+    name: 'Ana e Ricardo',
+    location: 'Lisboa, Portugal',
+    text: 'A Yasmini transformou cada detalhe do nosso casamento numa memória que vamos guardar para sempre. Uma experiência de elegância e cuidado únicos.',
+  },
+  {
+    name: 'Sofia e Miguel',
+    location: 'Porto, Portugal',
+    text: 'Profissionalismo e sensibilidade em cada etapa. O nosso dia foi exatamente como sempre sonhámos — leve, elegante e cheio de significado.',
+  },
+]
+
 export type WeddingPackageSlug = 'small' | 'medium' | 'large'
 
 export type WeddingPackage = {
