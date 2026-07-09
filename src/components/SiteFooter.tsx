@@ -37,15 +37,15 @@ function Filete() {
 }
 
 const navLinks = [
-  { to: '/sobre', label: 'Sobre' },
-  { to: '/servicos', label: 'Serviços' },
-  { to: '/experiencia', label: 'Processo' },
+  { to: '/about', label: 'About' },
+  { to: '/services', label: 'Services' },
+  { to: '/process', label: 'Process' },
   { to: '/faq', label: 'FAQ' },
-  { to: '/journal', label: 'Blog' },
-  { to: '/contacto', label: 'Contacto' },
+  { to: '/journal', label: 'Journal' },
+  { to: '/contact', label: 'Contact' },
 ]
 
-const pilares = ['Excelência', 'Propósito', 'Elegância', 'Confiança', 'Memórias']
+const pilares = ['Excellence', 'Purpose', 'Elegance', 'Trust', 'Memories']
 
 export function SiteFooter() {
   return (
@@ -96,7 +96,7 @@ export function SiteFooter() {
 
         {/* Bottom row */}
         <div className="mt-6 flex flex-col items-center justify-between gap-4 text-[10px] text-[rgba(167,183,209,0.45)] md:flex-row">
-          <span>© {new Date().getFullYear()} {siteConfig.name}. Todos os direitos reservados.</span>
+          <span>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
           <a
             href={`mailto:${siteConfig.contactEmail}`}
             className="text-[rgba(167,183,209,0.6)] no-underline transition-opacity hover:opacity-80"

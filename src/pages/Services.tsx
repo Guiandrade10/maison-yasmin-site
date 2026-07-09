@@ -17,13 +17,13 @@ export default function Services() {
             <div className="md:col-span-7">
               <h1 className="text-4xl font-medium leading-[1.06] md:text-6xl">Wedding packages built around guest count, pace and place.</h1>
               <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
-                Maison Yasmini now presents the offer in a clearer way: small, medium and large weddings in the Algarve,
-                each with its own planning structure and starting investment.
+                Maison Yasmini offers three clear packages built around guest count. Each comes with its
+                own planning rhythm and starting investment.
               </p>
             </div>
             <div className="md:col-span-5 md:justify-self-end">
-              <Button to="/contacto" size="lg">
-                Request your proposal <ArrowRight className="ml-2 h-4 w-4" />
+              <Button to="/contact" size="lg">
+                Request a proposal <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -54,8 +54,8 @@ export default function Services() {
             ))}
           </div>
           <div className="mt-6 rounded-[24px] bg-[rgba(var(--my-ivory),0.76)] px-6 py-5 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]">
-            Weddings with more than 100 guests require a custom proposal. They usually need a bigger coordination team,
-            more production time and a planning structure tailored to the venue and the guest experience.
+            Weddings with more than 100 guests need a custom proposal. We build it around the venue,
+            logistics, team size and production needs.
           </div>
         </Container>
       </section>
@@ -66,7 +66,7 @@ export default function Services() {
             <SectionHeading
               className="md:col-span-5"
               eyebrow="Additional support"
-              title="Every package can include the support that makes destination planning feel manageable."
+              title="Every package can be extended with the support that makes destination planning feel straightforward."
               description="Depending on the wedding size, planning can include:"
             />
             <div className="md:col-span-7">
@@ -91,12 +91,12 @@ export default function Services() {
               <div className="mt-10 rounded-[28px] bg-[rgba(var(--my-warm-white),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]">
                 <div className="font-[var(--my-font-serif)] text-2xl leading-tight">A calm first step</div>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-[rgb(var(--my-dark-brown))]">
-                  Share your date, approximate guest count and the kind of celebration you want. We will respond with
-                  clarity and the next steps.
+                  Share your date, approximate guest count and the kind of celebration you want.
+                  We will respond with clarity and the next steps.
                 </p>
                 <div className="mt-6">
-                  <Button to="/contacto" size="lg">
-                    Contact <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button to="/contact" size="lg">
+                    Get in touch <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
               </div>
@@ -107,4 +107,3 @@ export default function Services() {
     </div>
   )
 }
-

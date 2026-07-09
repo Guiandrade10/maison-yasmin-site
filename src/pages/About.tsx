@@ -18,12 +18,12 @@ export default function About() {
               <div className="text-xs font-medium tracking-[0.18em] text-[rgb(var(--my-dark-brown))]">ABOUT</div>
               <h1 className="mt-4 text-4xl font-medium leading-[1.06] md:text-6xl">A refined home where celebrations begin.</h1>
               <p className="mt-6 max-w-xl text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
-                Maison Yasmini is not an event factory. It is a boutique studio built around intention, beauty and calm
-                structure, led personally by Yasmini.
+                Maison Yasmini is not an event factory. It is a boutique studio built around intention,
+                beauty and calm structure, led personally by Yasmini.
               </p>
               <div className="mt-10">
-                <Button to="/contacto" size="lg">
-                  Request your proposal <ArrowRight className="ml-2 h-4 w-4" />
+                <Button to="/contact" size="lg">
+                  Request a proposal <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -32,7 +32,7 @@ export default function About() {
               <div className="relative overflow-hidden rounded-[32px] ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]">
                 <img
                   src={imageUrls.yasminiPortrait}
-                  alt="Portrait of Yasmini"
+                  alt="Portrait of Yasmini, founder of Maison Yasmini"
                   className="h-[420px] w-full object-cover md:h-[520px]"
                   loading="lazy"
                   decoding="async"
@@ -52,16 +52,16 @@ export default function About() {
             <div className="md:col-span-7">
               <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
                 <p>
-                  Yasmini lives in the Algarve and spent over 20 years in the legal field. That background brings a
-                  quiet confidence to every project: structure, clarity and trust.
+                  Yasmini lives in the Algarve and spent over 20 years in the legal field. That background
+                  brings a quiet confidence to every project: structure, clarity and trust.
                 </p>
                 <p>
-                  After decades dedicated to law, she decided to follow her passion and transform her love for details,
-                  organization and meaningful experiences into wedding planning.
+                  After decades in law, she chose to direct that same discipline toward something more
+                  personal: planning weddings with the same care she gave to every case.
                 </p>
                 <p>
-                  Maison Yasmini was born from the belief that love deserves beauty, authenticity and unforgettable
-                  moments.
+                  Maison Yasmini was born from a belief that love deserves beauty, authenticity and
+                  celebrations worth remembering.
                 </p>
               </div>
             </div>
@@ -83,9 +83,9 @@ export default function About() {
                 <div className="grid gap-4 md:grid-cols-2">
                   {[
                     { title: 'Bespoke, always', body: 'No templates. No mass production. Only what feels like you.' },
-                    { title: 'Clarity & structure', body: 'Decisions become easier when the process is calm and clear.' },
-                    { title: 'Editorial softness', body: 'A film-like aesthetic with natural light and quiet luxury.' },
-                    { title: 'Human presence', body: 'Warm, personal, never corporate. You will feel held.' },
+                    { title: 'Clarity and structure', body: 'Decisions become easier when the process is calm and clear.' },
+                    { title: 'A considered aesthetic', body: 'Natural light, honest materials and nothing superfluous.' },
+                    { title: 'Human presence', body: 'Warm, personal and never corporate. You will feel looked after, not managed.' },
                   ].map((v) => (
                     <div
                       key={v.title}
@@ -107,24 +107,24 @@ export default function About() {
           <div className="grid gap-10 md:grid-cols-12 md:gap-12">
             <SectionHeading
               className="md:col-span-5"
-              eyebrow="Why Algarve"
-              title="Light, landscapes, and a feeling of ease."
-                description="A destination that feels like a gentle exhale and photographs with natural beauty."
+              eyebrow="Why the Algarve"
+              title="Light, landscape and a feeling of ease."
+              description="A destination that feels like a gentle exhale and photographs with natural beauty."
             />
             <div className="md:col-span-7">
               <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
                 <p>
-                  The Algarve offers more than a beautiful backdrop. It offers an atmosphere: warm light, open skies,
-                  quiet coastlines and intimate venues that feel like home.
+                  The Algarve offers more than a beautiful backdrop. It offers an atmosphere: warm light,
+                  open skies, quiet coastlines and intimate venues that feel like home.
                 </p>
                 <p>
-                  For international couples, it is a destination where the logistics can be clear, and the experience
-                  can be calm, meaningful and deeply personal.
+                  For international couples, it is a destination where the logistics can be clear, and the
+                  experience can be calm, meaningful and deeply personal.
                 </p>
               </div>
               <div className="mt-8">
-                <Button to="/servicos" variant="secondary">
-                  Explore Services <ArrowRight className="ml-2 h-4 w-4" />
+                <Button to="/services" variant="secondary">
+                  Explore services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -134,4 +134,3 @@ export default function About() {
     </div>
   )
 }
-

@@ -17,13 +17,13 @@ export default function App() {
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/sobre" element={<About />} />
-          <Route path="/servicos" element={<Services />} />
-          <Route path="/experiencia" element={<Experience />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/process" element={<Experience />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/journal/:slug" element={<JournalPost />} />
-          <Route path="/contacto" element={<Contact />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

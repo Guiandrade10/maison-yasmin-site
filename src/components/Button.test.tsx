@@ -8,12 +8,12 @@ describe('Button', () => {
   it('renders a link when "to" is provided', () => {
     render(
       <MemoryRouter>
-        <Button to="/contacto">Contact</Button>
+        <Button to="/contact">Contact</Button>
       </MemoryRouter>,
     )
 
     const link = screen.getByRole('link', { name: 'Contact' })
-    expect(link).toHaveAttribute('href', '/contacto')
+    expect(link).toHaveAttribute('href', '/contact')
   })
 })
 

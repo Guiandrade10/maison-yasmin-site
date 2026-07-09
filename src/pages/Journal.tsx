@@ -15,8 +15,8 @@ export default function Journal() {
         <Container>
           <SectionHeading
             eyebrow="Journal"
-            title="Guides for international couples planning in Algarve."
-            description="SEO-first topics written with calm clarity about budgets, venues, timelines and legal basics."
+            title="Guides for international couples planning a wedding in the Algarve."
+            description="Practical reads on budgets, venues, timelines and what to know before planning a wedding in Portugal."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-12">

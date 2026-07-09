@@ -13,41 +13,41 @@ export type Testimonial = {
 export const pilares: Pilar[] = [
   {
     id: 'excelencia',
-    title: 'Excelência',
-    description: 'Busca constante pela perfeição em cada detalhe, do primeiro contato ao último momento.',
+    title: 'Excellence',
+    description: 'A constant pursuit of precision in every detail, from the first conversation to the final moment.',
   },
   {
     id: 'proposito',
-    title: 'Propósito',
-    description: 'Transformamos sonhos em histórias reais, com intenção e cuidado em cada escolha.',
+    title: 'Purpose',
+    description: 'We turn visions into real stories, with intention and care in every decision we make together.',
   },
   {
     id: 'elegancia',
-    title: 'Elegância',
-    description: 'Sofisticação que se revela na simplicidade — o refinamento está no que não se exagera.',
+    title: 'Elegance',
+    description: 'Sophistication that reveals itself through restraint. Refinement is knowing what to leave out.',
   },
   {
     id: 'confianca',
-    title: 'Confiança',
-    description: 'Relações verdadeiras, baseadas em transparência, clareza e presença ao longo de todo o processo.',
+    title: 'Trust',
+    description: 'Real relationships built on transparency, clarity and consistent presence throughout the entire process.',
   },
   {
     id: 'memorias',
-    title: 'Memórias',
-    description: 'Transformamos momentos em lembranças eternas, celebrações que ficam para sempre.',
+    title: 'Memories',
+    description: 'We turn moments into lasting memories. Celebrations that stay with the people who were there.',
   },
 ]
 
 export const testimonials: Testimonial[] = [
   {
-    name: 'Ana e Ricardo',
-    location: 'Lisboa, Portugal',
-    text: 'A Yasmini transformou cada detalhe do nosso casamento numa memória que vamos guardar para sempre. Uma experiência de elegância e cuidado únicos.',
+    name: 'Ana and Ricardo',
+    location: 'Lisbon, Portugal',
+    text: 'Yasmini turned every detail of our wedding into a memory we will carry forever. The care, the taste, the calm. Nothing felt accidental.',
   },
   {
-    name: 'Sofia e Miguel',
+    name: 'Sofia and Miguel',
     location: 'Porto, Portugal',
-    text: 'Profissionalismo e sensibilidade em cada etapa. O nosso dia foi exatamente como sempre sonhámos — leve, elegante e cheio de significado.',
+    text: 'Professionalism and real presence at every step. Our day was exactly what we had hoped for: light, elegant and full of meaning.',
   },
 ]
 
@@ -99,27 +99,24 @@ export const weddingPackages: WeddingPackage[] = [
     slug: 'small',
     title: 'Small wedding package',
     guestRange: '2 to 20 guests',
-    priceFrom: 'From 3.000€',
-    description:
-      'For elopements, intimate ceremonies and small destination celebrations with close family and friends.',
+    priceFrom: 'From 3,000€',
+    description: 'For elopements, intimate ceremonies and small destination celebrations with close family and friends.',
     highlights: ['Planning and timeline', 'Venue and supplier curation', 'Ceremony coordination', 'Remote support for destination couples'],
   },
   {
     slug: 'medium',
     title: 'Medium wedding package',
     guestRange: '21 to 60 guests',
-    priceFrom: 'From 5.500€',
-    description:
-      'Designed for couples who want a fuller wedding experience in the Algarve with structure, style and calm execution.',
+    priceFrom: 'From 5,500€',
+    description: 'For couples who want a complete wedding experience in the Algarve, with structure, style and calm execution from start to finish.',
     highlights: ['Design guidance', 'Supplier management', 'Guest logistics support', 'Full wedding day coordination'],
   },
   {
     slug: 'large',
     title: 'Large wedding package',
     guestRange: '61 to 100 guests',
-    priceFrom: 'From 8.500€',
-    description:
-      'For larger celebrations that need more production, more coordination and a stronger planning structure from the start.',
+    priceFrom: 'From 8,500€',
+    description: 'For larger celebrations that need more production, more coordination and a stronger planning structure from the start.',
     highlights: ['Advanced production planning', 'Expanded supplier coordination', 'Guest flow and schedule management', 'On-site lead team support'],
   },
 ]
@@ -148,7 +145,7 @@ export const processSteps: ProcessStep[] = [
   {
     number: '05',
     title: 'Celebration',
-    description: 'You enjoy the day with your guests while we take care of what is happening behind the scenes.',
+    description: 'You enjoy the day with your guests while we take care of everything happening behind the scenes.',
   },
 ]
 
@@ -161,7 +158,7 @@ export const faqs: FaqItem[] = [
   {
     question: 'What are your starting prices?',
     answer:
-      'Planning packages start at 3.000€ for small weddings. Medium and large celebrations scale according to guest count, complexity and logistics.',
+      'Planning packages start at 3,000€ for small weddings. Medium and large celebrations scale according to guest count, complexity and logistics.',
   },
   {
     question: 'What happens if we have more than 100 guests?',
@@ -181,36 +178,35 @@ export const faqs: FaqItem[] = [
   {
     question: 'Why choose the Algarve for a destination wedding?',
     answer:
-      'The Algarve offers dramatic coastlines, elegant estates, warm light and a relaxed atmosphere. It is a beautiful place for couples who want nature, intimacy and destination convenience in one setting.',
+      'The Algarve offers dramatic coastlines, elegant estates, warm light and a relaxed atmosphere. It is a beautiful setting for couples who want nature, intimacy and the ease of a well-connected destination.',
   },
 ]
 
 export const journalPosts: JournalPost[] = [
   {
     slug: 'how-much-does-a-destination-wedding-in-algarve-cost',
-    title: 'How much does a destination wedding in Algarve cost?',
-    excerpt: 'A calm overview of budgets, priorities, and where couples typically invest.',
+    title: 'How much does a destination wedding in the Algarve cost?',
+    excerpt: 'A calm overview of budgets, priorities and where couples typically invest.',
     category: 'Planning',
     publishedAt: '2026-06-01',
     coverImageUrl: imageUrls.detail,
     content: [
-      'Budgets in Algarve vary widely because each celebration has its own guest count, venue style and planning needs.',
-      'Guest count, venue style, and the level of design are the three major variables.',
+      'Budgets in the Algarve vary widely because each celebration has its own guest count, venue style and planning needs.',
+      'Guest count, venue style and the level of design direction are the three major variables.',
       'A thoughtful budget is less about extravagance and more about choosing what matters most to you.',
     ],
   },
   {
     slug: 'best-intimate-wedding-venues-in-algarve',
-    title: 'Best intimate wedding venues in Algarve',
+    title: 'Best intimate wedding venues in the Algarve',
     excerpt: 'Beach, vineyard, estate or garden. The venue shapes the entire feeling of the day.',
     category: 'Venues',
     publishedAt: '2026-05-18',
     coverImageUrl: imageUrls.hero,
     content: [
-      'The Algarve is a landscape of light: sea cliffs, soft vineyards, and quiet estates.',
+      'The Algarve is a landscape of light: sea cliffs, soft vineyards and quiet estates.',
       'For intimate weddings, the most important quality is not size. It is atmosphere.',
       'We recommend venues that feel like a home for your story, not a stage for a production.',
     ],
   },
 ]
-

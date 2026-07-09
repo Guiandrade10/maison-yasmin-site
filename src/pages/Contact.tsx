@@ -20,7 +20,7 @@ type FormState = {
   message: string
 }
 
-const packageOptions = ['Small wedding package from 3.000€', 'Medium wedding package from 5.500€', 'Large wedding package from 8.500€', 'Custom proposal for 100+ guests'] as const
+const packageOptions = ['Small wedding package from 3,000€', 'Medium wedding package from 5,500€', 'Large wedding package from 8,500€', 'Custom proposal for 100+ guests'] as const
 
 function buildMailtoUrl(to: string, subject: string, body: string) {
   const params = new URLSearchParams({
@@ -245,7 +245,7 @@ export default function Contact() {
                         type="submit"
                         className="flex w-full max-w-full items-center justify-center rounded-full bg-[rgb(var(--my-black))] px-6 py-3 text-sm font-medium tracking-wide text-[rgb(var(--my-warm-white))] transition hover:bg-[rgb(var(--my-dark-brown))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--my-taupe))] focus-visible:ring-offset-2"
                       >
-                        Prepare email <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
+                        Prepare my email <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
                       </button>
                       <div className="mt-3 text-xs leading-relaxed text-[rgb(var(--my-dark-brown))] opacity-80">
                         This form prepares a message to send to {siteConfig.contactEmail} via your email client.

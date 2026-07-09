@@ -16,12 +16,12 @@ export function SiteHeader() {
 
   const items = useMemo<NavItem[]>(
     () => [
-      { to: '/sobre', label: 'Sobre' },
-      { to: '/servicos', label: 'Serviços' },
-      { to: '/experiencia', label: 'Processo' },
+      { to: '/about', label: 'About' },
+      { to: '/services', label: 'Services' },
+      { to: '/process', label: 'Process' },
       { to: '/faq', label: 'FAQ' },
-      { to: '/journal', label: 'Blog' },
-      { to: '/contacto', label: 'Contacto' },
+      { to: '/journal', label: 'Journal' },
+      { to: '/contact', label: 'Contact' },
     ],
     [],
   )
@@ -59,15 +59,15 @@ export function SiteHeader() {
               {item.label}
             </NavLink>
           ))}
-          <Button to="/contacto" size="sm">
-            Solicitar Proposta
+          <Button to="/contact" size="sm">
+            Request a Proposal
           </Button>
         </nav>
 
         <button
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(241,230,200,0.7)] text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(220,199,161,0.8)] transition hover:bg-[rgb(var(--ouro-rose))] md:hidden"
-          aria-label="Abrir menu"
+          aria-label="Open menu"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -95,8 +95,8 @@ export function SiteHeader() {
           </div>
 
           <div className="mt-4">
-            <Button to="/contacto" className="w-full" size="lg">
-              Solicitar Proposta
+            <Button to="/contact" className="w-full" size="lg">
+              Request a Proposal
             </Button>
           </div>
         </div>

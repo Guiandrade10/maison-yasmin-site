@@ -7,7 +7,7 @@ import { processSteps } from '@/data/content'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export default function Experience() {
-  useDocumentTitle('Experience')
+  useDocumentTitle('Process')
 
   return (
     <div>
@@ -17,13 +17,13 @@ export default function Experience() {
             <div className="md:col-span-7">
               <h1 className="text-4xl font-medium leading-[1.06] md:text-6xl">How we work.</h1>
               <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
-                A five-step process designed to protect your peace through clear checkpoints, thoughtful pacing and a
-                steady, discreet presence.
+                A five-step process built around clear checkpoints, thoughtful pacing and a steady
+                presence from first conversation to wedding day.
               </p>
             </div>
             <div className="md:col-span-5 md:justify-self-end">
-              <Button to="/contacto" size="lg">
-                Request your proposal <ArrowRight className="ml-2 h-4 w-4" />
+              <Button to="/contact" size="lg">
+                Request a proposal <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -54,8 +54,8 @@ export default function Experience() {
                     </p>
                     <div className="mt-6 h-px w-full bg-[rgba(var(--my-sand),0.9)]" />
                     <p className="mt-6 max-w-3xl text-sm leading-relaxed text-[rgb(var(--my-dark-brown))]">
-                      We keep communication clear and warm, never corporate and never sales-driven. Every detail is
-                      designed with intention so the day feels effortless.
+                      We keep communication clear and warm, never corporate and never sales-driven.
+                      Every detail is handled with care so you can be fully present on the day.
                     </p>
                   </div>
                 </div>
@@ -72,12 +72,12 @@ export default function Experience() {
               <SectionHeading
                 className="md:col-span-7"
                 eyebrow="Next step"
-                title="Tell us your date and the feeling you want."
-                description="We’ll respond with clarity: availability, guidance and the most aligned way to work together."
+                title="Tell us your date and what you are hoping for."
+                description="We will come back with availability, honest guidance and a clear sense of whether we are the right fit."
               />
               <div className="md:col-span-5 md:justify-self-end">
-                <Button to="/contacto" size="lg" className="w-full md:w-auto">
-                  Contact <ArrowRight className="ml-2 h-4 w-4" />
+                <Button to="/contact" size="lg" className="w-full md:w-auto">
+                  Get in touch <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -87,4 +87,3 @@ export default function Experience() {
     </div>
   )
 }
-
