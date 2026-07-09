@@ -153,12 +153,12 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl bg-[rgba(241,230,200,0.6)] px-5 py-4 ring-1 ring-inset ring-[rgba(220,199,161,0.7)]"
+                className="min-w-0 overflow-hidden rounded-2xl bg-[rgba(241,230,200,0.6)] px-5 py-4 ring-1 ring-inset ring-[rgba(220,199,161,0.7)]"
               >
                 <div className="text-[10px] tracking-[0.2em] text-[rgb(var(--azul-claro))]">
                   {item.label.toUpperCase()}
                 </div>
-                <div className="mt-2 font-serif text-2xl font-normal leading-none text-[rgb(var(--azul-safira))]">
+                <div className="mt-2 break-words font-serif text-xl font-normal leading-tight text-[rgb(var(--azul-safira))]">
                   {item.value}
                 </div>
               </div>

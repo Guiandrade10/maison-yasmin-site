@@ -86,7 +86,7 @@ export default function Contact() {
                       Your inquiry is ready to send. If you uploaded a vision board, please attach it to the email
                       before sending.
                     </p>
-                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                       <Button href={mailto} size="lg">
                         Open email <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -226,14 +226,14 @@ export default function Contact() {
                       />
                     </label>
 
-                    <label className="grid gap-2">
+                    <label className="grid min-w-0 gap-2">
                       <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
                         VISION BOARD UPLOAD
                       </span>
                       <input
                         type="file"
                         onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
-                        className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 py-2 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] file:mr-4 file:rounded-full file:border-0 file:bg-[rgb(var(--my-black))] file:px-4 file:py-2 file:text-xs file:font-medium file:tracking-[0.16em] file:text-[rgb(var(--my-warm-white))] hover:file:bg-[rgb(var(--my-dark-brown))]"
+                        className="h-11 w-full min-w-0 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 py-2 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] file:mr-4 file:rounded-full file:border-0 file:bg-[rgb(var(--my-black))] file:px-4 file:py-2 file:text-xs file:font-medium file:tracking-[0.16em] file:text-[rgb(var(--my-warm-white))] hover:file:bg-[rgb(var(--my-dark-brown))]"
                       />
                       <div className={cn('text-xs text-[rgb(var(--my-dark-brown))] opacity-80', !fileName && 'hidden')}>
                         Selected: {fileName}
@@ -243,9 +243,9 @@ export default function Contact() {
                     <div className="pt-2">
                       <button
                         type="submit"
-                        className="inline-flex w-full items-center justify-center rounded-full bg-[rgb(var(--my-black))] px-6 py-3 text-sm font-medium tracking-wide text-[rgb(var(--my-warm-white))] transition hover:bg-[rgb(var(--my-dark-brown))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--my-taupe))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--my-warm-white))]"
+                        className="flex w-full max-w-full items-center justify-center rounded-full bg-[rgb(var(--my-black))] px-6 py-3 text-sm font-medium tracking-wide text-[rgb(var(--my-warm-white))] transition hover:bg-[rgb(var(--my-dark-brown))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--my-taupe))] focus-visible:ring-offset-2"
                       >
-                        Prepare email <ArrowRight className="ml-2 h-4 w-4" />
+                        Prepare email <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
                       </button>
                       <div className="mt-3 text-xs leading-relaxed text-[rgb(var(--my-dark-brown))] opacity-80">
                         This form prepares a message to send to {siteConfig.contactEmail} via your email client.
