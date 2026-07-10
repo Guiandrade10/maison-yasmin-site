@@ -75,7 +75,7 @@ export function SiteFooter() {
             <NavLink
               key={item.to}
               to={item.to}
-              className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-claro))] no-underline transition-opacity hover:opacity-70"
+              className="inline-flex min-h-[44px] items-center px-2 text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-claro))] no-underline transition-opacity hover:opacity-70"
             >
               {item.label}
             </NavLink>

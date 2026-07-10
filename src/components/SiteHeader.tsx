@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
@@ -13,6 +13,8 @@ type NavItem = { to: string; label: string }
 export function SiteHeader() {
   const scrolled = useScrolled(8)
   const [open, setOpen] = useState(false)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   const items = useMemo<NavItem[]>(
     () => [
@@ -25,6 +27,37 @@ export function SiteHeader() {
     ],
     [],
   )
+
+  useEffect(() => {
+    if (!open) return
+
+    const previousOverflow = document.documentElement.style.overflow
+    document.documentElement.style.overflow = 'hidden'
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+    const onClick = (event: MouseEvent) => {
+      const target = event.target as Node
+      if (
+        panelRef.current &&
+        !panelRef.current.contains(target) &&
+        toggleRef.current &&
+        !toggleRef.current.contains(target)
+      ) {
+        setOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('mousedown', onClick)
+
+    return () => {
+      document.documentElement.style.overflow = previousOverflow
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('mousedown', onClick)
+    }
+  }, [open])
 
   return (
     <header
@@ -65,16 +98,23 @@ export function SiteHeader() {
         </nav>
 
         <button
+          ref={toggleRef}
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(241,230,200,0.7)] text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(220,199,161,0.8)] transition hover:bg-[rgb(var(--ouro-rose))] md:hidden"
-          aria-label="Open menu"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(241,230,200,0.7)] text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(220,199,161,0.8)] transition hover:bg-[rgb(var(--ouro-rose))] md:hidden"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="site-mobile-nav"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
         </button>
       </Container>
 
-      <div className={cn('md:hidden', open ? 'block' : 'hidden')}>
+      <div
+        id="site-mobile-nav"
+        ref={panelRef}
+        className={cn('md:hidden', open ? 'block' : 'hidden')}
+      >
         <div className="bg-[rgb(var(--marfim))] px-5 pb-6 pt-2 ring-1 ring-inset ring-[rgba(220,199,161,0.5)]">
           <div className="flex flex-col gap-1">
             {items.map((item) => (
@@ -84,7 +124,7 @@ export function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    'rounded-xl px-3 py-2 text-sm text-[rgb(var(--azul-safira))] no-underline transition hover:bg-[rgb(var(--ouro-rose))]',
+                    'flex min-h-[44px] items-center rounded-xl px-3 py-3 text-sm text-[rgb(var(--azul-safira))] no-underline transition hover:bg-[rgb(var(--ouro-rose))]',
                     isActive && 'bg-[rgb(var(--ouro-rose))] font-medium',
                   )
                 }
