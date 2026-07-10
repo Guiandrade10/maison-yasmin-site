@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
-import { imageUrls, weddingPackages, pilares, testimonials } from '@/data/content'
+import { imageAssets, weddingPackages, pilares, testimonials } from '@/data/content'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 /* ─── Ornamentos ─────────────────────────────────────────── */
@@ -174,7 +174,9 @@ export default function Home() {
             <div className="md:col-span-5">
               <div className="relative overflow-hidden rounded-[28px] ring-1 ring-inset ring-[rgba(220,199,161,0.6)]">
                 <img
-                  src={imageUrls.yasminiPortrait}
+                  src={imageAssets.yasminiPortrait.src}
+                  srcSet={imageAssets.yasminiPortrait.srcSet}
+                  sizes={imageAssets.yasminiPortrait.sizes}
                   alt="Portrait of Yasmini, founder of Maison Yasmini"
                   className="h-[420px] w-full object-cover md:h-[520px]"
                   loading="lazy"
@@ -301,7 +303,9 @@ export default function Home() {
           <div className="mt-12 grid gap-4 md:grid-cols-12">
             <div className="group relative overflow-hidden rounded-[24px] md:col-span-7">
               <img
-                src={imageUrls.hero}
+                src={imageAssets.hero.src}
+                srcSet={imageAssets.hero.srcSet}
+                sizes={imageAssets.hero.sizes}
                 alt="Wedding ceremony in the Algarve"
                 className="h-[320px] w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-[420px]"
                 loading="lazy"
@@ -312,7 +316,9 @@ export default function Home() {
             <div className="grid gap-4 md:col-span-5">
               <div className="group relative overflow-hidden rounded-[24px]">
                 <img
-                  src={imageUrls.algarveLandscape}
+                  src={imageAssets.algarveLandscape.src}
+                  srcSet={imageAssets.algarveLandscape.srcSet}
+                  sizes={imageAssets.algarveLandscape.sizes}
                   alt="Algarve coastline at golden hour"
                   className="h-[200px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -322,7 +328,9 @@ export default function Home() {
               </div>
               <div className="group relative overflow-hidden rounded-[24px]">
                 <img
-                  src={imageUrls.detail}
+                  src={imageAssets.detail.src}
+                  srcSet={imageAssets.detail.srcSet}
+                  sizes={imageAssets.detail.sizes}
                   alt="Wedding detail shot"
                   className="h-[200px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"

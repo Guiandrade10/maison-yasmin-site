@@ -83,15 +83,42 @@ export type JournalPost = {
   coverImageUrl: string
 }
 
+// TODO(client): replace these placeholder photos with real assets from the client.
+// Required from client:
+//   - Professional portrait of Yasmini (currently: floral still life placeholder)
+//   - 3+ photos of real Algarve weddings planned by Maison Yasmini
+//   - At least one panoramic Algarve landscape (client's preferred venue area)
+//   - Detail shot (invites, place setting, or florals from a real event)
+// Placeholder photos below are royalty-free from Unsplash — safe to publish,
+// but must be replaced before final delivery to preserve brand authenticity.
+export type ImageAsset = {
+  src: string
+  srcSet: string
+  sizes: string
+  width: number
+  height: number
+}
+
+const build = (name: string, width: number, height: number): ImageAsset => ({
+  src: `/images/${name}-1600.webp`,
+  srcSet: `/images/${name}-800.webp 800w, /images/${name}-1600.webp 1600w`,
+  sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px',
+  width,
+  height,
+})
+
+export const imageAssets = {
+  hero: build('hero', 1600, 900),
+  yasminiPortrait: build('portrait', 1200, 1600),
+  algarveLandscape: build('algarve', 1600, 900),
+  detail: build('detail', 1600, 1200),
+} as const
+
 export const imageUrls = {
-  hero:
-    'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=cinematic%20wedding%20scene%20on%20the%20Algarve%20coast%20at%20golden%20hour%2C%20clifftop%20view%20over%20the%20Atlantic%2C%20elegant%20couple%20and%20intimate%20table%20setting%2C%20warm%20stone%20tones%2C%20natural%20light%2C%20refined%20editorial%20photography%2C%20realistic%2C%20high%20detail%2C%20no%20text&image_size=landscape_16_9',
-  yasminiPortrait:
-    'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=editorial%20portrait%20of%20an%20elegant%20wedding%20planner%20woman%20in%20the%20Algarve%2C%20natural%20light%2C%20soft%20neutral%20palette%2C%20refined%20European%20style%2C%20warm%20expression%2C%20realistic%20skin%20texture%2C%20high%20detail%2C%20no%20text&image_size=portrait_4_3',
-  algarveLandscape:
-    'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=panoramic%20view%20of%20the%20Algarve%20coast%20with%20golden%20cliffs%2C%20turquoise%20Atlantic%20water%2C%20soft%20Mediterranean%20light%2C%20quiet%20luxury%20travel%20editorial%20photography%2C%20natural%20textures%2C%20realistic%2C%20high%20detail%2C%20no%20text&image_size=landscape_16_9',
-  detail:
-    'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=close%20up%20wedding%20detail%20shot%20with%20ivory%20paper%2C%20linen%20ribbon%2C%20soft%20neutral%20palette%2C%20natural%20light%2C%20editorial%20photography%2C%20realistic%2C%20high%20detail%2C%20no%20text&image_size=landscape_4_3',
+  hero: imageAssets.hero.src,
+  yasminiPortrait: imageAssets.yasminiPortrait.src,
+  algarveLandscape: imageAssets.algarveLandscape.src,
+  detail: imageAssets.detail.src,
 } as const
 
 export const weddingPackages: WeddingPackage[] = [

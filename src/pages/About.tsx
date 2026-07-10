@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
-import { imageUrls } from '@/data/content'
+import { imageAssets } from '@/data/content'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export default function About() {
@@ -31,7 +31,9 @@ export default function About() {
             <div className="md:col-span-6">
               <div className="relative overflow-hidden rounded-[32px] ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]">
                 <img
-                  src={imageUrls.yasminiPortrait}
+                  src={imageAssets.yasminiPortrait.src}
+                  srcSet={imageAssets.yasminiPortrait.srcSet}
+                  sizes={imageAssets.yasminiPortrait.sizes}
                   alt="Portrait of Yasmini, founder of Maison Yasmini"
                   className="h-[420px] w-full object-cover md:h-[520px]"
                   loading="lazy"
