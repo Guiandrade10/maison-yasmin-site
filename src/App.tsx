@@ -1,17 +1,18 @@
-import { useEffect } from 'react'
+import { lazy, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 
 import { SiteLayout } from '@/components/SiteLayout'
-import About from '@/pages/About'
-import Contact from '@/pages/Contact'
-import Experience from '@/pages/Experience'
-import Faq from '@/pages/Faq'
-import Home from '@/pages/Home'
-import Journal from '@/pages/Journal'
-import JournalPost from '@/pages/JournalPost'
-import NotFound from '@/pages/NotFound'
-import Privacy from '@/pages/Privacy'
-import Services from '@/pages/Services'
+
+const Home = lazy(() => import('@/pages/Home'))
+const About = lazy(() => import('@/pages/About'))
+const Services = lazy(() => import('@/pages/Services'))
+const Experience = lazy(() => import('@/pages/Experience'))
+const Faq = lazy(() => import('@/pages/Faq'))
+const Journal = lazy(() => import('@/pages/Journal'))
+const JournalPost = lazy(() => import('@/pages/JournalPost'))
+const Contact = lazy(() => import('@/pages/Contact'))
+const Privacy = lazy(() => import('@/pages/Privacy'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
