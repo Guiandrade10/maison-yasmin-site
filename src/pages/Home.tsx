@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
-import { imageAssets, weddingPackages, pilares, testimonials } from '@/data/content'
+import { imageAssets, weddingPackages, pilares, testimonials, SHOW_TESTIMONIALS } from '@/data/content'
 import { useSeo } from '@/hooks/useSeo'
 
 /* ─── Ornamentos ─────────────────────────────────────────── */
@@ -403,42 +403,44 @@ export default function Home() {
       </section>
 
       {/* ── 7. Testimonials ─────────────────────────────────── */}
-      <section className="bg-[rgb(var(--marfim))] py-20 md:py-28">
-        <Container>
-          <SectionHeading
-            align="center"
-            eyebrow="Testimonials"
-            title="What our couples say."
-            className="mx-auto max-w-lg"
-          />
+      {SHOW_TESTIMONIALS && (
+        <section className="bg-[rgb(var(--marfim))] py-20 md:py-28">
+          <Container>
+            <SectionHeading
+              align="center"
+              eyebrow="Testimonials"
+              title="What our couples say."
+              className="mx-auto max-w-lg"
+            />
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="relative rounded-[28px] bg-[rgb(var(--ouro-rose))] p-8 ring-1 ring-[rgba(220,199,161,0.7)]"
-              >
-                <span
-                  className="absolute left-7 top-5 font-serif text-6xl font-normal leading-none text-[rgba(220,199,161,0.8)]"
-                  aria-hidden="true"
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {testimonials.map((t) => (
+                <div
+                  key={t.name}
+                  className="relative rounded-[28px] bg-[rgb(var(--ouro-rose))] p-8 ring-1 ring-[rgba(220,199,161,0.7)]"
                 >
-                  "
-                </span>
-                <blockquote className="relative mt-6 text-sm leading-relaxed text-[rgb(var(--azul-safira))]">
-                  {t.text}
-                </blockquote>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="h-px flex-1 bg-[rgba(220,199,161,0.6)]" />
-                  <div className="text-right">
-                    <div className="font-serif text-sm font-normal text-[rgb(var(--azul-safira))]">{t.name}</div>
-                    <div className="text-[11px] tracking-[0.14em] text-azul-real md:text-xs">{t.location}</div>
+                  <span
+                    className="absolute left-7 top-5 font-serif text-6xl font-normal leading-none text-[rgba(220,199,161,0.8)]"
+                    aria-hidden="true"
+                  >
+                    "
+                  </span>
+                  <blockquote className="relative mt-6 text-sm leading-relaxed text-[rgb(var(--azul-safira))]">
+                    {t.text}
+                  </blockquote>
+                  <div className="mt-6 flex items-center gap-3">
+                    <div className="h-px flex-1 bg-[rgba(220,199,161,0.6)]" />
+                    <div className="text-right">
+                      <div className="font-serif text-sm font-normal text-[rgb(var(--azul-safira))]">{t.name}</div>
+                      <div className="text-[11px] tracking-[0.14em] text-azul-real md:text-xs">{t.location}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* ── 8. CTA ──────────────────────────────────────────── */}
       <section className="bg-[rgb(var(--azul-safira))] py-24 md:py-32">

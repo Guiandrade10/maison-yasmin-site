@@ -38,6 +38,12 @@ export const pilares: Pilar[] = [
   },
 ]
 
+// TODO(client): replace the two placeholder entries below with real,
+// authorized testimonials from past couples, then flip SHOW_TESTIMONIALS
+// to true. Publishing invented quotes is a legal + reputational risk, so
+// the section stays hidden until that content arrives.
+export const SHOW_TESTIMONIALS = false
+
 export const testimonials: Testimonial[] = [
   {
     name: 'Ana and Ricardo',
