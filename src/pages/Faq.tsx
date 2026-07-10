@@ -12,8 +12,19 @@ export default function Faq() {
       'Answers to common questions about planning a destination wedding in the Algarve: pricing, timelines, guest counts and legal support in Portugal.',
   })
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  }
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <section className="pt-14 md:pt-20">
         <Container>
           <div className="grid gap-10 md:grid-cols-12 md:gap-12">
