@@ -57,7 +57,7 @@ export function SiteFooter() {
           <div className="font-serif text-xl font-normal tracking-[0.26em] text-[#DCC7A1]">
             MAISON YASMINI
           </div>
-          <div className="text-[10px] font-medium tracking-[0.38em] text-[rgb(var(--azul-claro))]">
+          <div className="text-[11px] font-medium tracking-[0.3em] text-[rgb(var(--azul-claro))] md:text-xs md:tracking-[0.38em]">
             WEDDING PLANNER
           </div>
         </div>
@@ -85,7 +85,7 @@ export function SiteFooter() {
         {/* Pilares */}
         <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
           {pilares.map((p, i) => (
-            <span key={p} className="text-[10px] tracking-[0.2em] text-[rgba(167,183,209,0.5)]">
+            <span key={p} className="text-[11px] tracking-[0.2em] text-[rgba(167,183,209,0.75)] md:text-xs">
               {p}{i < pilares.length - 1 && <span className="ml-6 text-[rgba(220,199,161,0.3)]">·</span>}
             </span>
           ))}
@@ -95,11 +95,11 @@ export function SiteFooter() {
         <div className="mt-10 h-px bg-[rgba(167,183,209,0.15)]" />
 
         {/* Bottom row */}
-        <div className="mt-6 flex flex-col items-center justify-between gap-4 text-[10px] text-[rgba(167,183,209,0.45)] md:flex-row">
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 text-[11px] text-[rgba(167,183,209,0.7)] md:flex-row md:text-xs">
           <span>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
           <a
             href={`mailto:${siteConfig.contactEmail}`}
-            className="text-[rgba(167,183,209,0.6)] no-underline transition-opacity hover:opacity-80"
+            className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
           >
             {siteConfig.contactEmail}
           </a>

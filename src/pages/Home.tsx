@@ -188,7 +188,7 @@ export default function Home() {
           <blockquote className="mx-auto mt-8 max-w-2xl font-serif text-xl font-normal italic leading-relaxed text-[rgb(var(--azul-safira))] md:text-2xl">
             "Every story deserves to be planned with excellence and remembered forever."
           </blockquote>
-          <cite className="mt-6 block text-[10px] not-italic tracking-[0.28em] text-[rgb(var(--azul-claro))]">
+          <cite className="mt-6 block text-[11px] not-italic tracking-[0.24em] text-azul-real md:text-xs md:tracking-[0.28em]">
             MAISON YASMINI · WEDDING PLANNER
           </cite>
           <Filete className="mx-auto mt-8 max-w-sm" />
@@ -284,14 +284,14 @@ export default function Home() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="text-[10px] tracking-[0.24em] text-[rgb(var(--azul-claro))]">
+                    <div className="text-[11px] tracking-[0.2em] text-azul-real md:text-xs md:tracking-[0.24em]">
                       {pkg.guestRange.toUpperCase()}
                     </div>
                     <div className="mt-3 font-serif text-xl font-normal leading-snug text-[rgb(var(--azul-safira))]">
                       {pkg.title}
                     </div>
                   </div>
-                  <div className="shrink-0 rounded-full bg-[rgba(241,230,200,0.8)] px-3 py-1.5 text-[10px] font-medium tracking-wider text-[rgb(var(--azul-safira))]">
+                  <div className="shrink-0 rounded-full bg-[rgba(241,230,200,0.8)] px-3 py-1.5 text-[11px] font-medium tracking-wider text-[rgb(var(--azul-safira))] md:text-xs">
                     {pkg.priceFrom}
                   </div>
                 </div>
@@ -375,7 +375,7 @@ export default function Home() {
       <section className="bg-[rgb(var(--ouro-claro))] py-20 md:py-28">
         <Container>
           <div className="text-center">
-            <p className="text-[10px] font-medium tracking-[0.3em] text-[rgb(var(--azul-claro))]">
+            <p className="text-[11px] font-medium tracking-[0.24em] text-azul-real md:text-xs md:tracking-[0.3em]">
               OUR VALUES
             </p>
             <Filete className="mx-auto mt-6 max-w-xs" />
@@ -430,7 +430,7 @@ export default function Home() {
                   <div className="h-px flex-1 bg-[rgba(220,199,161,0.6)]" />
                   <div className="text-right">
                     <div className="font-serif text-sm font-normal text-[rgb(var(--azul-safira))]">{t.name}</div>
-                    <div className="text-[10px] tracking-[0.14em] text-[rgb(var(--azul-claro))]">{t.location}</div>
+                    <div className="text-[11px] tracking-[0.14em] text-azul-real md:text-xs">{t.location}</div>
                   </div>
                 </div>
               </div>
@@ -442,7 +442,7 @@ export default function Home() {
       {/* ── 8. CTA ──────────────────────────────────────────── */}
       <section className="bg-[rgb(var(--azul-safira))] py-24 md:py-32">
         <Container className="text-center">
-          <p className="text-[10px] font-medium tracking-[0.3em] text-[rgb(var(--azul-claro))]">
+          <p className="text-[11px] font-medium tracking-[0.24em] text-[rgb(var(--azul-claro))] md:text-xs md:tracking-[0.3em]">
             BEGIN YOUR STORY
           </p>
           <h2 className="mx-auto mt-5 max-w-xl font-serif text-3xl font-normal tracking-wide text-[rgb(var(--marfim))] md:text-4xl">

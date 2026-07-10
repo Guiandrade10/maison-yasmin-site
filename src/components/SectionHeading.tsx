@@ -14,7 +14,7 @@ export function SectionHeading({ eyebrow, title, description, align = 'left', cl
   return (
     <div className={cn(align === 'center' ? 'text-center' : 'text-left', className)}>
       {eyebrow ? (
-        <div className="text-[10px] font-medium tracking-[0.28em] text-[rgb(var(--azul-claro))] uppercase">
+        <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-azul-real md:text-xs md:tracking-[0.28em]">
           {eyebrow}
         </div>
       ) : null}
