@@ -15,12 +15,35 @@ the Algarve, Portugal. Single-page React application served as static files.
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
-npm run check      # tsc --noEmit
+npm run dev              # http://localhost:5173
+npm run check            # tsc --noEmit
 npm run lint
 npm run test
-npm run build      # emits static site into dist/
-npm run preview    # preview the production build locally
+npm run build            # emits static SPA into dist/
+npm run build:prerender  # SPA build + puppeteer prerender (see below)
+npm run preview          # preview the production build locally
+```
+
+### Prerendering
+
+`npm run build:prerender` boots `vite preview`, drives Puppeteer over every
+route in `scripts/prerender.mjs`, and writes `dist/<route>/index.html` files
+with the fully rendered HTML — social crawlers and search engines then get
+the real page content instead of the SPA shell.
+
+Puppeteer downloads Chromium during `npm install`, but the browser still needs
+NSS/NSPR system libraries at runtime. On Debian/Ubuntu:
+
+```bash
+sudo apt-get install -y libnss3 libnspr4
+```
+
+In sandboxed environments where you cannot install system packages, download
+`libnss3.deb` / `libnspr4.deb`, extract them, and point `CHROME_DEPS_DIR` at
+the directory that contains the `.so` files before running the script:
+
+```bash
+CHROME_DEPS_DIR=/path/to/extracted/lib npm run build:prerender
 ```
 
 ## Project structure
