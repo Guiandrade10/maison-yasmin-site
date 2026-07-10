@@ -19,8 +19,8 @@ export default {
         "marfim":           "rgb(var(--marfim) / <alpha-value>)",
       },
       fontFamily: {
-        serif: ["Cinzel", "Playfair Display", "Georgia", "serif"],
-        sans:  ["Montserrat", "Lato", "system-ui", "sans-serif"],
+        serif: ["Cinzel", "Georgia", "serif"],
+        sans:  ["Montserrat", "system-ui", "sans-serif"],
       },
     },
   },

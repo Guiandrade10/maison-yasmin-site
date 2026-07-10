@@ -13,8 +13,8 @@
   --ouro-rose: 241 230 200;         /* #F1E6C8 — soft background */
   --marfim: 250 247 240;            /* #FAF7F0 — default page background */
 
-  --font-serif: "Cinzel", "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-  --font-sans: "Montserrat", "Lato", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Cinzel", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   color-scheme: light;
 }
