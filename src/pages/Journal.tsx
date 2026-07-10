@@ -29,7 +29,7 @@ export default function Journal() {
               <Link
                 key={post.slug}
                 to={`/journal/${post.slug}`}
-                className={`group overflow-hidden rounded-[30px] bg-[rgba(var(--my-warm-white),0.65)] ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] no-underline transition hover:bg-[rgba(var(--my-ivory),0.85)] ${
+                className={`group overflow-hidden rounded-[30px] bg-[rgba(var(--marfim),0.65)] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] no-underline transition hover:bg-[rgba(var(--ouro-rose),0.85)] ${
                   idx === 0 ? 'md:col-span-7' : 'md:col-span-5'
                 }`}
               >
@@ -41,19 +41,19 @@ export default function Journal() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(var(--my-black),0.55),transparent_60%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(var(--azul-noite),0.55),transparent_60%)]" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-xs tracking-[0.18em] text-[rgba(var(--my-warm-white),0.85)]">
+                    <div className="text-xs tracking-[0.18em] text-[rgba(var(--marfim),0.85)]">
                       {post.category.toUpperCase()} · {post.publishedAt}
                     </div>
-                    <div className="mt-2 font-[var(--my-font-serif)] text-2xl text-[rgb(var(--my-warm-white))] md:text-3xl">
+                    <div className="mt-2 font-serif text-2xl text-[rgb(var(--marfim))] md:text-3xl">
                       {post.title}
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <p className="text-sm leading-relaxed text-[rgb(var(--my-dark-brown))]">{post.excerpt}</p>
-                  <div className="mt-5 inline-flex items-center gap-2 text-xs font-medium tracking-[0.16em] text-[rgb(var(--my-dark-brown))]">
+                  <p className="text-sm leading-relaxed text-[rgb(var(--azul-safira))]">{post.excerpt}</p>
+                  <div className="mt-5 inline-flex items-center gap-2 text-xs font-medium tracking-[0.16em] text-[rgb(var(--azul-safira))]">
                     READ <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
                   </div>
                 </div>

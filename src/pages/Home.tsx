@@ -17,13 +17,14 @@ function MYMonogram() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
+      className="text-dourado"
     >
-      <circle cx="80" cy="80" r="76" stroke="#DCC7A1" strokeWidth="1.2" />
-      <circle cx="80" cy="80" r="68" stroke="#DCC7A1" strokeWidth="0.5" />
-      <path d="M80 4 L83 10 L80 7 L77 10 Z" fill="#DCC7A1" />
-      <path d="M80 156 L83 150 L80 153 L77 150 Z" fill="#DCC7A1" />
-      <path d="M4 80 L10 77 L7 80 L10 83 Z" fill="#DCC7A1" />
-      <path d="M156 80 L150 77 L153 80 L150 83 Z" fill="#DCC7A1" />
+      <circle cx="80" cy="80" r="76" stroke="currentColor" strokeWidth="1.2" />
+      <circle cx="80" cy="80" r="68" stroke="currentColor" strokeWidth="0.5" />
+      <path d="M80 4 L83 10 L80 7 L77 10 Z" fill="currentColor" />
+      <path d="M80 156 L83 150 L80 153 L77 150 Z" fill="currentColor" />
+      <path d="M4 80 L10 77 L7 80 L10 83 Z" fill="currentColor" />
+      <path d="M156 80 L150 77 L153 80 L150 83 Z" fill="currentColor" />
       <text
         x="80"
         y="80"
@@ -32,7 +33,7 @@ function MYMonogram() {
         fontFamily="Cinzel, Georgia, serif"
         fontSize="40"
         fontWeight="600"
-        fill="#DCC7A1"
+        fill="currentColor"
         letterSpacing="6"
       >
         MY
@@ -44,11 +45,11 @@ function MYMonogram() {
 function Filete({ className = '' }: { className?: string }) {
   return (
     <div className={`flex items-center gap-4 ${className}`}>
-      <div className="h-px flex-1 bg-[#DCC7A1]" />
-      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-        <path d="M5 0L6.25 3.75L10 5L6.25 6.25L5 10L3.75 6.25L0 5L3.75 3.75Z" fill="#DCC7A1" />
+      <div className="h-px flex-1 bg-dourado" />
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="text-dourado">
+        <path d="M5 0L6.25 3.75L10 5L6.25 6.25L5 10L3.75 6.25L0 5L3.75 3.75Z" fill="currentColor" />
       </svg>
-      <div className="h-px flex-1 bg-[#DCC7A1]" />
+      <div className="h-px flex-1 bg-dourado" />
     </div>
   )
 }
@@ -301,7 +302,7 @@ export default function Home() {
                 <div className="mt-6 space-y-2.5">
                   {pkg.highlights.map((item) => (
                     <div key={item} className="flex items-start gap-3 text-sm text-[rgb(var(--azul-safira))] opacity-75">
-                      <span className="mt-1.5 h-1 w-4 shrink-0 border-t border-[#DCC7A1]" />
+                      <span className="mt-1.5 h-1 w-4 shrink-0 border-t border-dourado" />
                       <span>{item}</span>
                     </div>
                   ))}

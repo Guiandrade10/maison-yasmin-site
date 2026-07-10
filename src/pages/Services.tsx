@@ -21,7 +21,7 @@ export default function Services() {
           <div className="grid items-end gap-10 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-7">
               <h1 className="text-4xl font-medium leading-[1.06] md:text-6xl">Wedding packages built around guest count, pace and place.</h1>
-              <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
+              <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
                 Maison Yasmini offers three clear packages built around guest count. Each comes with its
                 own planning rhythm and starting investment.
               </p>
@@ -37,20 +37,20 @@ export default function Services() {
             {weddingPackages.map((pkg) => (
               <div
                 key={pkg.slug}
-                className="rounded-[32px] bg-[rgba(var(--my-warm-white),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]"
+                className="rounded-[32px] bg-[rgba(var(--marfim),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]"
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="text-xs tracking-[0.18em] text-[rgb(var(--my-dark-brown))]">{pkg.guestRange.toUpperCase()}</div>
-                  <div className="rounded-full bg-[rgba(var(--my-sand),0.28)] px-4 py-2 text-xs font-medium tracking-[0.12em] text-[rgb(var(--my-dark-brown))]">
+                  <div className="text-xs tracking-[0.18em] text-[rgb(var(--azul-safira))]">{pkg.guestRange.toUpperCase()}</div>
+                  <div className="rounded-full bg-[rgba(var(--dourado-champanhe),0.28)] px-4 py-2 text-xs font-medium tracking-[0.12em] text-[rgb(var(--azul-safira))]">
                     {pkg.priceFrom.toUpperCase()}
                   </div>
                 </div>
-                <div className="mt-4 font-[var(--my-font-serif)] text-2xl leading-tight">{pkg.title}</div>
-                <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))]">{pkg.description}</p>
-                <ul className="mt-6 space-y-2 text-sm text-[rgb(var(--my-dark-brown))]">
+                <div className="mt-4 font-serif text-2xl leading-tight">{pkg.title}</div>
+                <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--azul-safira))]">{pkg.description}</p>
+                <ul className="mt-6 space-y-2 text-sm text-[rgb(var(--azul-safira))]">
                   {pkg.highlights.map((h) => (
                     <li key={h} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--my-taupe))]" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--azul-claro))]" />
                       <span>{h}</span>
                     </li>
                   ))}
@@ -58,7 +58,7 @@ export default function Services() {
               </div>
             ))}
           </div>
-          <div className="mt-6 rounded-[24px] bg-[rgba(var(--my-ivory),0.76)] px-6 py-5 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]">
+          <div className="mt-6 rounded-[24px] bg-[rgba(var(--ouro-rose),0.76)] px-6 py-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]">
             Weddings with more than 100 guests need a custom proposal. We build it around the venue,
             logistics, team size and production needs.
           </div>
@@ -86,16 +86,16 @@ export default function Services() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="rounded-[24px] bg-[rgba(var(--my-ivory),0.72)] px-6 py-5 ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]"
+                    className="rounded-[24px] bg-[rgba(var(--ouro-rose),0.72)] px-6 py-5 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]"
                   >
-                    <div className="text-sm font-medium text-[rgb(var(--my-black))]">{item}</div>
+                    <div className="text-sm font-medium text-[rgb(var(--azul-noite))]">{item}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-10 rounded-[28px] bg-[rgba(var(--my-warm-white),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]">
-                <div className="font-[var(--my-font-serif)] text-2xl leading-tight">A calm first step</div>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-[rgb(var(--my-dark-brown))]">
+              <div className="mt-10 rounded-[28px] bg-[rgba(var(--marfim),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]">
+                <div className="font-serif text-2xl leading-tight">A calm first step</div>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-[rgb(var(--azul-safira))]">
                   Share your date, approximate guest count and the kind of celebration you want.
                   We will respond with clarity and the next steps.
                 </p>

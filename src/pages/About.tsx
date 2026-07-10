@@ -20,9 +20,9 @@ export default function About() {
         <Container>
           <div className="grid items-end gap-10 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-6">
-              <div className="text-xs font-medium tracking-[0.18em] text-[rgb(var(--my-dark-brown))]">ABOUT</div>
+              <div className="text-xs font-medium tracking-[0.18em] text-[rgb(var(--azul-safira))]">ABOUT</div>
               <h1 className="mt-4 text-4xl font-medium leading-[1.06] md:text-6xl">A refined home where celebrations begin.</h1>
-              <p className="mt-6 max-w-xl text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
                 Maison Yasmini is not an event factory. It is a boutique studio built around intention,
                 beauty and calm structure, led personally by Yasmini.
               </p>
@@ -34,7 +34,7 @@ export default function About() {
             </div>
 
             <div className="md:col-span-6">
-              <div className="relative overflow-hidden rounded-[32px] ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]">
+              <div className="relative overflow-hidden rounded-[32px] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]">
                 <img
                   src={imageAssets.yasminiPortrait.src}
                   srcSet={imageAssets.yasminiPortrait.srcSet}
@@ -57,7 +57,7 @@ export default function About() {
               <SectionHeading eyebrow="Founder story" title="From law to weddings, with precision and warmth." />
             </div>
             <div className="md:col-span-7">
-              <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
+              <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
                 <p>
                   Yasmini lives in the Algarve and spent over 20 years in the legal field. That background
                   brings a quiet confidence to every project: structure, clarity and trust.
@@ -78,7 +78,7 @@ export default function About() {
 
       <section className="mt-20 md:mt-28">
         <Container>
-          <div className="rounded-[34px] bg-[rgba(var(--my-warm-white),0.65)] p-10 ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] md:p-14">
+          <div className="rounded-[34px] bg-[rgba(var(--marfim),0.65)] p-10 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] md:p-14">
             <div className="grid gap-10 md:grid-cols-12 md:gap-12">
               <SectionHeading
                 className="md:col-span-5"
@@ -96,10 +96,10 @@ export default function About() {
                   ].map((v) => (
                     <div
                       key={v.title}
-                      className="rounded-[24px] bg-[rgba(var(--my-ivory),0.72)] p-6 ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)]"
+                      className="rounded-[24px] bg-[rgba(var(--ouro-rose),0.72)] p-6 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]"
                     >
-                      <div className="font-[var(--my-font-serif)] text-2xl leading-tight">{v.title}</div>
-                      <div className="mt-2 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))]">{v.body}</div>
+                      <div className="font-serif text-2xl leading-tight">{v.title}</div>
+                      <div className="mt-2 text-sm leading-relaxed text-[rgb(var(--azul-safira))]">{v.body}</div>
                     </div>
                   ))}
                 </div>
@@ -119,7 +119,7 @@ export default function About() {
               description="A destination that feels like a gentle exhale and photographs with natural beauty."
             />
             <div className="md:col-span-7">
-              <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
+              <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
                 <p>
                   The Algarve offers more than a beautiful backdrop. It offers an atmosphere: warm light,
                   open skies, quiet coastlines and intimate venues that feel like home.

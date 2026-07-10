@@ -5,9 +5,9 @@ import { Container } from '@/components/Container'
 
 function MYMonogramSmall() {
   return (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="32" cy="32" r="30" stroke="#DCC7A1" strokeWidth="1"/>
-      <circle cx="32" cy="32" r="26" stroke="#DCC7A1" strokeWidth="0.5"/>
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-dourado">
+      <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="1"/>
+      <circle cx="32" cy="32" r="26" stroke="currentColor" strokeWidth="0.5"/>
       <text
         x="32" y="32"
         textAnchor="middle"
@@ -15,7 +15,7 @@ function MYMonogramSmall() {
         fontFamily="Cinzel, Georgia, serif"
         fontSize="16"
         fontWeight="600"
-        fill="#DCC7A1"
+        fill="currentColor"
         letterSpacing="2"
       >
         MY
@@ -28,8 +28,8 @@ function Filete() {
   return (
     <div className="my-8 flex items-center gap-4">
       <div className="h-px flex-1 bg-[rgba(220,199,161,0.3)]" />
-      <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-        <path d="M4 0L5 3L8 4L5 5L4 8L3 5L0 4L3 3Z" fill="#DCC7A1" opacity="0.6"/>
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="none" className="text-dourado">
+        <path d="M4 0L5 3L8 4L5 5L4 8L3 5L0 4L3 3Z" fill="currentColor" opacity="0.6"/>
       </svg>
       <div className="h-px flex-1 bg-[rgba(220,199,161,0.3)]" />
     </div>
@@ -54,7 +54,7 @@ export function SiteFooter() {
         {/* Monogram + brand name */}
         <div className="flex flex-col items-center gap-3 text-center">
           <MYMonogramSmall />
-          <div className="font-serif text-xl font-normal tracking-[0.26em] text-[#DCC7A1]">
+          <div className="font-serif text-xl font-normal tracking-[0.26em] text-dourado">
             MAISON YASMINI
           </div>
           <div className="text-[11px] font-medium tracking-[0.3em] text-[rgb(var(--azul-claro))] md:text-xs md:tracking-[0.38em]">

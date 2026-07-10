@@ -139,14 +139,14 @@ export default function Contact() {
             />
 
             <div className="md:col-span-7">
-              <div className="rounded-[34px] bg-[rgba(var(--my-warm-white),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] md:p-10">
+              <div className="rounded-[34px] bg-[rgba(var(--marfim),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] md:p-10">
                 {status === 'success' ? (
                   <div>
-                    <div className="font-[var(--my-font-serif)] text-3xl leading-tight">Thank you.</div>
-                    <p className="mt-4 text-sm leading-relaxed text-[rgb(var(--my-dark-brown))] md:text-base">
+                    <div className="font-serif text-3xl leading-tight">Thank you.</div>
+                    <p className="mt-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
                       Your inquiry is with us. We reply within two working days from the Algarve.
                     </p>
-                    <div className="mt-8 text-xs text-[rgb(var(--my-dark-brown))] opacity-80">
+                    <div className="mt-8 text-xs text-[rgb(var(--azul-safira))] opacity-80">
                       Prefer email? Write to{' '}
                       <a
                         className="underline underline-offset-4"
@@ -161,7 +161,7 @@ export default function Contact() {
                   <form className="grid gap-5" onSubmit={handleSubmit} noValidate>
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="grid gap-2">
-                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                           NAMES
                         </span>
                         <input
@@ -170,16 +170,16 @@ export default function Contact() {
                           required
                           aria-invalid={Boolean(fieldErrors.names)}
                           aria-describedby={fieldErrors.names ? namesErrorId : undefined}
-                          className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                          className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         />
                         {fieldErrors.names && (
-                          <span id={namesErrorId} className="text-xs text-[rgb(var(--my-dark-brown))]">
+                          <span id={namesErrorId} className="text-xs text-[rgb(var(--azul-safira))]">
                             {fieldErrors.names}
                           </span>
                         )}
                       </label>
                       <label className="grid gap-2">
-                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                           EMAIL
                         </span>
                         <input
@@ -189,10 +189,10 @@ export default function Contact() {
                           required
                           aria-invalid={Boolean(fieldErrors.email)}
                           aria-describedby={fieldErrors.email ? emailErrorId : undefined}
-                          className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                          className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         />
                         {fieldErrors.email && (
-                          <span id={emailErrorId} className="text-xs text-[rgb(var(--my-dark-brown))]">
+                          <span id={emailErrorId} className="text-xs text-[rgb(var(--azul-safira))]">
                             {fieldErrors.email}
                           </span>
                         )}
@@ -201,48 +201,48 @@ export default function Contact() {
 
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="grid gap-2">
-                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                           COUNTRY
                         </span>
                         <input
                           value={form.country}
                           onChange={(e) => update('country', e.target.value)}
-                          className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                          className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         />
                       </label>
                       <label className="grid gap-2">
-                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                           WEDDING DATE
                         </span>
                         <input
                           type="date"
                           value={form.weddingDate}
                           onChange={(e) => update('weddingDate', e.target.value)}
-                          className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                          className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         />
                       </label>
                     </div>
 
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="grid gap-2">
-                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                           ESTIMATED GUESTS
                         </span>
                         <input
                           value={form.guests}
                           onChange={(e) => update('guests', e.target.value)}
                           placeholder="e.g. 40"
-                          className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                          className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         />
                       </label>
                       <label className="grid gap-2">
-                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                           PACKAGE INTEREST
                         </span>
                         <select
                           value={form.packageInterest}
                           onChange={(e) => update('packageInterest', e.target.value)}
-                          className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                          className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         >
                           {packageOptions.map((o) => (
                             <option key={o} value={o}>
@@ -255,13 +255,13 @@ export default function Contact() {
 
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="grid gap-2">
-                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                           VENUE ALREADY SELECTED?
                         </span>
                         <select
                           value={form.venueSelected}
                           onChange={(e) => update('venueSelected', e.target.value)}
-                          className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                          className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         >
                           {['Yes', 'Not yet'].map((o) => (
                             <option key={o} value={o}>
@@ -272,27 +272,27 @@ export default function Contact() {
                       </label>
 
                       <label className="grid gap-2">
-                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                        <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                           INSPIRATION LINK
                         </span>
                         <input
                           value={form.inspirationLink}
                           onChange={(e) => update('inspirationLink', e.target.value)}
                           placeholder="Pinterest, Google Drive, Instagram…"
-                          className="h-11 rounded-2xl bg-[rgba(var(--my-ivory),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                          className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         />
                       </label>
                     </div>
 
                     <label className="grid gap-2">
-                      <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--my-dark-brown))]">
+                      <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
                         MESSAGE
                       </span>
                       <textarea
                         value={form.message}
                         onChange={(e) => update('message', e.target.value)}
                         rows={6}
-                        className="resize-none rounded-3xl bg-[rgba(var(--my-ivory),0.75)] px-4 py-3 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--my-sand),0.85)] focus:ring-[rgb(var(--my-taupe))]"
+                        className="resize-none rounded-3xl bg-[rgba(var(--ouro-rose),0.75)] px-4 py-3 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                       />
                     </label>
 
@@ -307,7 +307,7 @@ export default function Contact() {
                       <button
                         type="submit"
                         disabled={status === 'sending'}
-                        className="flex w-full max-w-full items-center justify-center rounded-full bg-[rgb(var(--my-black))] px-6 py-3 text-sm font-medium tracking-wide text-[rgb(var(--my-warm-white))] transition hover:bg-[rgb(var(--my-dark-brown))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--my-taupe))] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+                        className="flex w-full max-w-full items-center justify-center rounded-full bg-[rgb(var(--azul-noite))] px-6 py-3 text-sm font-medium tracking-wide text-[rgb(var(--marfim))] transition hover:bg-[rgb(var(--azul-safira))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--azul-claro))] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {status === 'sending' ? 'Sending…' : 'Send inquiry'}
                         {status !== 'sending' && <ArrowRight className="ml-2 h-4 w-4 shrink-0" />}
@@ -316,13 +316,13 @@ export default function Contact() {
                       {status === 'error' && errorMessage && (
                         <div
                           role="alert"
-                          className="mt-4 rounded-2xl bg-[rgba(var(--my-sand),0.35)] px-4 py-3 text-xs leading-relaxed text-[rgb(var(--my-dark-brown))]"
+                          className="mt-4 rounded-2xl bg-[rgba(var(--dourado-champanhe),0.35)] px-4 py-3 text-xs leading-relaxed text-[rgb(var(--azul-safira))]"
                         >
                           {errorMessage}
                         </div>
                       )}
 
-                      <div className="mt-3 text-xs leading-relaxed text-[rgb(var(--my-dark-brown))] opacity-80">
+                      <div className="mt-3 text-xs leading-relaxed text-[rgb(var(--azul-safira))] opacity-80">
                         Prefer email? Write to{' '}
                         <a
                           className="underline underline-offset-4"

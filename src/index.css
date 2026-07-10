@@ -3,27 +3,18 @@
 @tailwind utilities;
 
 :root {
-  /* ── Brand Palette (RGB components for use with rgb() / rgba()) ── */
-  --azul-safira: 13 30 79;       /* #0D1E4F — títulos, textos, logo */
-  --azul-noite: 21 40 99;        /* #152863 — hovers, estados ativos */
-  --azul-real: 30 58 138;        /* #1E3A8A — links, detalhes */
-  --azul-claro: 167 183 209;     /* #A7B7D1 — bordas sutis, divisores */
-  --dourado-champanhe: 220 199 161; /* #DCC7A1 — fundo destaque, ornamentos */
-  --ouro-claro: 232 217 179;     /* #E8D9B3 — fundos alternados */
-  --ouro-rose: 241 230 200;      /* #F1E6C8 — fundo suave */
-  --marfim: 250 247 240;         /* #FAF7F0 — fundo padrão do site */
+  /* Brand palette — RGB components for use with rgb() / rgba() */
+  --azul-safira: 13 30 79;          /* #0D1E4F — titles, body copy, logo */
+  --azul-noite: 21 40 99;           /* #152863 — hover / active states */
+  --azul-real: 30 58 138;           /* #1E3A8A — links, secondary labels */
+  --azul-claro: 167 183 209;        /* #A7B7D1 — subtle borders, dividers */
+  --dourado-champanhe: 220 199 161; /* #DCC7A1 — accent surfaces, ornaments */
+  --ouro-claro: 232 217 179;        /* #E8D9B3 — alt background */
+  --ouro-rose: 241 230 200;         /* #F1E6C8 — soft background */
+  --marfim: 250 247 240;            /* #FAF7F0 — default page background */
 
-  /* ── Backward-compat aliases (mantém componentes existentes funcionando) ── */
-  --my-warm-white: var(--marfim);
-  --my-ivory: var(--ouro-rose);
-  --my-sand: var(--dourado-champanhe);
-  --my-taupe: var(--azul-claro);
-  --my-dark-brown: var(--azul-safira);
-  --my-black: var(--azul-noite);
-
-  /* ── Typography ── */
-  --my-font-serif: "Cinzel", "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-  --my-font-sans: "Montserrat", "Lato", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Cinzel", "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Montserrat", "Lato", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   color-scheme: light;
 }
@@ -37,7 +28,7 @@
     @apply antialiased;
     background-color: rgb(var(--marfim));
     color: rgb(var(--azul-safira));
-    font-family: var(--my-font-sans);
+    font-family: var(--font-sans);
     text-rendering: geometricPrecision;
   }
 
@@ -50,7 +41,7 @@
   h2,
   h3,
   h4 {
-    font-family: var(--my-font-serif);
+    font-family: var(--font-serif);
     letter-spacing: 0.04em;
     color: rgb(var(--azul-safira));
   }
