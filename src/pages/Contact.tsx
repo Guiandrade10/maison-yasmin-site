@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
 import { siteConfig } from '@/config/site'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 type FormState = {
   names: string
@@ -42,7 +42,12 @@ const initialForm: FormState = {
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default function Contact() {
-  useDocumentTitle('Contact')
+  useSeo({
+    title: 'Contact',
+    path: '/contact',
+    description:
+      'Start a conversation with Maison Yasmini. Request a proposal for your intimate destination wedding in the Algarve.',
+  })
 
   const [form, setForm] = useState<FormState>(initialForm)
   const [status, setStatus] = useState<SubmitStatus>('idle')

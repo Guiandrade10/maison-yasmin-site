@@ -4,10 +4,15 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
 import { processSteps } from '@/data/content'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 export default function Experience() {
-  useDocumentTitle('Process')
+  useSeo({
+    title: 'Process',
+    path: '/process',
+    description:
+      'Our five-step planning process: conversation, direction, planning, coordination, celebration. Calm structure for destination weddings in the Algarve.',
+  })
 
   return (
     <div>

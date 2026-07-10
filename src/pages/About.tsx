@@ -4,10 +4,15 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
 import { imageAssets } from '@/data/content'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 export default function About() {
-  useDocumentTitle('About')
+  useSeo({
+    title: 'About',
+    path: '/about',
+    description:
+      'Meet Yasmini, the wedding planner behind Maison Yasmini. Two decades of legal precision, now dedicated to intimate destination weddings in the Algarve.',
+  })
 
   return (
     <div>

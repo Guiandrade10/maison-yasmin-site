@@ -2,10 +2,15 @@ import { Container } from '@/components/Container'
 import { Accordion } from '@/components/Accordion'
 import { SectionHeading } from '@/components/SectionHeading'
 import { faqs } from '@/data/content'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 export default function Faq() {
-  useDocumentTitle('FAQ')
+  useSeo({
+    title: 'FAQ',
+    path: '/faq',
+    description:
+      'Answers to common questions about planning a destination wedding in the Algarve: pricing, timelines, guest counts and legal support in Portugal.',
+  })
 
   return (
     <div>

@@ -4,10 +4,15 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
 import { weddingPackages } from '@/data/content'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 export default function Services() {
-  useDocumentTitle('Services')
+  useSeo({
+    title: 'Services',
+    path: '/services',
+    description:
+      'Wedding planning packages for small, medium and large celebrations in the Algarve, from 3,000€. Boutique planning designed around your guest count.',
+  })
 
   return (
     <div>

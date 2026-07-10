@@ -5,13 +5,18 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { cn } from '@/lib/utils'
 import { journalPosts } from '@/data/content'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 export default function JournalPost() {
   const params = useParams()
   const post = journalPosts.find((p) => p.slug === params.slug)
 
-  useDocumentTitle(post?.title ?? 'Journal')
+  useSeo({
+    title: post?.title ?? 'Journal',
+    path: post ? `/journal/${post.slug}` : '/journal',
+    description: post?.excerpt,
+    ogImage: post?.coverImageUrl,
+  })
 
   if (!post) {
     return (

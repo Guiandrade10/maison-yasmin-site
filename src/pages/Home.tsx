@@ -4,7 +4,7 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
 import { imageAssets, weddingPackages, pilares, testimonials } from '@/data/content'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 /* ─── Ornamentos ─────────────────────────────────────────── */
 
@@ -88,7 +88,11 @@ const pilarIcons: Record<string, JSX.Element> = {
 /* ─── Página ─────────────────────────────────────────────── */
 
 export default function Home() {
-  useDocumentTitle()
+  useSeo({
+    path: '/',
+    description:
+      'Boutique wedding planner in the Algarve, Portugal. Intimate destination weddings for 2 to 100+ guests, planned with calm elegance and structure.',
+  })
 
   return (
     <div>

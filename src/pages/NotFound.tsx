@@ -2,10 +2,13 @@ import { ArrowLeft } from 'lucide-react'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 export default function NotFound() {
-  useDocumentTitle('Not Found')
+  useSeo({
+    title: 'Page not found',
+    description: 'Page not found. Return to Maison Yasmini — boutique wedding planning in the Algarve.',
+  })
 
   return (
     <div className="pt-14 md:pt-20">

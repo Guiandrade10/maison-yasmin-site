@@ -4,10 +4,15 @@ import { ArrowRight } from 'lucide-react'
 import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
 import { journalPosts } from '@/data/content'
-import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useSeo } from '@/hooks/useSeo'
 
 export default function Journal() {
-  useDocumentTitle('Journal')
+  useSeo({
+    title: 'Journal',
+    path: '/journal',
+    description:
+      'Editorial notes on intimate weddings, Algarve venues and destination planning, from the Maison Yasmini journal.',
+  })
 
   return (
     <div>
