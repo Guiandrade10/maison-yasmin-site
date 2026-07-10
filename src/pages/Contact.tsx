@@ -322,15 +322,29 @@ export default function Contact() {
                         </div>
                       )}
 
-                      <div className="mt-3 text-xs leading-relaxed text-[rgb(var(--azul-safira))] opacity-80">
-                        Prefer email? Write to{' '}
-                        <a
-                          className="underline underline-offset-4"
-                          href={`mailto:${siteConfig.contactEmail}`}
-                        >
-                          {siteConfig.contactEmail}
-                        </a>
-                        .
+                      <div className="mt-3 space-y-1 text-xs leading-relaxed text-[rgb(var(--azul-safira))] opacity-80">
+                        <div>
+                          Prefer email? Write to{' '}
+                          <a
+                            className="underline underline-offset-4"
+                            href={`mailto:${siteConfig.contactEmail}`}
+                          >
+                            {siteConfig.contactEmail}
+                          </a>
+                          .
+                        </div>
+                        <div>
+                          Prefer WhatsApp?{' '}
+                          <a
+                            className="underline underline-offset-4"
+                            href={siteConfig.whatsappUrl}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                          >
+                            Message us here
+                          </a>
+                          .
+                        </div>
                       </div>
                     </div>
                   </form>

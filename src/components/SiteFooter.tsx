@@ -97,12 +97,22 @@ export function SiteFooter() {
         {/* Bottom row */}
         <div className="mt-6 flex flex-col items-center justify-between gap-4 text-[11px] text-[rgba(167,183,209,0.7)] md:flex-row md:text-xs">
           <span>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
-          <a
-            href={`mailto:${siteConfig.contactEmail}`}
-            className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
-          >
-            {siteConfig.contactEmail}
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <a
+              href={`mailto:${siteConfig.contactEmail}`}
+              className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
+            >
+              {siteConfig.contactEmail}
+            </a>
+            <a
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
+            >
+              WhatsApp
+            </a>
+          </div>
         </div>
       </Container>
     </footer>
