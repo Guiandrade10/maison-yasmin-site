@@ -97,7 +97,7 @@ export default function Home() {
   return (
     <div>
       {/* ── 1. Hero ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[rgb(var(--marfim))] pb-24 pt-16 text-center md:pb-32 md:pt-24">
+      <section className="relative overflow-hidden bg-[rgb(var(--marfim))] pb-20 pt-16 md:pb-28 md:pt-20">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
@@ -108,51 +108,75 @@ export default function Home() {
         />
 
         <Container className="relative">
-          <div className="flex justify-center">
-            <MYMonogram />
-          </div>
-
-          <h1 className="mt-6 font-serif text-4xl font-normal tracking-[0.28em] text-[rgb(var(--azul-safira))] md:text-6xl">
-            MAISON YASMINI
-          </h1>
-          <p className="mt-2 text-[10px] font-medium tracking-[0.42em] text-[rgb(var(--azul-claro))] md:text-xs">
-            WEDDING PLANNER
-          </p>
-
-          <Filete className="mx-auto mt-8 max-w-xs" />
-
-          <p className="mx-auto mt-8 max-w-md font-serif text-lg font-normal italic text-[rgb(var(--azul-safira))] opacity-80 md:text-xl">
-            "Where every detail tells a love story."
-          </p>
-
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button to="/contact" size="lg">
-              Request a Proposal
-            </Button>
-            <Button to="/services" variant="secondary" size="lg">
-              View Services
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="mx-auto mt-14 grid max-w-xl gap-4 sm:grid-cols-3">
-            {[
-              { label: 'Starting from', value: '3,000€' },
-              { label: 'Guests', value: '2 to 100+' },
-              { label: 'Proposal', value: 'Custom' },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="min-w-0 overflow-hidden rounded-2xl bg-[rgba(241,230,200,0.6)] px-5 py-4 ring-1 ring-inset ring-[rgba(220,199,161,0.7)]"
-              >
-                <div className="text-[10px] tracking-[0.2em] text-[rgb(var(--azul-claro))]">
-                  {item.label.toUpperCase()}
-                </div>
-                <div className="mt-2 break-words font-serif text-xl font-normal leading-tight text-[rgb(var(--azul-safira))]">
-                  {item.value}
+          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+            <div className="text-center md:col-span-6 md:text-left">
+              <div className="flex justify-center md:justify-start">
+                <div className="scale-75 md:scale-90">
+                  <MYMonogram />
                 </div>
               </div>
-            ))}
+
+              <p className="mt-4 text-[11px] font-medium tracking-[0.32em] text-azul-real md:mt-6 md:text-xs">
+                MAISON YASMINI · WEDDING PLANNER
+              </p>
+
+              <h1 className="mt-5 font-serif text-4xl font-normal leading-[1.06] tracking-[0.18em] text-[rgb(var(--azul-safira))] md:text-6xl md:tracking-[0.24em]">
+                Intimate Destination Weddings in Algarve
+              </h1>
+
+              <Filete className="mx-auto mt-8 max-w-xs md:mx-0" />
+
+              <p className="mx-auto mt-8 max-w-md font-serif text-lg font-normal italic text-[rgb(var(--azul-safira))] opacity-80 md:mx-0 md:text-xl">
+                "Where every detail tells a love story."
+              </p>
+
+              <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:justify-start">
+                <Button to="/contact" size="lg">
+                  Request a Proposal
+                </Button>
+                <Button to="/services" variant="secondary" size="lg">
+                  View Services
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+
+              <div className="mx-auto mt-12 grid max-w-xl gap-4 sm:grid-cols-3 md:mx-0">
+                {[
+                  { label: 'Based in', value: 'Algarve' },
+                  { label: 'Weddings', value: '2 to 100+' },
+                  { label: 'Approach', value: 'Boutique & personal' },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="min-w-0 overflow-hidden rounded-2xl bg-[rgba(241,230,200,0.6)] px-5 py-4 ring-1 ring-inset ring-[rgba(220,199,161,0.7)]"
+                  >
+                    <div className="text-[11px] tracking-[0.22em] text-azul-real md:text-xs">
+                      {item.label.toUpperCase()}
+                    </div>
+                    <div className="mt-2 break-words font-serif text-lg font-normal leading-tight text-[rgb(var(--azul-safira))] md:text-xl">
+                      {item.value}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="md:col-span-6">
+              <div className="relative overflow-hidden rounded-[28px] ring-1 ring-inset ring-[rgba(220,199,161,0.6)]">
+                <img
+                  src={imageAssets.hero.src}
+                  srcSet={imageAssets.hero.srcSet}
+                  sizes={imageAssets.hero.sizes}
+                  alt="Wedding table set for an intimate celebration in the Algarve"
+                  width={imageAssets.hero.width}
+                  height={imageAssets.hero.height}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="h-[360px] w-full object-cover md:h-[560px]"
+                />
+              </div>
+            </div>
           </div>
         </Container>
       </section>
