@@ -112,6 +112,12 @@ export function SiteFooter() {
             >
               WhatsApp
             </a>
+            <NavLink
+              to="/privacy"
+              className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
+            >
+              Privacy
+            </NavLink>
           </div>
         </div>
       </Container>

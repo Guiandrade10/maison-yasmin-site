@@ -10,6 +10,7 @@ import Home from '@/pages/Home'
 import Journal from '@/pages/Journal'
 import JournalPost from '@/pages/JournalPost'
 import NotFound from '@/pages/NotFound'
+import Privacy from '@/pages/Privacy'
 import Services from '@/pages/Services'
 
 function ScrollToTop() {
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/journal" element={<Journal />} />
           <Route path="/journal/:slug" element={<JournalPost />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

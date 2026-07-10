@@ -1,4 +1,5 @@
 import { useId, useState, type FormEvent } from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 import { Container } from '@/components/Container'
@@ -323,6 +324,14 @@ export default function Contact() {
                       )}
 
                       <div className="mt-3 space-y-1 text-xs leading-relaxed text-[rgb(var(--azul-safira))] opacity-80">
+                        <div>
+                          By sending this inquiry you agree that we may reply to you by email or
+                          WhatsApp. Read our{' '}
+                          <Link className="underline underline-offset-4" to="/privacy">
+                            privacy policy
+                          </Link>
+                          .
+                        </div>
                         <div>
                           Prefer email? Write to{' '}
                           <a

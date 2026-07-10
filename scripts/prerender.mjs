@@ -32,6 +32,7 @@ const ROUTES = [
   '/journal/how-much-does-a-destination-wedding-in-algarve-cost',
   '/journal/best-intimate-wedding-venues-in-algarve',
   '/contact',
+  '/privacy',
 ]
 
 if (!existsSync(DIST)) {
