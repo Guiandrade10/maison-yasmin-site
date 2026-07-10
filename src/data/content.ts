@@ -79,13 +79,17 @@ export type FaqItem = {
   answer: string
 }
 
+export type JournalBlock =
+  | { type: 'p'; text: string }
+  | { type: 'h2'; text: string }
+
 export type JournalPost = {
   slug: string
   title: string
   excerpt: string
   category: string
   publishedAt: string
-  content: string[]
+  content: JournalBlock[]
   coverImageUrl: string
 }
 
@@ -224,9 +228,62 @@ export const journalPosts: JournalPost[] = [
     publishedAt: '2026-06-01',
     coverImageUrl: imageUrls.detail,
     content: [
-      'Budgets in the Algarve vary widely because each celebration has its own guest count, venue style and planning needs.',
-      'Guest count, venue style and the level of design direction are the three major variables.',
-      'A thoughtful budget is less about extravagance and more about choosing what matters most to you.',
+      {
+        type: 'p',
+        text: 'One of the first questions couples ask us is what a wedding in the Algarve actually costs. The honest answer is: it depends. Budgets vary because every celebration has its own guest count, venue style and level of design direction — and each of those variables shifts the total more than most couples expect.',
+      },
+      {
+        type: 'p',
+        text: 'This is a calm overview of how we think about budgets when we plan intimate destination weddings on this coast. It is not a price list, and it is not a promise. It is a way to help you understand the shape of the investment before we sit down to build a proposal that fits your celebration specifically.',
+      },
+      {
+        type: 'h2',
+        text: 'The three variables that move the number',
+      },
+      {
+        type: 'p',
+        text: 'Guest count is the largest single driver. A wedding for twelve close family and friends and a wedding for eighty guests are two different events long before they are two different budgets. Food, beverage, staff, rentals, seating, welcome logistics and even the size of the venue itself all scale from that first decision.',
+      },
+      {
+        type: 'p',
+        text: 'Venue style is the second variable. A private estate with in-house catering behaves differently from a rustic quinta where every element is brought in. A clifftop terrace with a small elopement ceremony is a different logistical universe from a full weekend takeover of a farm with guests staying on site. Neither is more elegant than the other — but each carries a different structure of cost.',
+      },
+      {
+        type: 'p',
+        text: 'The third is the level of design direction. Some couples want the day to feel considered but not overproduced: linen, candlelight, garden florals, quiet music. Others build the day around a specific creative concept that reaches every corner of the guest experience. Both are valid. They live at different points on the same spectrum.',
+      },
+      {
+        type: 'h2',
+        text: 'Where couples typically invest',
+      },
+      {
+        type: 'p',
+        text: 'When couples are thoughtful about the budget rather than expansive with it, they tend to concentrate the investment in three places. First, the venue and setting — because the light, the landscape and the atmosphere are the memory people carry home. Second, food and wine — because the meal is the shared centre of the day. Third, photography — because it is the record.',
+      },
+      {
+        type: 'p',
+        text: 'Everything else, from florals to stationery to music, sits inside those anchors. That is how we approach design conversations: what do we protect, what do we scale down, and what do we simply leave out because it does not truly belong in your celebration.',
+      },
+      {
+        type: 'h2',
+        text: 'Our packages, as a starting point',
+      },
+      {
+        type: 'p',
+        text: 'Maison Yasmini planning packages start at 3,000€ for small weddings up to twenty guests, 5,500€ for medium celebrations up to sixty, and 8,500€ for larger weddings up to a hundred. Above a hundred guests we prepare a custom proposal because the production, staffing and logistics deserve a tailored answer.',
+      },
+      {
+        type: 'p',
+        text: 'These figures are the planning and coordination fee — the work of guiding you from the first conversation to the last dance. The venue, catering, florals, photography and the other elements you choose sit alongside that fee, priced by the suppliers we curate with you.',
+      },
+      {
+        type: 'h2',
+        text: 'A thoughtful budget is a series of decisions',
+      },
+      {
+        type: 'p',
+        text: 'A thoughtful budget is less about extravagance and more about choosing what matters most to you and letting the rest be simple. Some of the most beautiful weddings we have planned have been quiet in scale and deep in intention. That is the tone we work in. If it is the tone you want too, we would love to hear about your date.',
+      },
     ],
   },
   {
@@ -237,9 +294,66 @@ export const journalPosts: JournalPost[] = [
     publishedAt: '2026-05-18',
     coverImageUrl: imageUrls.hero,
     content: [
-      'The Algarve is a landscape of light: sea cliffs, soft vineyards and quiet estates.',
-      'For intimate weddings, the most important quality is not size. It is atmosphere.',
-      'We recommend venues that feel like a home for your story, not a stage for a production.',
+      {
+        type: 'p',
+        text: 'The Algarve is a landscape of light. Sea cliffs falling into the Atlantic, soft vineyards on the western hills, quiet estates hidden behind fig trees and stone walls. For couples planning an intimate destination wedding, the venue does more than host the day — it sets the feeling of it. This is a calm look at the venue archetypes we return to again and again, and how we help couples find the one that fits their celebration.',
+      },
+      {
+        type: 'h2',
+        text: 'Clifftop ceremonies with the ocean as the backdrop',
+      },
+      {
+        type: 'p',
+        text: 'The Algarve is best known for its coastline, and the western cliffs in particular have a stillness that photographs beautifully at the end of the afternoon. A clifftop ceremony works exceptionally well for smaller celebrations, from elopements to weddings of twenty or thirty guests. Wind is the real consideration — we plan ceremonies here with careful timing, sheltered orientations and simple, considered florals that can hold their own in coastal air.',
+      },
+      {
+        type: 'p',
+        text: 'The dinner that follows a clifftop ceremony often moves inland or into a walled garden — because the same wind that gives the ceremony its atmosphere makes long dinners on the cliff impractical. That transition, from open ceremony to enclosed dinner, becomes part of the arc of the day.',
+      },
+      {
+        type: 'h2',
+        text: 'Vineyards for weddings that feel like a long dinner with friends',
+      },
+      {
+        type: 'p',
+        text: 'The vineyards of the western Algarve have quietly become one of our favourite settings. They are calmer than the coast, warmer in tone, and they lend themselves to long shared tables under strings of light. For couples who want a wedding that feels like an unhurried dinner with the people they love — food, wine, storytelling, small speeches, no schedule that overwhelms the evening — a vineyard is a natural fit.',
+      },
+      {
+        type: 'p',
+        text: 'Vineyards also welcome bigger groups gracefully. A well-chosen vineyard estate can host forty, sixty, sometimes eighty guests without the celebration ever feeling like a production. That balance between scale and intimacy is one of the reasons we recommend them so often.',
+      },
+      {
+        type: 'h2',
+        text: 'Private estates and quintas for full-weekend celebrations',
+      },
+      {
+        type: 'p',
+        text: 'For couples who want their guests to stay together across a weekend, a private estate — a quinta with on-site accommodation, a garden, and one or two dining spaces — becomes the entire venue. Welcome dinner on Friday, wedding on Saturday, farewell brunch on Sunday. The day of the wedding stops being an island and becomes the middle of a longer, gentler experience.',
+      },
+      {
+        type: 'p',
+        text: 'These estates require more planning coordination and a larger budget, but they give something in return that a single-day venue cannot: time. Time for your guests to arrive from different countries and settle. Time for you to spend the morning of the wedding in the same house as the people you love. Time to say goodbye slowly.',
+      },
+      {
+        type: 'h2',
+        text: 'Walled gardens and courtyards for the smallest weddings',
+      },
+      {
+        type: 'p',
+        text: 'For elopements and very intimate weddings, small enough that a single long table would seat everyone, we often look at walled gardens, hidden courtyards, or the private terraces of restored houses. These spaces are quiet by design. There is very little that needs to be dressed. The venue does most of the storytelling on its own, and the day becomes about the people around the table more than about the setting behind them.',
+      },
+      {
+        type: 'h2',
+        text: 'How we help you choose',
+      },
+      {
+        type: 'p',
+        text: 'The most important quality of a venue is not size, style or price. It is atmosphere — the way it makes you feel when you walk in. We recommend venues that feel like a home for your story rather than a stage for a production, and we visit each one with you in mind rather than showing the same shortlist to every couple.',
+      },
+      {
+        type: 'p',
+        text: 'If you have a date, a guest count and a sense of the feeling you want, we can start with the venue conversation. Everything else follows from there.',
+      },
     ],
   },
 ]

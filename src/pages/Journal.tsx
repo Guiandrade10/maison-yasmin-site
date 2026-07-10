@@ -6,6 +6,14 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { journalPosts } from '@/data/content'
 import { useSeo } from '@/hooks/useSeo'
 
+function formatDate(isoDate: string) {
+  const [year, month] = isoDate.split('-')
+  const monthName = new Date(Number(year), Number(month) - 1).toLocaleString('en-GB', {
+    month: 'long',
+  })
+  return `${monthName} ${year}`
+}
+
 export default function Journal() {
   useSeo({
     title: 'Journal',
@@ -44,7 +52,8 @@ export default function Journal() {
                   <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(var(--azul-noite),0.55),transparent_60%)]" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="text-xs tracking-[0.18em] text-[rgba(var(--marfim),0.85)]">
-                      {post.category.toUpperCase()} · {post.publishedAt}
+                      {post.category.toUpperCase()} ·{' '}
+                      <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
                     </div>
                     <div className="mt-2 font-serif text-2xl text-[rgb(var(--marfim))] md:text-3xl">
                       {post.title}
