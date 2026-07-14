@@ -8,7 +8,7 @@ import { useScrolled } from '@/hooks/useScrolled'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 
-type NavItem = { to: string; label: string }
+type NavItem = { to: string; label: string; children?: { to: string; label: string }[] }
 
 export function SiteHeader() {
   const scrolled = useScrolled(8)
@@ -18,12 +18,21 @@ export function SiteHeader() {
 
   const items = useMemo<NavItem[]>(
     () => [
-      { to: '/about', label: 'About' },
       { to: '/services', label: 'Services' },
-      { to: '/process', label: 'Process' },
-      { to: '/faq', label: 'FAQ' },
-      { to: '/journal', label: 'Journal' },
-      { to: '/contact', label: 'Contact' },
+      {
+        to: '/venues',
+        label: 'Venues',
+        children: [
+          { to: '/venues/luxury-resorts', label: 'Luxury Resorts & Boutique Hotels' },
+          { to: '/venues/private-villas', label: 'Private Villas' },
+          { to: '/venues/exclusive-restaurants', label: 'Exclusive Restaurants' },
+          { to: '/venues/country-estates', label: 'Country Estates & Vineyards' },
+        ],
+      },
+      { to: '/portfolio', label: 'Portfolio' },
+      { to: '/kind-words', label: 'Kind Words' },
+      { to: '/about', label: 'Our Story' },
+      { to: '/contact', label: 'Get in Touch' },
     ],
     [],
   )
@@ -59,6 +68,8 @@ export function SiteHeader() {
     }
   }, [open])
 
+  const desktopItems = items.slice(0, items.length - 1) // reserve last for CTA
+
   return (
     <header
       className={cn(
@@ -77,8 +88,8 @@ export function SiteHeader() {
           {siteConfig.name.toUpperCase()}
         </NavLink>
 
-        <nav className="hidden items-center gap-7 md:flex">
-          {items.slice(0, 5).map((item) => (
+        <nav className="hidden items-center gap-6 lg:flex">
+          {desktopItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
@@ -93,14 +104,14 @@ export function SiteHeader() {
             </NavLink>
           ))}
           <Button to="/contact" size="sm">
-            Request a Proposal
+            Begin Your Wedding Journey
           </Button>
         </nav>
 
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(241,230,200,0.7)] text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(220,199,161,0.8)] transition hover:bg-[rgb(var(--ouro-rose))] md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(241,230,200,0.7)] text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(220,199,161,0.8)] transition hover:bg-[rgb(var(--ouro-rose))] lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="site-mobile-nav"
@@ -113,30 +124,51 @@ export function SiteHeader() {
       <div
         id="site-mobile-nav"
         ref={panelRef}
-        className={cn('md:hidden', open ? 'block' : 'hidden')}
+        className={cn('lg:hidden', open ? 'block' : 'hidden')}
       >
         <div className="bg-[rgb(var(--marfim))] px-5 pb-6 pt-2 ring-1 ring-inset ring-[rgba(220,199,161,0.5)]">
           <div className="flex flex-col gap-1">
             {items.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  cn(
-                    'flex min-h-[44px] items-center rounded-xl px-3 py-3 text-sm text-[rgb(var(--azul-safira))] no-underline transition hover:bg-[rgb(var(--ouro-rose))]',
-                    isActive && 'bg-[rgb(var(--ouro-rose))] font-medium',
-                  )
-                }
-              >
-                {item.label}
-              </NavLink>
+              <div key={item.to}>
+                <NavLink
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    cn(
+                      'flex min-h-[44px] items-center rounded-xl px-3 py-3 text-sm text-[rgb(var(--azul-safira))] no-underline transition hover:bg-[rgb(var(--ouro-rose))]',
+                      isActive && 'bg-[rgb(var(--ouro-rose))] font-medium',
+                    )
+                  }
+                  end
+                >
+                  {item.label}
+                </NavLink>
+                {item.children && (
+                  <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-[rgba(220,199,161,0.5)] pl-3">
+                    {item.children.map((child) => (
+                      <NavLink
+                        key={child.to}
+                        to={child.to}
+                        onClick={() => setOpen(false)}
+                        className={({ isActive }) =>
+                          cn(
+                            'flex min-h-[40px] items-center rounded-xl px-3 py-2 text-xs text-[rgb(var(--azul-safira))] no-underline transition hover:bg-[rgb(var(--ouro-rose))]',
+                            isActive && 'bg-[rgb(var(--ouro-rose))] font-medium',
+                          )
+                        }
+                      >
+                        {child.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
           <div className="mt-4">
             <Button to="/contact" className="w-full" size="lg">
-              Request a Proposal
+              Begin Your Wedding Journey
             </Button>
           </div>
         </div>

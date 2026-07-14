@@ -13,7 +13,7 @@ type FormState = {
   country: string
   weddingDate: string
   guests: string
-  packageInterest: string
+  serviceInterest: string
   venueSelected: string
   inspirationLink: string
   message: string
@@ -21,11 +21,11 @@ type FormState = {
 
 type SubmitStatus = 'idle' | 'sending' | 'success' | 'error'
 
-const packageOptions = [
-  'Small wedding package from 3,000€',
-  'Medium wedding package from 5,500€',
-  'Large wedding package from 8,500€',
-  'Custom proposal for 100+ guests',
+const serviceOptions = [
+  'Wedding Planning & Coordination',
+  'Private Events',
+  'Wedding Design & Styling',
+  'Not sure yet',
 ] as const
 
 const initialForm: FormState = {
@@ -34,7 +34,7 @@ const initialForm: FormState = {
   country: '',
   weddingDate: '',
   guests: '',
-  packageInterest: packageOptions[0],
+  serviceInterest: serviceOptions[0],
   venueSelected: 'Not yet',
   inspirationLink: '',
   message: '',
@@ -44,10 +44,10 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default function Contact() {
   useSeo({
-    title: 'Contact',
+    title: 'Get in Touch',
     path: '/contact',
     description:
-      'Start a conversation with Maison Yasmini. Request a proposal for your intimate destination wedding in the Algarve.',
+      'Begin your wedding journey with Maison Yasmini. Share your date, guest count and vision, and we will guide you from there.',
   })
 
   const [form, setForm] = useState<FormState>(initialForm)
@@ -103,11 +103,11 @@ export default function Contact() {
           country: form.country,
           weddingDate: form.weddingDate,
           guests: form.guests,
-          packageInterest: form.packageInterest,
+          serviceInterest: form.serviceInterest,
           venueSelected: form.venueSelected,
           inspirationLink: form.inspirationLink,
           message: form.message,
-          _subject: `Maison Yasmini — inquiry from ${form.names || form.email}`,
+          _subject: `Maison Yasmini, inquiry from ${form.names || form.email}`,
         }),
       })
 
@@ -134,9 +134,9 @@ export default function Contact() {
           <div className="grid gap-10 md:grid-cols-12 md:gap-12">
             <SectionHeading
               className="md:col-span-5"
-              eyebrow="Contact"
-              title="A calm first step."
-              description="Share your date, guest count and preferred package. We will respond with clarity and the next steps."
+              eyebrow="Get in Touch"
+              title="Begin Your Wedding Journey"
+              description="Share your date, guest count and the atmosphere you have in mind. We will respond with clarity and the next steps."
             />
 
             <div className="md:col-span-7">
@@ -238,14 +238,14 @@ export default function Contact() {
                       </label>
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          PACKAGE INTEREST
+                          SERVICE OF INTEREST
                         </span>
                         <select
-                          value={form.packageInterest}
-                          onChange={(e) => update('packageInterest', e.target.value)}
+                          value={form.serviceInterest}
+                          onChange={(e) => update('serviceInterest', e.target.value)}
                           className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         >
-                          {packageOptions.map((o) => (
+                          {serviceOptions.map((o) => (
                             <option key={o} value={o}>
                               {o}
                             </option>

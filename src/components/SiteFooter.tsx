@@ -36,13 +36,21 @@ function Filete() {
   )
 }
 
-const navLinks = [
-  { to: '/about', label: 'About' },
+const primaryLinks = [
   { to: '/services', label: 'Services' },
+  { to: '/venues', label: 'Venues' },
+  { to: '/portfolio', label: 'Portfolio' },
+  { to: '/kind-words', label: 'Kind Words' },
+  { to: '/about', label: 'Our Story' },
+  { to: '/contact', label: 'Get in Touch' },
+]
+
+const secondaryLinks = [
+  { to: '/why-maison-yasmini', label: 'Why Maison Yasmini' },
   { to: '/process', label: 'Process' },
   { to: '/faq', label: 'FAQ' },
   { to: '/journal', label: 'Journal' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/privacy', label: 'Privacy' },
 ]
 
 const pilares = ['Excellence', 'Purpose', 'Elegance', 'Trust', 'Memories']
@@ -69,13 +77,26 @@ export function SiteFooter() {
           "{siteConfig.tagline}"
         </p>
 
-        {/* Nav links */}
+        {/* Nav links (primary) */}
         <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3">
-          {navLinks.map((item) => (
+          {primaryLinks.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className="inline-flex min-h-[44px] items-center px-2 text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-claro))] no-underline transition-opacity hover:opacity-70"
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </div>
+
+        {/* Nav links (secondary) */}
+        <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2">
+          {secondaryLinks.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className="inline-flex min-h-[36px] items-center px-2 text-[11px] tracking-[0.14em] text-[rgba(167,183,209,0.72)] no-underline transition-opacity hover:opacity-90"
             >
               {item.label}
             </NavLink>
@@ -112,12 +133,6 @@ export function SiteFooter() {
             >
               WhatsApp
             </a>
-            <NavLink
-              to="/privacy"
-              className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
-            >
-              Privacy
-            </NavLink>
           </div>
         </div>
       </Container>

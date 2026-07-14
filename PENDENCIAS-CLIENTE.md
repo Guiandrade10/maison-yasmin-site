@@ -17,20 +17,21 @@ Este documento centraliza tudo o que precisa ser fornecido ou confirmado pela cl
 - Colar o endpoint em `src/config/site.ts` → `formEndpoint`.
 - Enquanto o placeholder estiver activo, o formulário devolve estado de erro (comportamento esperado, útil para testar o UI).
 
-## 3. Fotografia (crítico — hoje são placeholders)
+## 3. Fotografia
 
-Substituir tudo o que está em `public/images/`. Sizes esperadas: `nome-800.webp` e `nome-1600.webp`.
+**Actualização 2026-07-14:** as 34 fotos entregues em `Images-reference/` (5 subpastas) foram processadas via `npm run process:images` e integradas nos slots do site. O `.gitignore` exclui `Images-reference/` do build.
+
+Ainda em aberto:
 
 | Slot | Onde aparece | Precisa da cliente |
 | --- | --- | --- |
-| `hero` | Home hero e cover do post "best-intimate-wedding-venues" | Foto principal editorial. Idealmente uma cerimônia/mesa real no Algarve. |
-| `portrait` | Home ("About Yasmini") e página `/about` | Retrato profissional de Yasmini. Placeholder é uma still-life com flores — não é a fundadora. |
-| `algarve` | Home portfolio | Paisagem panorâmica do Algarve (falésia, praia ou vinha). |
-| `detail` | Home portfolio e cover do post "how-much-does-a-destination-wedding-cost" | Close-up: papelaria, mesa posta, arranjo, ourivesaria, etc. |
+| `portrait` | Página `/about` (Our Story) | **Retrato profissional de Yasmini.** Não veio nas 5 pastas. Sem esta foto, mantém-se o placeholder (still-life). |
+| Portfólio expandido | `/portfolio` | Selecção premium de 20–30 imagens autorizadas para ampliar o grid. Actualmente 5 slots preenchidos como amostra. |
+| Autorizações | Portfolio (`/portfolio`) | **Autorização escrita** dos casais fotografados para uso online. |
 
-Adicionalmente:
-- **3+ fotos extra** de casamentos reais para expandir o portfólio no futuro.
-- **Autorização escrita** dos casais fotografados para uso online.
+### 3.1 Nota de transparência — imagens IA no portfólio
+
+Se parte das fotos das 5 pastas for gerada por IA (origem: conversa ChatGPT), recomenda-se **não apresentá-las no Portfolio como casamentos reais realizados pela Maison Yasmini**. Uso seguro: heros, secções de venues e fundos editoriais. Para o Portfolio, priorizar fotos reais autorizadas assim que existirem. **Aguarda decisão da cliente.**
 
 ## 4. OG image e ícones
 
@@ -48,14 +49,15 @@ Adicionalmente:
   2. Confirmar nomes/cidade que podem ser publicados.
   3. Actualizar o array `testimonials` em `content.ts` e ligar `SHOW_TESTIMONIALS = true`.
 
-## 6. Preço acima da dobra (P2.1)
+## 6. Decisões D1–D5 (Atualização V2)
 
-O plano recomenda **remover** o card "Starting from 3,000€" que estava acima da dobra da Home, substituindo por atributos não monetários. A decisão final precisa da cliente:
+Aplicados os defaults do documento `ATUALIZACAO-MAISON-YASMINI-V2.md` na ausência de resposta da cliente. Confirmar cada uma:
 
-- [ ] Manter o card "From 3,000€" acima da dobra?
-- [ ] Ou aceitar a versão editada (baseada em posicionamento, sem preço no primeiro contacto)?
-
-Preço continua visível em `/services` e no FAQ nos dois cenários.
+- [ ] **D1** Pacotes e preços removidos do Services e Home. Preço só aparece no FAQ ("planning fees start at 3,000€").
+- [ ] **D2** Journal fora do menu principal, acessível pelo footer. Post "how-much-does-a-destination-wedding-cost" editado para alinhar com posicionamento de até 75 guests.
+- [ ] **D3** FAQ e Process fora do menu principal, acessíveis pelo footer.
+- [ ] **D4** Rota `/kind-words` criada com estado vazio elegante enquanto não houver testemunhos reais.
+- [ ] **D5** Página `/portfolio` criada com 5 slots de amostra; expandir com 20–30 imagens autorizadas.
 
 ## 7. Política de privacidade (P3.4)
 

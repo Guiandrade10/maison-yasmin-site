@@ -24,14 +24,22 @@ const BASE = `http://127.0.0.1:${PORT}`
 
 const ROUTES = [
   '/',
-  '/about',
   '/services',
+  '/venues',
+  '/venues/luxury-resorts',
+  '/venues/private-villas',
+  '/venues/exclusive-restaurants',
+  '/venues/country-estates',
+  '/portfolio',
+  '/kind-words',
+  '/about',
+  '/why-maison-yasmini',
+  '/contact',
   '/process',
   '/faq',
   '/journal',
   '/journal/how-much-does-a-destination-wedding-in-algarve-cost',
   '/journal/best-intimate-wedding-venues-in-algarve',
-  '/contact',
   '/privacy',
 ]
 

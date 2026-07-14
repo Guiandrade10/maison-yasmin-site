@@ -25,3 +25,9 @@ dist-ssr
 
 # Workspace artifacts
 .trae/
+.claude/
+
+# Client-provided raw assets (processed by scripts/process-images.mjs into public/images/)
+Images-reference/
+Images-reference/**
+*:Zone.Identifier

@@ -28,7 +28,7 @@ export default function Experience() {
             </div>
             <div className="md:col-span-5 md:justify-self-end">
               <Button to="/contact" size="lg">
-                Request a proposal <ArrowRight className="ml-2 h-4 w-4" />
+                Begin Your Wedding Journey <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function Experience() {
               />
               <div className="md:col-span-5 md:justify-self-end">
                 <Button to="/contact" size="lg" className="w-full md:w-auto">
-                  Get in touch <ArrowRight className="ml-2 h-4 w-4" />
+                  Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>

@@ -2,110 +2,155 @@ import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import { SectionHeading } from '@/components/SectionHeading'
-import { weddingPackages } from '@/data/content'
+import { serviceVerticals } from '@/data/content'
 import { useSeo } from '@/hooks/useSeo'
+
+const introParagraphs = [
+  'At Maison Yasmini, we believe the most unforgettable weddings are not defined by the number of guests, but by the emotions they create and the memories they leave behind.',
+  'We specialise in designing and coordinating exclusive intimate weddings and destination weddings in Portugal, thoughtfully created for celebrations of up to 75 guests. This allows us to provide a highly personalised experience, where every detail receives the care, creativity and attention it deserves.',
+  'Luxury, to us, is not about extravagance. It is about exclusivity, authenticity and the freedom to celebrate surrounded only by the people who matter most.',
+  'Every wedding begins with your story.',
+  'We take the time to understand your personalities, your vision, your lifestyle and everything that makes your relationship unique. From there, we create a celebration that feels effortless, elegant and genuinely yours.',
+  'Whether you dream of exchanging vows on dramatic ocean cliffs, celebrating in a private villa, hosting an elegant dinner at a luxury resort or saying "I do" in a charming Portuguese estate, every element is thoughtfully curated to reflect your style and create an unforgettable experience.',
+]
+
+const philosophyParagraphs = [
+  'We intentionally focus on a limited number of weddings each year, allowing us to dedicate our full attention to every couple and deliver an exceptional level of service from beginning to end.',
+  'The result is a celebration where every guest feels welcomed, every detail feels intentional and every moment becomes a lifelong memory.',
+  'Because the greatest luxury is celebrating your love in a way that feels deeply personal, beautifully effortless and truly unforgettable.',
+]
 
 export default function Services() {
   useSeo({
     title: 'Services',
     path: '/services',
     description:
-      'Wedding planning packages for small, medium and large celebrations in the Algarve, from 3,000€. Boutique planning designed around your guest count.',
+      'Wedding planning, private events and wedding design & styling in the Algarve, for intimate celebrations of up to 75 guests.',
   })
 
   return (
     <div>
       <section className="pt-14 md:pt-20">
         <Container>
-          <div className="grid items-end gap-10 md:grid-cols-12 md:gap-12">
-            <div className="md:col-span-7">
-              <h1 className="text-4xl font-medium leading-[1.06] md:text-6xl">Wedding packages built around guest count, pace and place.</h1>
-              <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
-                Maison Yasmini offers three clear packages built around guest count. Each comes with its
-                own planning rhythm and starting investment.
-              </p>
-            </div>
-            <div className="md:col-span-5 md:justify-self-end">
-              <Button to="/contact" size="lg">
-                Request a proposal <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+          <div className="text-xs font-medium tracking-[0.22em] text-azul-real md:text-sm">SERVICES</div>
+          <h1 className="mt-4 font-serif text-4xl font-normal leading-[1.06] tracking-wide text-[rgb(var(--azul-safira))] md:text-6xl">
+            Luxury Intimate Weddings in Portugal
+          </h1>
+          <h2 className="mt-6 font-serif text-2xl font-normal italic text-[rgb(var(--azul-safira))] opacity-85 md:text-3xl">
+            Intimate Weddings. Extraordinary Experiences.
+          </h2>
+        </Container>
+      </section>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {weddingPackages.map((pkg) => (
-              <div
-                key={pkg.slug}
-                className="rounded-[32px] bg-[rgba(var(--marfim),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="text-xs tracking-[0.18em] text-[rgb(var(--azul-safira))]">{pkg.guestRange.toUpperCase()}</div>
-                  <div className="rounded-full bg-[rgba(var(--dourado-champanhe),0.28)] px-4 py-2 text-xs font-medium tracking-[0.12em] text-[rgb(var(--azul-safira))]">
-                    {pkg.priceFrom.toUpperCase()}
-                  </div>
-                </div>
-                <div className="mt-4 font-serif text-2xl leading-tight">{pkg.title}</div>
-                <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--azul-safira))]">{pkg.description}</p>
-                <ul className="mt-6 space-y-2 text-sm text-[rgb(var(--azul-safira))]">
-                  {pkg.highlights.map((h) => (
-                    <li key={h} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--azul-claro))]" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+      <section className="mt-12 md:mt-16">
+        <Container>
+          <div className="mx-auto max-w-3xl space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
+            {introParagraphs.map((p, i) => (
+              <p key={`i-${i}`}>{p}</p>
             ))}
-          </div>
-          <div className="mt-6 rounded-[24px] bg-[rgba(var(--ouro-rose),0.76)] px-6 py-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]">
-            Weddings with more than 100 guests need a custom proposal. We build it around the venue,
-            logistics, team size and production needs.
+            <p className="pt-4 font-serif text-xl text-[rgb(var(--azul-safira))]">
+              Our philosophy is simple: <span className="italic">Quality over quantity.</span>
+            </p>
+            {philosophyParagraphs.map((p, i) => (
+              <p key={`ph-${i}`}>{p}</p>
+            ))}
           </div>
         </Container>
       </section>
 
-      <section className="mt-20 md:mt-28">
+      <section className="mt-16 md:mt-20">
         <Container>
-          <div className="grid gap-10 md:grid-cols-12 md:gap-12">
-            <SectionHeading
-              className="md:col-span-5"
-              eyebrow="Additional support"
-              title="Every package can be extended with the support that makes destination planning feel straightforward."
-              description="Depending on the wedding size, planning can include:"
-            />
-            <div className="md:col-span-7">
-              <div className="grid gap-4 md:grid-cols-2">
-                {[
-                  'Venue scouting',
-                  'Supplier coordination',
-                  'Design guidance',
-                  'Guest logistics',
-                  'Wedding day management',
-                  'Legal guidance',
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[24px] bg-[rgba(var(--ouro-rose),0.72)] px-6 py-5 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]"
-                  >
-                    <div className="text-sm font-medium text-[rgb(var(--azul-noite))]">{item}</div>
-                  </div>
-                ))}
-              </div>
+          <nav
+            aria-label="Services on this page"
+            className="mx-auto flex max-w-3xl flex-wrap justify-center gap-3 rounded-full bg-[rgba(var(--ouro-rose),0.75)] p-2 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]"
+          >
+            {serviceVerticals.map((v) => (
+              <a
+                key={v.slug}
+                href={`#${v.slug}`}
+                className="rounded-full px-4 py-2 text-xs font-medium tracking-[0.12em] text-[rgb(var(--azul-safira))] no-underline transition hover:bg-[rgb(var(--marfim))]"
+              >
+                {v.title}
+              </a>
+            ))}
+          </nav>
+        </Container>
+      </section>
 
-              <div className="mt-10 rounded-[28px] bg-[rgba(var(--marfim),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]">
-                <div className="font-serif text-2xl leading-tight">A calm first step</div>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-[rgb(var(--azul-safira))]">
-                  Share your date, approximate guest count and the kind of celebration you want.
-                  We will respond with clarity and the next steps.
-                </p>
-                <div className="mt-6">
-                  <Button to="/contact" size="lg">
-                    Get in touch <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+      {serviceVerticals.map((v, idx) => (
+        <section id={v.slug} key={v.slug} className="mt-20 scroll-mt-24 md:mt-28">
+          <Container>
+            <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+              <div className={idx % 2 === 0 ? 'md:col-span-5' : 'md:order-2 md:col-span-5'}>
+                <div className="overflow-hidden rounded-[32px] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]">
+                  <img
+                    src={v.image.src}
+                    srcSet={v.image.srcSet}
+                    sizes={v.image.sizes}
+                    alt={`${v.title} in the Algarve`}
+                    className="h-[380px] w-full object-cover md:h-[520px]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+              <div className={idx % 2 === 0 ? 'md:col-span-7' : 'md:order-1 md:col-span-7'}>
+                <div className="text-xs font-medium tracking-[0.22em] text-azul-real md:text-sm">
+                  {`0${idx + 1} · SERVICE`}
+                </div>
+                <h2 className="mt-4 font-serif text-3xl font-normal leading-tight tracking-wide text-[rgb(var(--azul-safira))] md:text-4xl">
+                  {v.title}
+                </h2>
+                <div className="mt-3 font-serif text-lg italic text-[rgb(var(--azul-safira))] opacity-80 md:text-xl">
+                  {v.subtitle}
+                </div>
+                <div className="mt-6 space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
+                  {v.intro.map((p, i) => (
+                    <p key={`v-${idx}-i-${i}`}>{p}</p>
+                  ))}
                 </div>
               </div>
             </div>
+
+            <div className="mt-12 rounded-[34px] bg-[rgba(var(--marfim),0.65)] p-9 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] md:p-12">
+              <div className="font-serif text-2xl text-[rgb(var(--azul-safira))] md:text-3xl">
+                {v.listTitle}
+              </div>
+              <ul className="mt-6 grid gap-3 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:grid-cols-2 md:text-base">
+                {v.items.map((it) => (
+                  <li key={it} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--dourado-champanhe))]" />
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-12 mx-auto max-w-3xl space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
+              {v.closing.map((p, i) => (
+                <p key={`v-${idx}-c-${i}`}>{p}</p>
+              ))}
+              <p className="pt-4 font-serif text-lg italic text-[rgb(var(--azul-safira))]">
+                {v.signature}
+              </p>
+            </div>
+          </Container>
+        </section>
+      ))}
+
+      <section className="mt-20 md:mt-28 bg-[rgb(var(--azul-safira))] py-20 md:py-24">
+        <Container className="text-center">
+          <h2 className="mx-auto max-w-xl font-serif text-3xl font-normal text-[rgb(var(--marfim))] md:text-4xl">
+            Let’s Create Something Beautiful
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-[rgb(var(--azul-claro))]">
+            Share your date, guest count and the atmosphere you have in mind. We will respond with
+            clarity and the next steps.
+          </p>
+          <div className="mt-10 flex justify-center">
+            <Button to="/contact" variant="gold" size="lg">
+              Begin Your Wedding Journey <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </Container>
       </section>

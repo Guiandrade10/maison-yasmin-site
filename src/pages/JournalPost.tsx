@@ -66,7 +66,7 @@ export default function JournalPost() {
               </p>
               <div className="mt-10">
                 <Button to="/contact" size="lg">
-                  Get in touch <ArrowRight className="ml-2 h-4 w-4" />
+                  Begin Your Wedding Journey <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>

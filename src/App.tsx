@@ -6,6 +6,11 @@ import { SiteLayout } from '@/components/SiteLayout'
 const Home = lazy(() => import('@/pages/Home'))
 const About = lazy(() => import('@/pages/About'))
 const Services = lazy(() => import('@/pages/Services'))
+const Venues = lazy(() => import('@/pages/Venues'))
+const VenueCategory = lazy(() => import('@/pages/VenueCategory'))
+const Portfolio = lazy(() => import('@/pages/Portfolio'))
+const KindWords = lazy(() => import('@/pages/KindWords'))
+const WhyMaisonYasmini = lazy(() => import('@/pages/WhyMaisonYasmini'))
 const Experience = lazy(() => import('@/pages/Experience'))
 const Faq = lazy(() => import('@/pages/Faq'))
 const Journal = lazy(() => import('@/pages/Journal'))
@@ -31,6 +36,11 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/venues" element={<Venues />} />
+          <Route path="/venues/:slug" element={<VenueCategory />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/kind-words" element={<KindWords />} />
+          <Route path="/why-maison-yasmini" element={<WhyMaisonYasmini />} />
           <Route path="/process" element={<Experience />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/journal" element={<Journal />} />

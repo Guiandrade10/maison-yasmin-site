@@ -7,7 +7,7 @@ import { useSeo } from '@/hooks/useSeo'
 export default function NotFound() {
   useSeo({
     title: 'Page not found',
-    description: 'Page not found. Return to Maison Yasmini — boutique wedding planning in the Algarve.',
+    description: 'Page not found. Return to Maison Yasmini, boutique wedding planning in the Algarve.',
   })
 
   return (
