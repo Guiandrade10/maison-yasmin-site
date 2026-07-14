@@ -89,6 +89,8 @@ export type JournalPost = {
 //   - Portrait of Yasmini for the About page
 // Photos from Images-reference/ are integrated via scripts/process-images.mjs
 // and referenced by kebab-case names in public/images/.
+import dims from './image-dimensions.json'
+
 export type ImageAsset = {
   src: string
   srcSet: string
@@ -97,24 +99,36 @@ export type ImageAsset = {
   height: number
 }
 
-const build = (name: string, width: number, height: number): ImageAsset => ({
-  src: `/images/${name}-1600.webp`,
-  srcSet: `/images/${name}-800.webp 800w, /images/${name}-1600.webp 1600w`,
-  sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px',
-  width,
-  height,
-})
+const build = (name: string): ImageAsset => {
+  const source = (dims as Record<string, { width: number; height: number }>)[name]
+  if (!source) {
+    throw new Error(`Missing dimensions for image slot "${name}". Run \`npm run process:images\`.`)
+  }
+  const { width, height } = source
+  // scripts/process-images.mjs writes both -800.webp and -1600.webp using
+  // `withoutEnlargement`, so when the source is narrower than 1600px the
+  // -1600.webp file actually contains the original width. Use the real width
+  // in the srcSet descriptor to keep it honest for the browser picker.
+  const large = Math.max(width, 800)
+  return {
+    src: `/images/${name}-1600.webp`,
+    srcSet: `/images/${name}-800.webp 800w, /images/${name}-1600.webp ${large}w`,
+    sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px',
+    width,
+    height,
+  }
+}
 
 export const imageAssets = {
-  hero: build('hero', 1600, 900),
-  yasminiPortrait: build('portrait', 1200, 1600),
-  algarveLandscape: build('algarve', 1600, 900),
-  detail: build('detail', 1600, 1200),
-  contactSunset: build('contact-sunset', 1600, 900),
-  servicePlanning: build('service-planning', 1600, 1100),
-  serviceEvents: build('service-events', 1600, 1100),
-  serviceStyling: build('service-styling', 1600, 1100),
-  stylingHero: build('styling-hero', 1600, 900),
+  hero: build('hero'),
+  yasminiPortrait: build('portrait'),
+  algarveLandscape: build('algarve'),
+  detail: build('detail'),
+  contactSunset: build('contact-sunset'),
+  servicePlanning: build('service-planning'),
+  serviceEvents: build('service-events'),
+  serviceStyling: build('service-styling'),
+  stylingHero: build('styling-hero'),
 } as const
 
 export const imageUrls = {
@@ -335,10 +349,10 @@ export type VenueCategoryData = {
 }
 
 const venueGalleryPlaceholder = (slot: string): ImageAsset[] => [
-  build(`${slot}-01`, 1600, 1067),
-  build(`${slot}-02`, 1600, 1067),
-  build(`${slot}-03`, 1600, 1067),
-  build(`${slot}-04`, 1600, 1067),
+  build(`${slot}-01`),
+  build(`${slot}-02`),
+  build(`${slot}-03`),
+  build(`${slot}-04`),
 ]
 
 export const venueCategories: VenueCategoryData[] = [
@@ -355,7 +369,7 @@ export const venueCategories: VenueCategoryData[] = [
       'Every recommendation is tailored to your style, guest experience and wedding aspirations, ensuring a celebration that feels both effortless and extraordinary.',
       'Because extraordinary love deserves an extraordinary setting.',
     ],
-    hero: build('venue-resorts-01', 1600, 900),
+    hero: build('venue-resorts-01'),
     gallery: venueGalleryPlaceholder('venue-resorts'),
   },
   {
@@ -372,7 +386,7 @@ export const venueCategories: VenueCategoryData[] = [
       'Private villas offer something truly rare: the opportunity to transform your wedding into a private destination experience where every guest feels at home while enjoying the finest standards of luxury and hospitality.',
       'Because the greatest luxury is celebrating in a place that feels exclusively yours.',
     ],
-    hero: build('venue-villas-01', 1600, 900),
+    hero: build('venue-villas-01'),
     gallery: venueGalleryPlaceholder('venue-villas'),
   },
   {
@@ -388,7 +402,7 @@ export const venueCategories: VenueCategoryData[] = [
       'From bespoke menus and curated wine pairings to personalised guest experiences, every element is designed to delight the senses and create memories that will last a lifetime.',
       'Because unforgettable weddings are remembered not only for how they looked, but also for how they made people feel.',
     ],
-    hero: build('venue-restaurants-01', 1600, 900),
+    hero: build('venue-restaurants-01'),
     gallery: venueGalleryPlaceholder('venue-restaurants'),
   },
   {
@@ -432,24 +446,56 @@ export const venueCategories: VenueCategoryData[] = [
       },
     ],
     signature: 'Maison Yasmini. Where Timeless Romance Meets the Beauty of Portugal.',
-    hero: build('venue-estates-01', 1600, 900),
+    hero: build('venue-estates-01'),
     gallery: venueGalleryPlaceholder('venue-estates'),
   },
 ]
 
 /* ─── Portfolio ──────────────────────────────────────────── */
 
-export type PortfolioImage = ImageAsset & { alt: string; category?: string }
+export type PortfolioCategory = 'Ceremony' | 'Reception' | 'Details' | 'Destination'
+export type PortfolioImage = ImageAsset & { alt: string; category: PortfolioCategory }
 
-// TODO(client): populate with real portfolio images once scripts/process-images.mjs
-// has processed Images-reference/ into public/images/portfolio-*.webp. Alt text
-// must be descriptive of the specific moment, never generic.
+export const portfolioCategories: PortfolioCategory[] = ['Ceremony', 'Reception', 'Details', 'Destination']
+
+// Curated selection from Images-reference/ (via scripts/process-images.mjs).
+// Order is editorial — first three are eager-loaded on Portfolio, rest lazy.
+// TODO(client): once real, authorised couple photos land, replace AI/stock
+// imagery here and secure written releases before publishing (see PENDENCIAS-CLIENTE.md).
 export const portfolioImages: PortfolioImage[] = [
-  { ...build('portfolio-hero-01', 1600, 1067), alt: 'Couple sharing a quiet moment at sunset on the Algarve coast', category: 'Ceremony' },
-  { ...build('portfolio-ceremony-01', 1600, 1067), alt: 'Intimate outdoor ceremony under a floral arch', category: 'Ceremony' },
-  { ...build('portfolio-reception-01', 1600, 1067), alt: 'Long dinner table dressed with candlelight and garden florals', category: 'Reception' },
-  { ...build('portfolio-details-01', 1600, 1067), alt: 'Bespoke stationery suite in soft ivory and champagne tones', category: 'Details' },
-  { ...build('portfolio-algarve-01', 1600, 1067), alt: 'Golden Algarve cliffs at the end of the afternoon', category: 'Destination' },
+  // Ceremony
+  { ...build('portfolio-ceremony-06'), alt: 'Garden ceremony framed by pine trees with the Atlantic behind the aisle of white petals', category: 'Ceremony' },
+  { ...build('portfolio-ceremony-04'), alt: 'Bride and groom exchanging vows under a white floral chuppah above the sea', category: 'Ceremony' },
+  { ...build('portfolio-ceremony-05'), alt: 'Beach ceremony under a wooden canopy draped with linen and eucalyptus', category: 'Ceremony' },
+  { ...build('portfolio-ceremony-01'), alt: 'Aisle lined with hydrangea pedestals leading to a cliffside altar', category: 'Ceremony' },
+  { ...build('portfolio-hero-01'), alt: 'Clifftop ceremony overlooking a turquoise cove at midday', category: 'Ceremony' },
+  { ...build('portfolio-hero-03'), alt: 'Sunlit chuppah dressed in white roses and greenery on a lawn above the sea', category: 'Ceremony' },
+  { ...build('portfolio-ceremony-02'), alt: 'Beach vow exchange at sunset with the couple lit by warm coastal light', category: 'Ceremony' },
+
+  // Reception
+  { ...build('portfolio-reception-05'), alt: 'Long farmhouse dinner table beneath a fairy-light curtain against a whitewashed façade', category: 'Reception' },
+  { ...build('portfolio-reception-02'), alt: 'Vineyard reception with a long table under a canopy of café lights at dusk', category: 'Reception' },
+  { ...build('portfolio-reception-07'), alt: 'Guests gathered at a candlelit outdoor dinner beneath a suspended sky of fairy lights', category: 'Reception' },
+  { ...build('portfolio-reception-06'), alt: 'Ballroom tablescape of gold chairs, taper candles and full white rose arrangements', category: 'Reception' },
+  { ...build('portfolio-reception-08'), alt: 'Terrace dinner table dressed in cane chairs beneath curtains of warm string lights', category: 'Reception' },
+  { ...build('portfolio-reception-01'), alt: 'Grand ballroom with gilded chairs, chandeliers and towering white centrepieces', category: 'Reception' },
+  { ...build('portfolio-reception-03'), alt: 'Poolside reception at blue hour lit by silver candelabras and dozens of tapers', category: 'Reception' },
+
+  // Details
+  { ...build('portfolio-details-01'), alt: 'Peach ribbon, wax-sealed invitation suite and dried carnations on linen', category: 'Details' },
+  { ...build('portfolio-details-02'), alt: 'Cascading bridal bouquet of white phalaenopsis orchids in the bride’s hands', category: 'Details' },
+  { ...build('portfolio-details-04'), alt: 'His and hers wedding bands resting on ivory silk beside dried gypsophila', category: 'Details' },
+
+  // Destination
+  { ...build('portfolio-algarve-02'), alt: 'Couple kissing between rows of vines with a rose-coloured Algarve sunset behind them', category: 'Destination' },
+  { ...build('portfolio-algarve-03'), alt: 'Elopement altar under natural sandstone arches on an Algarve beach', category: 'Destination' },
+  { ...build('portfolio-algarve-04'), alt: 'Open-air stretch tent reception overlooking the ocean under a rising moon', category: 'Destination' },
+  { ...build('portfolio-algarve-05'), alt: 'Aerial view of a long dinner table lit by pendant bulbs between cypress trees', category: 'Destination' },
+  { ...build('portfolio-algarve-07'), alt: 'Beachfront ceremony arch at dusk under a string of Edison bulbs and a lone palm', category: 'Destination' },
+  { ...build('portfolio-hero-04'), alt: 'Couple embracing on a rocky Algarve cliff as the last sun of the day meets the sea', category: 'Destination' },
+  { ...build('portfolio-hero-05'), alt: 'Bride and groom facing each other on the sand at golden hour with the waves behind them', category: 'Destination' },
+  { ...build('portfolio-algarve-01'), alt: 'Ceremony aisle scattered with rose petals leading to the sea between coastal pines', category: 'Destination' },
+  { ...build('portfolio-hero-07'), alt: 'Distant view of a couple embracing on a sculpted rock plateau above the Atlantic', category: 'Destination' },
 ]
 
 /* ─── Journal ────────────────────────────────────────────── */

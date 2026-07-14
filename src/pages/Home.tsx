@@ -112,73 +112,81 @@ export default function Home() {
 
   return (
     <div>
-      {/* ── 1. Hero ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[rgb(var(--marfim))] pb-20 pt-16 md:pb-28 md:pt-20">
+      {/* ── 1. Hero (editorial full-bleed) ─────────────────── */}
+      <section className="relative isolate min-h-[85svh] w-full overflow-hidden md:min-h-[92svh]">
+        <img
+          src={imageAssets.hero.src}
+          srcSet={imageAssets.hero.srcSet}
+          sizes="100vw"
+          alt="Couple at sunset overlooking the Atlantic on the Algarve coast, the setting for an intimate destination wedding"
+          width={imageAssets.hero.width}
+          height={imageAssets.hero.height}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
+          className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 90% 55% at 50% 0%, rgba(220,199,161,0.22) 0%, transparent 72%)',
+              'linear-gradient(180deg, rgba(15,26,54,0.55) 0%, rgba(15,26,54,0.25) 45%, rgba(15,26,54,0.55) 100%)',
           }}
         />
 
-        <Container className="relative">
-          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
-            <div className="text-center md:col-span-6 md:text-left">
-              <div className="flex justify-center md:justify-start">
-                <div className="scale-75 md:scale-90">
-                  <MYMonogram />
-                </div>
-              </div>
-
-              <p className="mt-4 text-[11px] font-medium tracking-[0.32em] text-azul-real md:mt-6 md:text-xs">
-                MAISON YASMINI · WEDDING PLANNER
-              </p>
-
-              <h1 className="mt-5 font-serif text-4xl font-normal leading-[1.06] tracking-[0.14em] text-[rgb(var(--azul-safira))] md:text-5xl md:tracking-[0.18em]">
-                Destination Weddings & Event Planning in the Algarve
-              </h1>
-
-              <Filete className="mx-auto mt-8 max-w-xs md:mx-0" />
-
-              <p className="mx-auto mt-8 max-w-md font-serif text-lg font-normal italic text-[rgb(var(--azul-safira))] opacity-80 md:mx-0 md:text-xl">
-                Luxury intimate destination weddings in Portugal, beautifully curated around your story.
-              </p>
-
-              <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:justify-start">
-                <Button to="/contact" size="lg">
-                  Begin Your Wedding Journey
-                </Button>
-                <Button to="/venues" variant="secondary" size="lg">
-                  Explore Our Venues
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+        <div className="relative z-10 flex min-h-[85svh] items-center justify-center px-6 py-24 text-center md:min-h-[92svh] md:py-28">
+          <div className="mx-auto max-w-3xl text-[rgb(var(--marfim))]">
+            <div className="flex justify-center text-[rgb(var(--dourado-champanhe))]">
+              <div className="scale-75 md:scale-90">
+                <MYMonogram />
               </div>
             </div>
 
-            <div className="md:col-span-6">
-              <div className="relative overflow-hidden rounded-[28px] ring-1 ring-inset ring-[rgba(220,199,161,0.6)]">
-                <img
-                  src={imageAssets.hero.src}
-                  srcSet={imageAssets.hero.srcSet}
-                  sizes={imageAssets.hero.sizes}
-                  alt="Couple at sunset on the Algarve coast, the setting for an intimate destination wedding"
-                  width={imageAssets.hero.width}
-                  height={imageAssets.hero.height}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="h-[360px] w-full object-cover md:h-[560px]"
-                />
-              </div>
+            <p className="mt-4 text-[11px] font-medium tracking-[0.32em] text-[rgb(var(--marfim))]/85 md:mt-6 md:text-xs">
+              MAISON YASMINI · WEDDING PLANNER
+            </p>
+
+            <h1 className="mt-5 font-serif text-3xl font-normal leading-[1.08] tracking-[0.08em] text-[rgb(var(--marfim))] sm:text-4xl md:mt-6 md:text-6xl md:tracking-[0.14em]">
+              Destination Weddings & Event Planning in the Algarve
+            </h1>
+
+            <Filete className="mx-auto mt-8 max-w-xs text-[rgb(var(--dourado-champanhe))]" />
+
+            <p className="mx-auto mt-8 max-w-md font-serif text-base font-normal italic text-[rgb(var(--marfim))]/90 md:text-lg">
+              Luxury intimate destination weddings in Portugal, beautifully curated around your story.
+            </p>
+
+            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <Button to="/contact" variant="gold" size="lg">
+                Begin Your Wedding Journey
+              </Button>
+              <Button
+                to="/venues"
+                variant="ghost"
+                size="lg"
+                className="border border-[rgba(250,247,240,0.55)] text-[rgb(var(--marfim))] hover:bg-[rgba(250,247,240,0.12)]"
+              >
+                Explore Our Venues
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
-        </Container>
+        </div>
+
+        <a
+          href="#intimate-weddings-intro"
+          aria-label="Scroll to next section"
+          className="absolute inset-x-0 bottom-6 z-10 mx-auto flex h-10 w-10 items-center justify-center text-[rgb(var(--dourado-champanhe))] opacity-80 transition hover:opacity-100 motion-safe:animate-[pulse_2.4s_ease-in-out_infinite]"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
       </section>
 
       {/* ── 2. Intimate Weddings intro ─────────────────────── */}
-      <section className="bg-[rgb(var(--ouro-claro))] py-16 md:py-20">
+      <section id="intimate-weddings-intro" className="bg-[rgb(var(--ouro-claro))] py-16 md:py-20">
         <Container>
           <SectionHeading
             align="center"

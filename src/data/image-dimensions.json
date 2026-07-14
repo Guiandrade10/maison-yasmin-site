@@ -1,0 +1,238 @@
+{
+  "algarve": {
+    "width": 1024,
+    "height": 683
+  },
+  "contact-sunset": {
+    "width": 5355,
+    "height": 3009
+  },
+  "detail": {
+    "width": 822,
+    "height": 1233
+  },
+  "hero": {
+    "width": 1360,
+    "height": 913
+  },
+  "portfolio-algarve-01": {
+    "width": 1024,
+    "height": 683
+  },
+  "portfolio-algarve-02": {
+    "width": 1024,
+    "height": 819
+  },
+  "portfolio-algarve-03": {
+    "width": 810,
+    "height": 640
+  },
+  "portfolio-algarve-04": {
+    "width": 1920,
+    "height": 1280
+  },
+  "portfolio-algarve-05": {
+    "width": 1800,
+    "height": 2178
+  },
+  "portfolio-algarve-06": {
+    "width": 700,
+    "height": 750
+  },
+  "portfolio-algarve-07": {
+    "width": 1050,
+    "height": 703
+  },
+  "portfolio-ceremony-01": {
+    "width": 1024,
+    "height": 683
+  },
+  "portfolio-ceremony-02": {
+    "width": 850,
+    "height": 567
+  },
+  "portfolio-ceremony-03": {
+    "width": 1706,
+    "height": 2560
+  },
+  "portfolio-ceremony-04": {
+    "width": 800,
+    "height": 1200
+  },
+  "portfolio-ceremony-05": {
+    "width": 960,
+    "height": 640
+  },
+  "portfolio-ceremony-06": {
+    "width": 1600,
+    "height": 1068
+  },
+  "portfolio-ceremony-07": {
+    "width": 675,
+    "height": 375
+  },
+  "portfolio-ceremony-08": {
+    "width": 800,
+    "height": 1200
+  },
+  "portfolio-details-01": {
+    "width": 822,
+    "height": 1233
+  },
+  "portfolio-details-02": {
+    "width": 2400,
+    "height": 3600
+  },
+  "portfolio-details-03": {
+    "width": 980,
+    "height": 980
+  },
+  "portfolio-details-04": {
+    "width": 1200,
+    "height": 1500
+  },
+  "portfolio-hero-01": {
+    "width": 900,
+    "height": 504
+  },
+  "portfolio-hero-02": {
+    "width": 1360,
+    "height": 913
+  },
+  "portfolio-hero-03": {
+    "width": 2048,
+    "height": 1365
+  },
+  "portfolio-hero-04": {
+    "width": 924,
+    "height": 1386
+  },
+  "portfolio-hero-05": {
+    "width": 1200,
+    "height": 801
+  },
+  "portfolio-hero-06": {
+    "width": 400,
+    "height": 400
+  },
+  "portfolio-hero-07": {
+    "width": 5355,
+    "height": 3009
+  },
+  "portfolio-reception-01": {
+    "width": 1536,
+    "height": 1024
+  },
+  "portfolio-reception-02": {
+    "width": 960,
+    "height": 640
+  },
+  "portfolio-reception-03": {
+    "width": 2880,
+    "height": 1920
+  },
+  "portfolio-reception-04": {
+    "width": 640,
+    "height": 427
+  },
+  "portfolio-reception-05": {
+    "width": 1600,
+    "height": 1066
+  },
+  "portfolio-reception-06": {
+    "width": 3000,
+    "height": 2001
+  },
+  "portfolio-reception-07": {
+    "width": 1400,
+    "height": 934
+  },
+  "portfolio-reception-08": {
+    "width": 1200,
+    "height": 678
+  },
+  "portrait": {
+    "width": 1706,
+    "height": 2560
+  },
+  "service-events": {
+    "width": 1536,
+    "height": 1024
+  },
+  "service-planning": {
+    "width": 1024,
+    "height": 683
+  },
+  "service-styling": {
+    "width": 960,
+    "height": 640
+  },
+  "styling-hero": {
+    "width": 2880,
+    "height": 1920
+  },
+  "venue-estates-01": {
+    "width": 700,
+    "height": 750
+  },
+  "venue-estates-02": {
+    "width": 1050,
+    "height": 703
+  },
+  "venue-estates-03": {
+    "width": 850,
+    "height": 567
+  },
+  "venue-estates-04": {
+    "width": 1706,
+    "height": 2560
+  },
+  "venue-resorts-01": {
+    "width": 1024,
+    "height": 819
+  },
+  "venue-resorts-02": {
+    "width": 810,
+    "height": 640
+  },
+  "venue-resorts-03": {
+    "width": 2048,
+    "height": 1365
+  },
+  "venue-resorts-04": {
+    "width": 924,
+    "height": 1386
+  },
+  "venue-restaurants-01": {
+    "width": 3000,
+    "height": 2001
+  },
+  "venue-restaurants-02": {
+    "width": 1400,
+    "height": 934
+  },
+  "venue-restaurants-03": {
+    "width": 1200,
+    "height": 678
+  },
+  "venue-restaurants-04": {
+    "width": 2400,
+    "height": 3600
+  },
+  "venue-villas-01": {
+    "width": 1920,
+    "height": 1280
+  },
+  "venue-villas-02": {
+    "width": 1800,
+    "height": 2178
+  },
+  "venue-villas-03": {
+    "width": 640,
+    "height": 427
+  },
+  "venue-villas-04": {
+    "width": 1600,
+    "height": 1066
+  }
+}

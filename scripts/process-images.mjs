@@ -7,7 +7,7 @@
 //
 // The folder mapping follows section 7.3 of ATUALIZACAO-MAISON-YASMINI-V2.md.
 
-import { mkdir, readdir, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -17,6 +17,7 @@ import sharp from 'sharp'
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const SOURCE = join(ROOT, 'Images-reference')
 const OUT = join(ROOT, 'public', 'images')
+const DIMENSIONS_PATH = join(ROOT, 'src', 'data', 'image-dimensions.json')
 
 const WIDTHS = [800, 1600]
 const QUALITY = 80
@@ -32,12 +33,15 @@ const FOLDER = {
 
 // slot name → { folder, sourceIndex (1-based) }
 // Same source photo can feed multiple slots.
+// portrait: aguarda retrato profissional da Yasmini — TODO(client)
+// Enquanto a foto oficial não chega, `public/images/portrait-{800,1600}.webp`
+// é uma foto editorial vertical temporária (Ceremonies/3.jpg) — ver PENDENCIAS-CLIENTE.md
 const SLOTS = [
-  // Home / global
-  { slot: 'hero', folder: FOLDER.hero, index: 1 },
+  // Home / global — hero uses the sunset couple with sea view (editorial full-bleed)
+  { slot: 'hero', folder: FOLDER.hero, index: 2 },
   { slot: 'algarve', folder: FOLDER.algarve, index: 1 },
   { slot: 'detail', folder: FOLDER.details, index: 1 },
-  { slot: 'contact-sunset', folder: FOLDER.hero, index: 2 },
+  { slot: 'contact-sunset', folder: FOLDER.hero, index: 7 },
 
   // Services
   { slot: 'service-planning', folder: FOLDER.ceremonies, index: 1 },
@@ -66,12 +70,12 @@ const SLOTS = [
   { slot: 'venue-estates-03', folder: FOLDER.ceremonies, index: 2 },
   { slot: 'venue-estates-04', folder: FOLDER.ceremonies, index: 3 },
 
-  // Portfolio (subset — populate more as photos land)
-  { slot: 'portfolio-hero-01', folder: FOLDER.hero, index: 5 },
-  { slot: 'portfolio-ceremony-01', folder: FOLDER.ceremonies, index: 4 },
-  { slot: 'portfolio-reception-01', folder: FOLDER.reception, index: 5 },
-  { slot: 'portfolio-details-01', folder: FOLDER.details, index: 3 },
-  { slot: 'portfolio-algarve-01', folder: FOLDER.algarve, index: 3 },
+  // Portfolio — every source photo gets a slot; content.ts curates the display list.
+  ...Array.from({ length: 7 }, (_, i) => ({ slot: `portfolio-hero-${String(i + 1).padStart(2, '0')}`, folder: FOLDER.hero, index: i + 1 })),
+  ...Array.from({ length: 8 }, (_, i) => ({ slot: `portfolio-ceremony-${String(i + 1).padStart(2, '0')}`, folder: FOLDER.ceremonies, index: i + 1 })),
+  ...Array.from({ length: 8 }, (_, i) => ({ slot: `portfolio-reception-${String(i + 1).padStart(2, '0')}`, folder: FOLDER.reception, index: i + 1 })),
+  ...Array.from({ length: 4 }, (_, i) => ({ slot: `portfolio-details-${String(i + 1).padStart(2, '0')}`, folder: FOLDER.details, index: i + 1 })),
+  ...Array.from({ length: 7 }, (_, i) => ({ slot: `portfolio-algarve-${String(i + 1).padStart(2, '0')}`, folder: FOLDER.algarve, index: i + 1 })),
 ]
 
 async function findSource(folder, index) {
@@ -123,11 +127,23 @@ async function main() {
     }
   }
 
-  // Emit a JSON with real dimensions for reference. Not consumed at build
-  // time yet, but useful for keeping content.ts widths honest.
-  const dimensionsPath = join(OUT, 'dimensions.json')
-  await writeFile(dimensionsPath, JSON.stringify(dimensions, null, 2), 'utf8')
-  console.log(`\n✓ Wrote ${dimensionsPath}`)
+  // Emit real dimensions to src/data — consumed by content.ts build() so
+  // ImageAsset width/height match the actual files (avoids CLS + wrong ratio).
+  // Merge with existing dims to preserve slots processed outside this script
+  // (e.g. `portrait` while awaiting the client's professional photo).
+  await mkdir(dirname(DIMENSIONS_PATH), { recursive: true })
+  let existing = {}
+  if (existsSync(DIMENSIONS_PATH)) {
+    try {
+      existing = JSON.parse(await readFile(DIMENSIONS_PATH, 'utf8'))
+    } catch {
+      existing = {}
+    }
+  }
+  const merged = { ...existing, ...dimensions }
+  const sorted = Object.fromEntries(Object.keys(merged).sort().map((k) => [k, merged[k]]))
+  await writeFile(DIMENSIONS_PATH, JSON.stringify(sorted, null, 2), 'utf8')
+  console.log(`\n✓ Wrote ${DIMENSIONS_PATH}`)
 }
 
 main().catch((error) => {

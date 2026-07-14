@@ -25,7 +25,8 @@ Ainda em aberto:
 
 | Slot | Onde aparece | Precisa da cliente |
 | --- | --- | --- |
-| `portrait` | Página `/about` (Our Story) | **Retrato profissional de Yasmini.** Não veio nas 5 pastas. Sem esta foto, mantém-se o placeholder (still-life). |
+| `portrait` | Página `/about` (Our Story) | **Retrato profissional de Yasmini.** Não veio nas 5 pastas. Enquanto não chega, o slot usa uma foto editorial vertical de casal como imagem institucional temporária (`Cerimónias e Momentos/3.jpg`, 1706×2560). Substituir com foto real assim que existir. |
+| `hero` full-bleed | Home (`/`) | **Export do hero em alta resolução.** A foto atual (`Hero Banner/2.jpg`, 1360×913 — casal ao pôr do sol com vista para o mar) ficou abaixo do ideal para uma imagem full-bleed (recomenda-se ≥1920 px de largura). Pedir à cliente o mesmo enquadramento em resolução original ou ≥1920×1280. |
 | Portfólio expandido | `/portfolio` | Selecção premium de 20–30 imagens autorizadas para ampliar o grid. Actualmente 5 slots preenchidos como amostra. |
 | Autorizações | Portfolio (`/portfolio`) | **Autorização escrita** dos casais fotografados para uso online. |
 
