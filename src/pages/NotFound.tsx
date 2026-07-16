@@ -3,24 +3,28 @@ import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { useSeo } from '@/hooks/useSeo'
+import { useLang } from '@/i18n/LangContext'
 
 export default function NotFound() {
+  const { content, localizePath } = useLang()
   useSeo({
-    title: 'Page not found',
-    description: 'Page not found. Return to Maison Yasmini, boutique wedding planning in the Algarve.',
+    title: content.seo.notFound.title,
+    description: content.seo.notFound.description,
   })
+
+  const t = content.notFound
 
   return (
     <div className="pt-14 md:pt-20">
       <Container>
         <div className="rounded-[34px] bg-[rgba(var(--marfim),0.65)] p-10 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] md:p-14">
-          <div className="font-serif text-4xl leading-tight">Page not found</div>
+          <div className="font-serif text-4xl leading-tight">{t.title}</div>
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
-            The page you are looking for doesn’t exist. Return to the homepage or explore the main sections.
+            {t.description}
           </p>
           <div className="mt-8">
-            <Button to="/" variant="secondary" size="lg">
-              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+            <Button to={localizePath('/')} variant="secondary" size="lg">
+              <ArrowLeft className="mr-2 h-4 w-4" /> {t.ctaBack}
             </Button>
           </div>
         </div>
@@ -28,4 +32,3 @@ export default function NotFound() {
     </div>
   )
 }
-

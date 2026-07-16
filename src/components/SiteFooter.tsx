@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 import { siteConfig } from '@/config/site'
 import { Container } from '@/components/Container'
+import { useLang } from '@/i18n/LangContext'
 
 function MYMonogramSmall() {
   return (
@@ -36,26 +37,18 @@ function Filete() {
   )
 }
 
-const primaryLinks = [
-  { to: '/services', label: 'Services' },
-  { to: '/venues', label: 'Venues' },
-  { to: '/portfolio', label: 'Portfolio' },
-  { to: '/kind-words', label: 'Kind Words' },
-  { to: '/about', label: 'Our Story' },
-  { to: '/contact', label: 'Get in Touch' },
-]
-
-const secondaryLinks = [
-  { to: '/why-maison-yasmini', label: 'Why Maison Yasmini' },
-  { to: '/process', label: 'Process' },
-  { to: '/faq', label: 'FAQ' },
-  { to: '/journal', label: 'Journal' },
-  { to: '/privacy', label: 'Privacy' },
-]
-
-const pilares = ['Excellence', 'Purpose', 'Elegance', 'Trust', 'Memories']
-
 export function SiteFooter() {
+  const { content, localizePath } = useLang()
+  const primaryLinks = content.footer.primaryLinks.map((l) => ({
+    to: localizePath(l.toEn),
+    label: l.label,
+  }))
+  const secondaryLinks = content.footer.secondaryLinks.map((l) => ({
+    to: localizePath(l.toEn),
+    label: l.label,
+  }))
+  const pilares = content.footer.pilares
+
   return (
     <footer className="bg-[rgb(var(--azul-safira))]">
       <Container className="py-16">
@@ -74,7 +67,7 @@ export function SiteFooter() {
 
         {/* Tagline */}
         <p className="mx-auto max-w-sm text-center font-serif text-sm italic font-normal text-[rgb(var(--marfim))] opacity-80">
-          "{siteConfig.tagline}"
+          "{content.footer.tagline}"
         </p>
 
         {/* Nav links (primary) */}
@@ -117,10 +110,13 @@ export function SiteFooter() {
 
         {/* Bottom row */}
         <div className="mt-6 flex flex-col items-center justify-between gap-4 text-[11px] text-[rgba(167,183,209,0.7)] md:flex-row md:text-xs">
-          <span>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
+          <span>
+            {content.footer.rightsPrefix} {new Date().getFullYear()} {siteConfig.name}. {content.footer.rightsSuffix}
+          </span>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <a
               href={`mailto:${siteConfig.contactEmail}`}
+              aria-label={content.footer.contactEmailAria}
               className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
             >
               {siteConfig.contactEmail}
@@ -131,7 +127,7 @@ export function SiteFooter() {
               rel="noreferrer noopener"
               className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
             >
-              WhatsApp
+              {content.footer.whatsappLabel}
             </a>
           </div>
         </div>

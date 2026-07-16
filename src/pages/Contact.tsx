@@ -6,6 +6,7 @@ import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
 import { siteConfig } from '@/config/site'
 import { useSeo } from '@/hooks/useSeo'
+import { useLang } from '@/i18n/LangContext'
 
 type FormState = {
   names: string
@@ -21,34 +22,30 @@ type FormState = {
 
 type SubmitStatus = 'idle' | 'sending' | 'success' | 'error'
 
-const serviceOptions = [
-  'Wedding Planning & Coordination',
-  'Private Events',
-  'Wedding Design & Styling',
-  'Not sure yet',
-] as const
-
-const initialForm: FormState = {
-  names: '',
-  email: '',
-  country: '',
-  weddingDate: '',
-  guests: '',
-  serviceInterest: serviceOptions[0],
-  venueSelected: 'Not yet',
-  inspirationLink: '',
-  message: '',
-}
-
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default function Contact() {
+  const { content, localizePath } = useLang()
   useSeo({
-    title: 'Get in Touch',
+    title: content.seo.contact.title,
     path: '/contact',
-    description:
-      'Begin your wedding journey with Maison Yasmini. Share your date, guest count and vision, and we will guide you from there.',
+    description: content.seo.contact.description,
   })
+
+  const t = content.contact
+  const f = t.form
+  const serviceOptions = f.serviceOptions
+  const initialForm: FormState = {
+    names: '',
+    email: '',
+    country: '',
+    weddingDate: '',
+    guests: '',
+    serviceInterest: serviceOptions[0],
+    venueSelected: f.venueSelectedOptions.notYet,
+    inspirationLink: '',
+    message: '',
+  }
 
   const [form, setForm] = useState<FormState>(initialForm)
   const [status, setStatus] = useState<SubmitStatus>('idle')
@@ -70,9 +67,9 @@ export default function Contact() {
 
   const validate = (): boolean => {
     const next: Partial<Record<keyof FormState, string>> = {}
-    if (!form.names.trim()) next.names = 'Please share the names of the couple.'
-    if (!form.email.trim()) next.email = 'Please add an email so we can reply.'
-    else if (!emailPattern.test(form.email.trim())) next.email = 'That email address does not look right.'
+    if (!form.names.trim()) next.names = f.errorNames
+    if (!form.email.trim()) next.email = f.errorEmailRequired
+    else if (!emailPattern.test(form.email.trim())) next.email = f.errorEmailInvalid
     setFieldErrors(next)
     return Object.keys(next).length === 0
   }
@@ -119,11 +116,7 @@ export default function Contact() {
       setForm(initialForm)
     } catch (error) {
       setStatus('error')
-      setErrorMessage(
-        error instanceof Error && error.message
-          ? 'We could not send your inquiry right now. Please try again in a moment, or write to us directly.'
-          : 'Something went wrong on our side. Please write to us directly for now.',
-      )
+      setErrorMessage(error instanceof Error && error.message ? f.errorRetry : f.errorGeneric)
     }
   }
 
@@ -134,21 +127,21 @@ export default function Contact() {
           <div className="grid gap-10 md:grid-cols-12 md:gap-12">
             <SectionHeading
               className="md:col-span-5"
-              eyebrow="Get in Touch"
-              title="Begin Your Wedding Journey"
-              description="Share your date, guest count and the atmosphere you have in mind. We will respond with clarity and the next steps."
+              eyebrow={t.eyebrow}
+              title={t.title}
+              description={t.description}
             />
 
             <div className="md:col-span-7">
               <div className="rounded-[34px] bg-[rgba(var(--marfim),0.65)] p-8 ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] md:p-10">
                 {status === 'success' ? (
                   <div>
-                    <div className="font-serif text-3xl leading-tight">Thank you.</div>
+                    <div className="font-serif text-3xl leading-tight">{f.thankYouTitle}</div>
                     <p className="mt-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
-                      Your inquiry is with us. We reply within two working days from the Algarve.
+                      {f.thankYouBody}
                     </p>
                     <div className="mt-8 text-xs text-[rgb(var(--azul-safira))] opacity-80">
-                      Prefer email? Write to{' '}
+                      {f.preferEmail}{' '}
                       <a
                         className="underline underline-offset-4"
                         href={`mailto:${siteConfig.contactEmail}`}
@@ -163,7 +156,7 @@ export default function Contact() {
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          NAMES
+                          {f.labelNames}
                         </span>
                         <input
                           value={form.names}
@@ -181,7 +174,7 @@ export default function Contact() {
                       </label>
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          EMAIL
+                          {f.labelEmail}
                         </span>
                         <input
                           type="email"
@@ -203,7 +196,7 @@ export default function Contact() {
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          COUNTRY
+                          {f.labelCountry}
                         </span>
                         <input
                           value={form.country}
@@ -213,7 +206,7 @@ export default function Contact() {
                       </label>
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          WEDDING DATE
+                          {f.labelWeddingDate}
                         </span>
                         <input
                           type="date"
@@ -227,18 +220,18 @@ export default function Contact() {
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          ESTIMATED GUESTS
+                          {f.labelGuests}
                         </span>
                         <input
                           value={form.guests}
                           onChange={(e) => update('guests', e.target.value)}
-                          placeholder="e.g. 40"
+                          placeholder={f.guestsPlaceholder}
                           className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         />
                       </label>
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          SERVICE OF INTEREST
+                          {f.labelService}
                         </span>
                         <select
                           value={form.serviceInterest}
@@ -257,14 +250,14 @@ export default function Contact() {
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          VENUE ALREADY SELECTED?
+                          {f.labelVenueSelected}
                         </span>
                         <select
                           value={form.venueSelected}
                           onChange={(e) => update('venueSelected', e.target.value)}
                           className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         >
-                          {['Yes', 'Not yet'].map((o) => (
+                          {[f.venueSelectedOptions.yes, f.venueSelectedOptions.notYet].map((o) => (
                             <option key={o} value={o}>
                               {o}
                             </option>
@@ -274,12 +267,12 @@ export default function Contact() {
 
                       <label className="grid gap-2">
                         <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                          INSPIRATION LINK
+                          {f.labelInspiration}
                         </span>
                         <input
                           value={form.inspirationLink}
                           onChange={(e) => update('inspirationLink', e.target.value)}
-                          placeholder="Pinterest, Google Drive, Instagram…"
+                          placeholder={f.inspirationPlaceholder}
                           className="h-11 rounded-2xl bg-[rgba(var(--ouro-rose),0.75)] px-4 text-sm outline-none ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] focus:ring-[rgb(var(--azul-claro))]"
                         />
                       </label>
@@ -287,7 +280,7 @@ export default function Contact() {
 
                     <label className="grid gap-2">
                       <span className="text-xs font-medium tracking-[0.14em] text-[rgb(var(--azul-safira))]">
-                        MESSAGE
+                        {f.labelMessage}
                       </span>
                       <textarea
                         value={form.message}
@@ -299,7 +292,7 @@ export default function Contact() {
 
                     <div className="hidden" aria-hidden="true">
                       <label>
-                        Do not fill this field
+                        {f.honeypotLabel}
                         <input type="text" name="company" tabIndex={-1} autoComplete="off" />
                       </label>
                     </div>
@@ -310,7 +303,7 @@ export default function Contact() {
                         disabled={status === 'sending'}
                         className="flex w-full max-w-full items-center justify-center rounded-full bg-[rgb(var(--azul-noite))] px-6 py-3 text-sm font-medium tracking-wide text-[rgb(var(--marfim))] transition hover:bg-[rgb(var(--azul-safira))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--azul-claro))] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
                       >
-                        {status === 'sending' ? 'Sending…' : 'Send inquiry'}
+                        {status === 'sending' ? f.submitSending : f.submitIdle}
                         {status !== 'sending' && <ArrowRight className="ml-2 h-4 w-4 shrink-0" />}
                       </button>
 
@@ -325,15 +318,14 @@ export default function Contact() {
 
                       <div className="mt-3 space-y-1 text-xs leading-relaxed text-[rgb(var(--azul-safira))] opacity-80">
                         <div>
-                          By sending this inquiry you agree that we may reply to you by email or
-                          WhatsApp. Read our{' '}
-                          <Link className="underline underline-offset-4" to="/privacy">
-                            privacy policy
+                          {f.privacyLine.lead}
+                          <Link className="underline underline-offset-4" to={localizePath('/privacy')}>
+                            {f.privacyLine.linkLabel}
                           </Link>
-                          .
+                          {f.privacyLine.tail}
                         </div>
                         <div>
-                          Prefer email? Write to{' '}
+                          {f.preferEmail}{' '}
                           <a
                             className="underline underline-offset-4"
                             href={`mailto:${siteConfig.contactEmail}`}
@@ -343,14 +335,14 @@ export default function Contact() {
                           .
                         </div>
                         <div>
-                          Prefer WhatsApp?{' '}
+                          {f.preferWhatsAppQuestion}{' '}
                           <a
                             className="underline underline-offset-4"
                             href={siteConfig.whatsappUrl}
                             target="_blank"
                             rel="noreferrer noopener"
                           >
-                            Message us here
+                            {f.preferWhatsAppLink}
                           </a>
                           .
                         </div>

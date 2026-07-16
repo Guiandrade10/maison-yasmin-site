@@ -1,41 +1,26 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
-import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { useScrolled } from '@/hooks/useScrolled'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-
-type NavItem = { to: string; label: string; children?: { to: string; label: string }[] }
+import { useLang } from '@/i18n/LangContext'
 
 export function SiteHeader() {
   const scrolled = useScrolled(8)
   const [open, setOpen] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
+  const { lang, content, localizePath, alternate } = useLang()
+  const navigate = useNavigate()
 
-  const items = useMemo<NavItem[]>(
-    () => [
-      { to: '/services', label: 'Services' },
-      {
-        to: '/venues',
-        label: 'Venues',
-        children: [
-          { to: '/venues/luxury-resorts', label: 'Luxury Resorts & Boutique Hotels' },
-          { to: '/venues/private-villas', label: 'Private Villas' },
-          { to: '/venues/exclusive-restaurants', label: 'Exclusive Restaurants' },
-          { to: '/venues/country-estates', label: 'Country Estates & Vineyards' },
-        ],
-      },
-      { to: '/portfolio', label: 'Portfolio' },
-      { to: '/kind-words', label: 'Kind Words' },
-      { to: '/about', label: 'Our Story' },
-      { to: '/contact', label: 'Get in Touch' },
-    ],
-    [],
-  )
+  const items = content.header.navItems.map((item) => ({
+    to: localizePath(item.toEn),
+    label: item.label,
+    children: item.children?.map((c) => ({ to: localizePath(c.toEn), label: c.label })),
+  }))
 
   useEffect(() => {
     if (!open) return
@@ -69,6 +54,14 @@ export function SiteHeader() {
   }, [open])
 
   const desktopItems = items.slice(0, items.length - 1) // reserve last for CTA
+  const contactPath = localizePath('/contact')
+  const homePath = localizePath('/')
+
+  const switchTo = (target: 'en' | 'pt') => {
+    if (target === lang) return
+    setOpen(false)
+    navigate(target === 'en' ? alternate.en : alternate.pt)
+  }
 
   return (
     <header
@@ -81,11 +74,11 @@ export function SiteHeader() {
     >
       <Container className="flex h-16 items-center justify-between">
         <NavLink
-          to="/"
+          to={homePath}
           className="font-serif text-sm tracking-[0.22em] text-[rgb(var(--azul-safira))] no-underline hover:text-[rgb(var(--azul-noite))]"
           onClick={() => setOpen(false)}
         >
-          {siteConfig.name.toUpperCase()}
+          {content.header.brand.toUpperCase()}
         </NavLink>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -103,8 +96,39 @@ export function SiteHeader() {
               {item.label}
             </NavLink>
           ))}
-          <Button to="/contact" size="sm">
-            Begin Your Wedding Journey
+          <div
+            role="group"
+            aria-label={content.header.langSwitcher.ariaLabel}
+            className="flex items-center gap-1 text-[11px] tracking-[0.18em] text-[rgb(var(--azul-safira))]"
+          >
+            <button
+              type="button"
+              onClick={() => switchTo('en')}
+              aria-current={lang === 'en' ? 'true' : undefined}
+              className={cn(
+                'px-1 py-1 transition-opacity hover:opacity-70',
+                lang === 'en' && 'underline underline-offset-4 decoration-[rgb(var(--dourado-champanhe))]',
+              )}
+            >
+              {content.header.langSwitcher.en}
+            </button>
+            <span aria-hidden="true" className="text-[rgba(220,199,161,0.6)]">
+              ·
+            </span>
+            <button
+              type="button"
+              onClick={() => switchTo('pt')}
+              aria-current={lang === 'pt' ? 'true' : undefined}
+              className={cn(
+                'px-1 py-1 transition-opacity hover:opacity-70',
+                lang === 'pt' && 'underline underline-offset-4 decoration-[rgb(var(--dourado-champanhe))]',
+              )}
+            >
+              {content.header.langSwitcher.pt}
+            </button>
+          </div>
+          <Button to={contactPath} size="sm">
+            {content.header.ctaLabel}
           </Button>
         </nav>
 
@@ -112,7 +136,7 @@ export function SiteHeader() {
           ref={toggleRef}
           type="button"
           className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(241,230,200,0.7)] text-[rgb(var(--azul-safira))] ring-1 ring-inset ring-[rgba(220,199,161,0.8)] transition hover:bg-[rgb(var(--ouro-rose))] lg:hidden"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? content.header.menuClose : content.header.menuOpen}
           aria-expanded={open}
           aria-controls="site-mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -166,9 +190,41 @@ export function SiteHeader() {
             ))}
           </div>
 
+          <div
+            role="group"
+            aria-label={content.header.langSwitcher.ariaLabel}
+            className="mt-4 flex items-center justify-center gap-3 text-xs tracking-[0.18em] text-[rgb(var(--azul-safira))]"
+          >
+            <button
+              type="button"
+              onClick={() => switchTo('en')}
+              aria-current={lang === 'en' ? 'true' : undefined}
+              className={cn(
+                'px-2 py-1 transition-opacity hover:opacity-70',
+                lang === 'en' && 'underline underline-offset-4 decoration-[rgb(var(--dourado-champanhe))]',
+              )}
+            >
+              {content.header.langSwitcher.en}
+            </button>
+            <span aria-hidden="true" className="text-[rgba(220,199,161,0.6)]">
+              ·
+            </span>
+            <button
+              type="button"
+              onClick={() => switchTo('pt')}
+              aria-current={lang === 'pt' ? 'true' : undefined}
+              className={cn(
+                'px-2 py-1 transition-opacity hover:opacity-70',
+                lang === 'pt' && 'underline underline-offset-4 decoration-[rgb(var(--dourado-champanhe))]',
+              )}
+            >
+              {content.header.langSwitcher.pt}
+            </button>
+          </div>
+
           <div className="mt-4">
-            <Button to="/contact" className="w-full" size="lg">
-              Begin Your Wedding Journey
+            <Button to={contactPath} className="w-full" size="lg">
+              {content.header.ctaLabel}
             </Button>
           </div>
         </div>

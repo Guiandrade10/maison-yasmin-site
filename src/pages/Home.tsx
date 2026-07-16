@@ -6,13 +6,13 @@ import { Container } from '@/components/Container'
 import { SectionHeading } from '@/components/SectionHeading'
 import {
   imageAssets,
-  pilares,
   serviceVerticals,
   venueCategories,
   testimonials,
   SHOW_TESTIMONIALS,
 } from '@/data/content'
 import { useSeo } from '@/hooks/useSeo'
+import { useLang } from '@/i18n/LangContext'
 
 /* ─── Ornamentos ─────────────────────────────────────────── */
 
@@ -94,21 +94,19 @@ const pilarIcons: Record<string, JSX.Element> = {
   ),
 }
 
-const promiseBullets = [
-  'Personalised planning with complete dedication.',
-  'Exclusive intimate weddings for up to 75 guests.',
-  'Elegant and timeless design.',
-  'A calm, discreet and highly professional presence.',
-]
-
 /* ─── Página ─────────────────────────────────────────────── */
 
 export default function Home() {
+  const { content, localizePath } = useLang()
   useSeo({
     path: '/',
-    description:
-      'Luxury intimate weddings and destination weddings in Portugal for up to 75 guests, beautifully curated around your story.',
+    description: content.seo.home.description,
   })
+
+  const t = content.home
+  const contactPath = localizePath('/contact')
+  const venuesPath = localizePath('/venues')
+  const whyPath = localizePath('/why-maison-yasmini')
 
   return (
     <div>
@@ -118,7 +116,7 @@ export default function Home() {
           src={imageAssets.hero.src}
           srcSet={imageAssets.hero.srcSet}
           sizes="100vw"
-          alt="Couple at sunset overlooking the Atlantic on the Algarve coast, the setting for an intimate destination wedding"
+          alt={content.common.heroImageAlt}
           width={imageAssets.hero.width}
           height={imageAssets.hero.height}
           loading="eager"
@@ -144,30 +142,30 @@ export default function Home() {
             </div>
 
             <p className="mt-4 text-[11px] font-medium tracking-[0.32em] text-[rgb(var(--marfim))]/85 md:mt-6 md:text-xs">
-              MAISON YASMINI · WEDDING PLANNER
+              {t.hero.eyebrow}
             </p>
 
             <h1 className="mt-5 font-serif text-3xl font-normal leading-[1.08] tracking-[0.08em] text-[rgb(var(--marfim))] sm:text-4xl md:mt-6 md:text-6xl md:tracking-[0.14em]">
-              Destination Weddings & Event Planning in the Algarve
+              {t.hero.title}
             </h1>
 
             <Filete className="mx-auto mt-8 max-w-xs text-[rgb(var(--dourado-champanhe))]" />
 
             <p className="mx-auto mt-8 max-w-md font-serif text-base font-normal italic text-[rgb(var(--marfim))]/90 md:text-lg">
-              Luxury intimate destination weddings in Portugal, beautifully curated around your story.
+              {t.hero.tagline}
             </p>
 
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Button to="/contact" variant="gold" size="lg">
-                Begin Your Wedding Journey
+              <Button to={contactPath} variant="gold" size="lg">
+                {t.hero.ctaPrimary}
               </Button>
               <Button
-                to="/venues"
+                to={venuesPath}
                 variant="ghost"
                 size="lg"
                 className="border border-[rgba(250,247,240,0.55)] text-[rgb(var(--marfim))] hover:bg-[rgba(250,247,240,0.12)]"
               >
-                Explore Our Venues
+                {t.hero.ctaSecondary}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -190,26 +188,22 @@ export default function Home() {
         <Container>
           <SectionHeading
             align="center"
-            eyebrow="MAISON YASMINI"
-            title="Intimate Weddings. Extraordinary Experiences."
+            eyebrow={t.intro.eyebrow}
+            title={t.intro.title}
             className="mx-auto max-w-3xl"
           />
           <div className="mx-auto mt-8 max-w-3xl space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
-            <p>
-              At Maison Yasmini, we believe the most unforgettable weddings are not defined by the
-              number of guests, but by the emotions they create and the memories they leave behind.
-            </p>
-            <p>
-              We specialise in designing and coordinating exclusive intimate weddings and destination
-              weddings in Portugal, thoughtfully created for celebrations of{' '}
-              <span className="font-medium">up to 75 guests</span>. This allows us to provide a highly
-              personalised experience, where every detail receives the care, creativity and attention
-              it deserves.
-            </p>
-            <p>
-              Luxury, to us, is not about extravagance. It is about exclusivity, authenticity and the
-              freedom to celebrate surrounded only by the people who matter most.
-            </p>
+            {t.intro.paragraphs.map((p, i) =>
+              typeof p === 'string' ? (
+                <p key={`ip-${i}`}>{p}</p>
+              ) : (
+                <p key={`ip-${i}`}>
+                  {p.pre}
+                  <span className="font-medium">{p.strong}</span>
+                  {p.post}
+                </p>
+              ),
+            )}
           </div>
         </Container>
       </section>
@@ -219,46 +213,52 @@ export default function Home() {
         <Container>
           <SectionHeading
             align="center"
-            eyebrow="Services"
-            title="Three ways we shape your celebration."
-            description="From full wedding planning to bespoke design, every service is delivered with the same care and attention."
+            eyebrow={t.servicesSection.eyebrow}
+            title={t.servicesSection.title}
+            description={t.servicesSection.description}
             className="mx-auto max-w-2xl"
           />
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {serviceVerticals.map((v) => (
-              <Link
-                key={v.slug}
-                to={`/services#${v.slug}`}
-                className="group flex flex-col overflow-hidden rounded-[28px] bg-[rgb(var(--marfim))] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.75)] no-underline transition hover:-translate-y-0.5 hover:ring-[rgb(var(--dourado-champanhe))]"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={v.image.src}
-                    srcSet={v.image.srcSet}
-                    sizes={v.image.sizes}
-                    alt={v.title}
-                    className="h-[240px] w-full object-cover transition duration-500 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-7">
-                  <div className="font-serif text-xl leading-tight text-[rgb(var(--azul-safira))]">
-                    {v.title}
+            {content.services.verticals.map((v) => {
+              const legacy = serviceVerticals.find((x) => x.slug === v.slug)!
+              const firstParagraph =
+                v.intro.find((p): p is string => typeof p === 'string') ?? ''
+              return (
+                <Link
+                  key={v.slug}
+                  to={`${localizePath('/services')}#${v.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-[28px] bg-[rgb(var(--marfim))] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.75)] no-underline transition hover:-translate-y-0.5 hover:ring-[rgb(var(--dourado-champanhe))]"
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={legacy.image.src}
+                      srcSet={legacy.image.srcSet}
+                      sizes={legacy.image.sizes}
+                      alt={v.title}
+                      className="h-[240px] w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
-                  <div className="mt-2 text-[11px] tracking-[0.18em] text-azul-real md:text-xs">
-                    {v.subtitle.toUpperCase()}
+                  <div className="flex flex-1 flex-col p-7">
+                    <div className="font-serif text-xl leading-tight text-[rgb(var(--azul-safira))]">
+                      {v.title}
+                    </div>
+                    <div className="mt-2 text-[11px] tracking-[0.18em] text-azul-real md:text-xs">
+                      {v.subtitle.toUpperCase()}
+                    </div>
+                    <p className="mt-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] opacity-75">
+                      {firstParagraph}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-xs font-medium tracking-[0.16em] text-[rgb(var(--azul-safira))]">
+                      {t.servicesSection.discoverMore}{' '}
+                      <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+                    </span>
                   </div>
-                  <p className="mt-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] opacity-75">
-                    {v.intro[0]}
-                  </p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-xs font-medium tracking-[0.16em] text-[rgb(var(--azul-safira))]">
-                    DISCOVER MORE <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
-                  </span>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              )
+            })}
           </div>
         </Container>
       </section>
@@ -268,43 +268,47 @@ export default function Home() {
         <Container>
           <SectionHeading
             align="center"
-            eyebrow="Wedding Venues in Portugal"
-            title="Explore Our Signature Wedding Venues"
+            eyebrow={t.venuesSection.eyebrow}
+            title={t.venuesSection.title}
             className="mx-auto max-w-2xl"
           />
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {venueCategories.map((cat) => (
-              <div
-                key={cat.slug}
-                className="group overflow-hidden rounded-[28px] bg-[rgb(var(--marfim))] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.75)]"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={cat.hero.src}
-                    srcSet={cat.hero.srcSet}
-                    sizes={cat.hero.sizes}
-                    alt={cat.title}
-                    className="h-[240px] w-full object-cover transition duration-500 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="p-7">
-                  <div className="font-serif text-xl leading-tight text-[rgb(var(--azul-safira))]">
-                    {cat.title}
+            {venueCategories.map((cat) => {
+              const copy = content.venues.categories[cat.slug]
+              return (
+                <div
+                  key={cat.slug}
+                  className="group overflow-hidden rounded-[28px] bg-[rgb(var(--marfim))] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.75)]"
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={cat.hero.src}
+                      srcSet={cat.hero.srcSet}
+                      sizes={cat.hero.sizes}
+                      alt={copy.title}
+                      className="h-[240px] w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--azul-safira))] opacity-75">
-                    {cat.cardBlurb}
-                  </p>
-                  <div className="mt-5">
-                    <Button to={`/venues/${cat.slug}`} variant="ghost" size="sm">
-                      Discover More <ArrowRight className="ml-2 h-3.5 w-3.5" />
-                    </Button>
+                  <div className="p-7">
+                    <div className="font-serif text-xl leading-tight text-[rgb(var(--azul-safira))]">
+                      {copy.title}
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--azul-safira))] opacity-75">
+                      {copy.cardBlurb}
+                    </p>
+                    <div className="mt-5">
+                      <Button to={localizePath(`/venues/${cat.slug}`)} variant="ghost" size="sm">
+                        {t.venuesSection.discoverMore}{' '}
+                        <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </Container>
       </section>
@@ -315,12 +319,12 @@ export default function Home() {
           <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-6">
               <SectionHeading
-                eyebrow="The Maison Yasmini way"
-                title="Because your wedding deserves more than planning."
-                description="A boutique studio that intentionally works with a limited number of couples each year, so every celebration receives our full attention."
+                eyebrow={t.whySection.eyebrow}
+                title={t.whySection.title}
+                description={t.whySection.description}
               />
               <ul className="mt-6 space-y-3 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
-                {promiseBullets.map((b) => (
+                {t.whySection.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--dourado-champanhe))]" />
                     <span>{b}</span>
@@ -328,8 +332,8 @@ export default function Home() {
                 ))}
               </ul>
               <div className="mt-8">
-                <Button to="/why-maison-yasmini" variant="secondary">
-                  Discover the Maison Yasmini experience <ArrowRight className="ml-2 h-4 w-4" />
+                <Button to={whyPath} variant="secondary">
+                  {t.whySection.cta} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -339,7 +343,7 @@ export default function Home() {
                   src={imageAssets.detail.src}
                   srcSet={imageAssets.detail.srcSet}
                   sizes={imageAssets.detail.sizes}
-                  alt="Details of an elegant wedding table set for an intimate celebration"
+                  alt={content.common.detailImageAlt}
                   className="h-[420px] w-full object-cover md:h-[520px]"
                   loading="lazy"
                   decoding="async"
@@ -355,13 +359,13 @@ export default function Home() {
         <Container>
           <div className="text-center">
             <p className="text-[11px] font-medium tracking-[0.24em] text-azul-real md:text-xs md:tracking-[0.3em]">
-              OUR VALUES
+              {t.pillarsSection.title}
             </p>
             <Filete className="mx-auto mt-6 max-w-xs" />
           </div>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-5">
-            {pilares.map((p) => (
+            {content.pilares.map((p) => (
               <div key={p.id} className="text-center">
                 <div className="flex justify-center">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[rgba(13,30,79,0.06)] text-[rgb(var(--azul-safira))]">
@@ -386,15 +390,15 @@ export default function Home() {
           <Container>
             <SectionHeading
               align="center"
-              eyebrow="Kind Words"
-              title="What our couples say."
+              eyebrow={t.testimonialsSection.eyebrow}
+              title={t.testimonialsSection.title}
               className="mx-auto max-w-lg"
             />
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {testimonials.map((t) => (
+              {testimonials.map((tst) => (
                 <div
-                  key={t.name}
+                  key={tst.name}
                   className="relative rounded-[28px] bg-[rgb(var(--ouro-rose))] p-8 ring-1 ring-[rgba(220,199,161,0.7)]"
                 >
                   <span
@@ -404,13 +408,13 @@ export default function Home() {
                     "
                   </span>
                   <blockquote className="relative mt-6 text-sm leading-relaxed text-[rgb(var(--azul-safira))]">
-                    {t.text}
+                    {tst.text}
                   </blockquote>
                   <div className="mt-6 flex items-center gap-3">
                     <div className="h-px flex-1 bg-[rgba(220,199,161,0.6)]" />
                     <div className="text-right">
-                      <div className="font-serif text-sm font-normal text-[rgb(var(--azul-safira))]">{t.name}</div>
-                      <div className="text-[11px] tracking-[0.14em] text-azul-real md:text-xs">{t.location}</div>
+                      <div className="font-serif text-sm font-normal text-[rgb(var(--azul-safira))]">{tst.name}</div>
+                      <div className="text-[11px] tracking-[0.14em] text-azul-real md:text-xs">{tst.location}</div>
                     </div>
                   </div>
                 </div>
@@ -424,21 +428,20 @@ export default function Home() {
       <section className="bg-[rgb(var(--azul-safira))] py-24 md:py-32">
         <Container className="text-center">
           <p className="text-[11px] font-medium tracking-[0.24em] text-[rgb(var(--azul-claro))] md:text-xs md:tracking-[0.3em]">
-            BEGIN YOUR STORY
+            {t.finalCta.eyebrow}
           </p>
           <h2 className="mx-auto mt-5 max-w-xl font-serif text-3xl font-normal tracking-wide text-[rgb(var(--marfim))] md:text-4xl">
-            Every celebration deserves to be one of a kind.
+            {t.finalCta.title}
           </h2>
           <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-[rgb(var(--azul-claro))]">
-            Share your date, guest count and the vision you have in mind. We will come back with a
-            clear proposal built around you.
+            {t.finalCta.description}
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button to="/contact" variant="gold" size="lg">
-              Begin Your Wedding Journey
+            <Button to={contactPath} variant="gold" size="lg">
+              {t.finalCta.ctaPrimary}
             </Button>
-            <Button to="/venues" variant="ghost" size="lg" className="text-[rgb(var(--azul-claro))] hover:bg-[rgba(167,183,209,0.1)]">
-              Explore our venues <ArrowRight className="ml-2 h-4 w-4" />
+            <Button to={venuesPath} variant="ghost" size="lg" className="text-[rgb(var(--azul-claro))] hover:bg-[rgba(167,183,209,0.1)]">
+              {t.finalCta.ctaSecondary} <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </Container>

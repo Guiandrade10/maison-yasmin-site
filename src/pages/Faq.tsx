@@ -1,21 +1,23 @@
 import { Container } from '@/components/Container'
 import { Accordion } from '@/components/Accordion'
 import { SectionHeading } from '@/components/SectionHeading'
-import { faqs } from '@/data/content'
 import { useSeo } from '@/hooks/useSeo'
+import { useLang } from '@/i18n/LangContext'
 
 export default function Faq() {
+  const { content } = useLang()
   useSeo({
-    title: 'FAQ',
+    title: content.seo.faq.title,
     path: '/faq',
-    description:
-      'Answers to common questions about planning a destination wedding in the Algarve: pricing, timelines, guest counts and legal support in Portugal.',
+    description: content.seo.faq.description,
   })
+
+  const t = content.faq
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
+    mainEntity: t.items.map((f) => ({
       '@type': 'Question',
       name: f.question,
       acceptedAnswer: { '@type': 'Answer', text: f.answer },
@@ -30,15 +32,17 @@ export default function Faq() {
           <div className="grid gap-10 md:grid-cols-12 md:gap-12">
             <SectionHeading
               className="md:col-span-5"
-              eyebrow="FAQ"
-              title="Clear answers, calm decisions."
-              description="If you do not see your question here, send us a note and we will respond with clarity."
+              eyebrow={t.eyebrow}
+              title={t.title}
+              description={t.description}
             />
-            <Accordion className="md:col-span-7" items={faqs.map((f) => ({ title: f.question, content: f.answer }))} />
+            <Accordion
+              className="md:col-span-7"
+              items={t.items.map((f) => ({ title: f.question, content: f.answer }))}
+            />
           </div>
         </Container>
       </section>
     </div>
   )
 }
-
