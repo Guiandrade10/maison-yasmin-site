@@ -23,6 +23,7 @@ const PORT = 4173
 const BASE = `http://127.0.0.1:${PORT}`
 
 const ROUTES = [
+  // EN (canonical)
   '/',
   '/services',
   '/venues',
@@ -41,6 +42,25 @@ const ROUTES = [
   '/journal/how-much-does-a-destination-wedding-in-algarve-cost',
   '/journal/best-intimate-wedding-venues-in-algarve',
   '/privacy',
+  // PT (translated slugs — journal post slugs remain in EN per v3 scope)
+  '/pt',
+  '/pt/servicos',
+  '/pt/espacos',
+  '/pt/espacos/resorts-de-luxo',
+  '/pt/espacos/villas-privadas',
+  '/pt/espacos/restaurantes-exclusivos',
+  '/pt/espacos/quintas',
+  '/pt/portfolio',
+  '/pt/testemunhos',
+  '/pt/sobre',
+  '/pt/porque-maison-yasmini',
+  '/pt/contacto',
+  '/pt/processo',
+  '/pt/faq',
+  '/pt/journal',
+  '/pt/journal/how-much-does-a-destination-wedding-in-algarve-cost',
+  '/pt/journal/best-intimate-wedding-venues-in-algarve',
+  '/pt/privacidade',
 ]
 
 if (!existsSync(DIST)) {

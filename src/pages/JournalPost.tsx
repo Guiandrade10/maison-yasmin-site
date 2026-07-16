@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import { siteConfig } from '@/config/site'
 import { imageUrls } from '@/data/content'
 import { useSeo } from '@/hooks/useSeo'
 import { useLang } from '@/i18n/LangContext'
@@ -53,8 +54,34 @@ export default function JournalPost() {
     )
   }
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    datePublished: post.publishedAt,
+    image: new URL(cover, siteConfig.siteUrl).toString(),
+    author: { '@type': 'Organization', name: siteConfig.name },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: new URL('/og-image.jpg', siteConfig.siteUrl).toString(),
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': new URL(localizePath(`/journal/${post.slug}`), siteConfig.siteUrl).toString(),
+    },
+    inLanguage: content.htmlLang,
+  }
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <section className="pt-14 md:pt-20">
         <Container>
           <Link
