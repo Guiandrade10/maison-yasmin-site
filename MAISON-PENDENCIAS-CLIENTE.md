@@ -35,9 +35,8 @@
 
 | # | Item | O que precisamos |
 | --- | --- | --- |
-| 11 | **Copy PT das páginas restantes** | ✅ Recebido (2026-07): Início, Serviços + 3 verticais, Espaços + 4 categorias — publicado verbatim em `/pt/*`. Falta copy PT para: Sobre Nós, Porque Maison Yasmini, Processo, FAQ, Contacte-nos e textos legais. Enquanto não chega, publicamos traduções provisórias do EN aprovado, sinalizadas no código com `// PROVISÓRIO — aguarda aprovação da cliente` e na secção do site com o flag `isProvisional` (invisível para o utilizador mas facilmente auditável) |
+| 11 | **Copy PT das páginas restantes** | ✅ Recebido (2026-07): Início, Serviços + 3 verticais, Espaços + 4 categorias — será implementado verbatim. Falta copy PT para: Sobre Nós, Porque Maison Yasmini, Processo, FAQ, Contacte-nos e textos legais. Enquanto não chega, publicamos traduções provisórias do EN aprovado, sinalizadas para revisão da cliente |
 | 11b | **CTA principal** | A consultora recomendou "Begin Your Wedding Journey" no site EN — confirmar adoção e aprovar o equivalente PT (proposta: "Comecem a Vossa Jornada") |
-| 11c | **Tradução dos posts do Journal** | Os dois posts permanecem em EN na v3 (v3.1 fará a tradução). O hub `/pt/journal` mostra uma nota curta em PT a explicar |
 
 ## 🟡 Pós-lançamento (primeiros 30 dias)
 
@@ -46,4 +45,3 @@
 | 12 | Acesso ao Google Search Console | Criamos e enviamos convite — precisamos apenas de um e-mail Google da cliente para partilhar a propriedade |
 | 13 | Google Business Profile | Recomendado para captação local "wedding planner Algarve"; requer morada ou área de serviço |
 | 14 | Testemunhos reais | A secção Kind Words está desativada (`SHOW_TESTIMONIALS = false`) até existirem testemunhos autorizados |
-| 15 | Revisão jurídica da Política de Privacidade | O texto EN e PT em `/privacy` (`/pt/privacidade`) é um rascunho técnico que deve ser validado por advogada familiarizada com RGPD antes de considerar oficial |
