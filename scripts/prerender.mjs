@@ -74,22 +74,43 @@ const previewProcess = spawn('npx', ['vite', 'preview', '--port', String(PORT), 
 })
 
 let previewReady = false
+let logBuffer = ''
 const previewReadyPromise = new Promise((resolve, reject) => {
   const onData = (chunk) => {
     const text = chunk.toString()
-    if (text.includes('Local:') || text.includes('preview server')) {
-      previewReady = true
-      resolve()
-    }
+    logBuffer += text
+    // Echo vite preview output so build logs stay diagnostic.
+    process.stdout.write(text)
   }
   previewProcess.stdout.on('data', onData)
   previewProcess.stderr.on('data', onData)
   previewProcess.once('exit', (code) => {
-    if (!previewReady) reject(new Error(`vite preview exited early (code ${code})`))
+    if (!previewReady) reject(new Error(`vite preview exited early (code ${code}). Last output:\n${logBuffer}`))
   })
-  setTimeout(() => {
-    if (!previewReady) reject(new Error('vite preview did not become ready in 15s'))
-  }, 15000)
+
+  // Poll the preview server directly — more reliable than parsing stdout,
+  // which changes between vite versions and can be slow to flush on Vercel.
+  const startedAt = Date.now()
+  const TIMEOUT_MS = 60000
+  const poll = async () => {
+    if (previewReady) return
+    try {
+      const response = await fetch(BASE, { method: 'HEAD' })
+      if (response.ok || response.status === 404) {
+        previewReady = true
+        resolve()
+        return
+      }
+    } catch {
+      // Server not up yet — keep polling.
+    }
+    if (Date.now() - startedAt >= TIMEOUT_MS) {
+      reject(new Error(`vite preview did not answer at ${BASE} within ${TIMEOUT_MS / 1000}s. Last output:\n${logBuffer}`))
+      return
+    }
+    setTimeout(poll, 500)
+  }
+  setTimeout(poll, 500)
 })
 
 const cleanup = () => {
