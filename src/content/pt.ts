@@ -181,7 +181,9 @@ export const ptContent: SiteContent = {
   home: {
     hero: {
       eyebrow: 'MAISON YASMINI · WEDDING PLANNER',
-      title: 'Maison Yasmini — Destination Weddings & Event Planning in Algarve',
+      // Nota: "Maison Yasmini —" removido do H1 verbatim da cliente porque
+      // duplica o eyebrow já visível acima do título.
+      title: 'Destination Weddings & Event Planning in Algarve',
       // PROVISÓRIO — tagline de hero não fornecida separadamente pela cliente
       tagline:
         'Destination weddings intimistas em Portugal, cuidadosamente pensados em torno da vossa história.',
