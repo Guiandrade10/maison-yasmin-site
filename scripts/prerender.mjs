@@ -15,7 +15,27 @@ if (chromeDepsDir && existsSync(chromeDepsDir)) {
   process.env.LD_LIBRARY_PATH = current ? `${chromeDepsDir}:${current}` : chromeDepsDir
 }
 
-const puppeteer = (await import('puppeteer')).default
+// On Vercel (and other serverless build envs) we ship a self-contained
+// Chromium via @sparticuz/chromium + puppeteer-core, because the base image
+// lacks NSS/NSPR system libraries that stock puppeteer's Chrome links against.
+// Locally we use the full puppeteer package (or system Chrome via
+// CHROME_DEPS_DIR).
+const isServerlessBuild = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME)
+
+async function launchBrowser() {
+  if (isServerlessBuild) {
+    const { default: chromium } = await import('@sparticuz/chromium')
+    const puppeteerCore = (await import('puppeteer-core')).default
+    return puppeteerCore.launch({
+      args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    })
+  }
+  const puppeteer = (await import('puppeteer')).default
+  return puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] })
+}
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const DIST = join(ROOT, 'dist')
@@ -126,7 +146,7 @@ try {
   await previewReadyPromise
   console.log(`vite preview ready at ${BASE}`)
 
-  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] })
+  const browser = await launchBrowser()
 
   for (const route of ROUTES) {
     const page = await browser.newPage()
