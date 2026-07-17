@@ -193,7 +193,7 @@ export const ptContent: SiteContent = {
     intro: {
       eyebrow: 'MAISON YASMINI',
       // Nota: usamos como título de secção a assinatura de fecho aprovada
-      title: 'Maison Yasmini — Destination Weddings com alma, requinte e atenção ao detalhe.',
+      title: 'Destination Weddings com alma, requinte e atenção ao detalhe.',
       paragraphs: [
         'A Maison Yasmini nasce da união entre rigor, sensibilidade estética e paixão pela criação de momentos verdadeiramente memoráveis.',
         'Com mais de 20 anos de experiência profissional nas áreas jurídica, administrativa e de gestão, Yasmini Daudo traz para o universo dos eventos uma abordagem diferenciadora, assente no método, na organização, na atenção ao detalhe e numa comunicação próxima com cada cliente. A sua formação especializada em Wedding Planning permite-lhe planear, coordenar e acompanhar casamentos, destination weddings e eventos privados com elegância, profissionalismo e elevado sentido de responsabilidade.',
