@@ -203,6 +203,7 @@ export type SiteContent = {
     subtitle: string
     ctaBegin: string
     portraitAlt: string
+    portraitEditorialAlt: string
     paragraphs: string[]
     signature: string
     valuesEyebrow: string

@@ -40,7 +40,6 @@ export default function About() {
             </div>
 
             <div className="md:col-span-6">
-              {/* TODO(client): replace placeholder portrait with a professional photo of Yasmini. */}
               <div className="relative overflow-hidden rounded-[32px] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)]">
                 <img
                   src={imageAssets.yasminiPortrait.src}
@@ -66,6 +65,22 @@ export default function About() {
             <p className="pt-4 font-serif text-lg italic text-[rgb(var(--azul-safira))]">
               {t.signature}
             </p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="mt-16 md:mt-20">
+        <Container>
+          <div className="relative overflow-hidden rounded-[32px] ring-1 ring-inset ring-[rgba(var(--dourado-champanhe),0.85)] aspect-[3/2]">
+            <img
+              src={imageAssets.portraitEditorial.src}
+              srcSet={imageAssets.portraitEditorial.srcSet}
+              sizes={imageAssets.portraitEditorial.sizes}
+              alt={t.portraitEditorialAlt}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </Container>
       </section>

@@ -25,7 +25,6 @@
 
 | # | Item | O que precisamos |
 | --- | --- | --- |
-| 6 | **Retrato profissional da Yasmini** | Foto vertical (~1200×1500 px ou maior) para a página About — hoje usa foto temporária |
 | 7 | **Hero em alta resolução** | O mesmo enquadramento da foto atual (casal ao pôr do sol) em ≥1920 px de largura — a versão atual (1360 px) fica abaixo do ideal em ecrãs grandes |
 | 8 | **Portfólio expandido** | Seleção de 20–30 fotos autorizadas para o grid do Portfolio (hoje: 5 de amostra) |
 | 9 | **Autorizações escritas** | Consentimento dos casais fotografados para uso das imagens online |
