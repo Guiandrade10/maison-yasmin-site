@@ -84,9 +84,7 @@ export type JournalPost = {
 
 // TODO(client): replace these placeholder photos with real assets from the client.
 // Required from client:
-//   - Professional portrait of Yasmini (currently: placeholder)
 //   - Real Algarve wedding photos for the venues galleries
-//   - Portrait of Yasmini for the About page
 // Photos from Images-reference/ are integrated via scripts/process-images.mjs
 // and referenced by kebab-case names in public/images/.
 import dims from './image-dimensions.json'
@@ -122,6 +120,7 @@ const build = (name: string): ImageAsset => {
 export const imageAssets = {
   hero: build('hero'),
   yasminiPortrait: build('portrait'),
+  portraitEditorial: build('portrait-editorial'),
   algarveLandscape: build('algarve'),
   detail: build('detail'),
   contactSunset: build('contact-sunset'),

@@ -33,9 +33,9 @@ const FOLDER = {
 
 // slot name → { folder, sourceIndex (1-based) }
 // Same source photo can feed multiple slots.
-// portrait: aguarda retrato profissional da Yasmini — TODO(client)
-// Enquanto a foto oficial não chega, `public/images/portrait-{800,1600}.webp`
-// é uma foto editorial vertical temporária (Ceremonies/3.jpg) — ver PENDENCIAS-CLIENTE.md
+// portrait + portrait-editorial: fotos oficiais da cliente convertidas fora deste script
+// (fontes em public/images/foto-*.jpeg). Este script não as toca — apenas processa
+// as imagens de Images-reference/. Dimensões reais escritas no image-dimensions.json.
 const SLOTS = [
   // Home / global — hero uses the sunset couple with sea view (editorial full-bleed)
   { slot: 'hero', folder: FOLDER.hero, index: 2 },
@@ -130,7 +130,8 @@ async function main() {
   // Emit real dimensions to src/data — consumed by content.ts build() so
   // ImageAsset width/height match the actual files (avoids CLS + wrong ratio).
   // Merge with existing dims to preserve slots processed outside this script
-  // (e.g. `portrait` while awaiting the client's professional photo).
+  // (e.g. `portrait` and `portrait-editorial`, converted from the client's
+  // official photos in public/images/foto-*.jpeg).
   await mkdir(dirname(DIMENSIONS_PATH), { recursive: true })
   let existing = {}
   if (existsSync(DIMENSIONS_PATH)) {

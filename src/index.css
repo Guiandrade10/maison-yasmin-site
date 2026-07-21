@@ -58,3 +58,13 @@
     @apply underline-offset-4;
   }
 }
+
+@layer utilities {
+  /* Justified body copy with automatic hyphenation.
+     Used with `md:` breakpoint so mobile keeps left-aligned text
+     (avoids "rios" of white space on narrow screens). */
+  .text-justify-hyphen {
+    text-align: justify;
+    hyphens: auto;
+  }
+}

@@ -138,7 +138,7 @@ export const enContent: SiteContent = {
     heroImageAlt:
       'Couple at sunset overlooking the Atlantic on the Algarve coast, the setting for an intimate destination wedding',
     detailImageAlt: 'Details of an elegant wedding table set for an intimate celebration',
-    portraitAlt: 'Portrait of Yasmini Daudo, founder of Maison Yasmini',
+    portraitAlt: 'Yasmini Daudo, founder of Maison Yasmini',
   },
 
   pilares: [
@@ -243,7 +243,8 @@ export const enContent: SiteContent = {
     title: 'Maison Yasmini',
     subtitle: 'Destination Weddings & Event Planning in the Algarve',
     ctaBegin: 'Begin Your Wedding Journey',
-    portraitAlt: 'Portrait of Yasmini Daudo, founder of Maison Yasmini',
+    portraitAlt: 'Yasmini Daudo, founder of Maison Yasmini',
+    portraitEditorialAlt: 'Yasmini Daudo, founder of Maison Yasmini',
     paragraphs: [
       'Maison Yasmini was born from a unique combination of precision, refined aesthetics and a genuine passion for creating meaningful and unforgettable celebrations.',
       'With more than 20 years of professional experience in the legal, administrative and management sectors, Yasmini Daudo brings a distinctive and highly structured approach to the world of wedding and event planning. Her background is reflected in every stage of the planning process, through meticulous organisation, thoughtful communication, careful attention to detail and a strong sense of responsibility.',
