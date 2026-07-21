@@ -37,14 +37,18 @@ export default function Services() {
         <Container>
           <div className="mx-auto max-w-3xl space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
             {t.introParagraphs.map((p, i) => (
-              <p key={`i-${i}`}>{p}</p>
+              <p key={`i-${i}`} className="text-left md:text-justify-hyphen">
+                {p}
+              </p>
             ))}
             <p className="pt-4 font-serif text-xl text-[rgb(var(--azul-safira))]">
               {t.philosophyLead.prefix}
               <span className="italic">{t.philosophyLead.italic}</span>
             </p>
             {t.philosophyParagraphs.map((p, i) => (
-              <p key={`ph-${i}`}>{p}</p>
+              <p key={`ph-${i}`} className="text-left md:text-justify-hyphen">
+                {p}
+              </p>
             ))}
           </div>
         </Container>
@@ -101,7 +105,9 @@ export default function Services() {
                   <div className="mt-6 space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
                     {v.intro.map((p, i) =>
                       typeof p === 'string' ? (
-                        <p key={`v-${idx}-i-${i}`}>{p}</p>
+                        <p key={`v-${idx}-i-${i}`} className="text-left md:text-justify-hyphen">
+                          {p}
+                        </p>
                       ) : (
                         <h3
                           key={`v-${idx}-i-${i}`}
@@ -132,7 +138,9 @@ export default function Services() {
               <div className="mt-12 mx-auto max-w-3xl space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
                 {v.closing.map((p, i) =>
                   typeof p === 'string' ? (
-                    <p key={`v-${idx}-c-${i}`}>{p}</p>
+                    <p key={`v-${idx}-c-${i}`} className="text-left md:text-justify-hyphen">
+                      {p}
+                    </p>
                   ) : (
                     <h3
                       key={`v-${idx}-c-${i}`}

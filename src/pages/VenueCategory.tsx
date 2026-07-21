@@ -88,7 +88,9 @@ export default function VenueCategory() {
         <Container>
           <div className="mx-auto max-w-3xl space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
             {copy.paragraphs.map((p, i) => (
-              <p key={`p-${i}`}>{p}</p>
+              <p key={`p-${i}`} className="text-left md:text-justify-hyphen">
+                {p}
+              </p>
             ))}
           </div>
         </Container>
@@ -103,7 +105,9 @@ export default function VenueCategory() {
               </h2>
               <div className="mt-6 space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
                 {section.paragraphs.map((p, i) => (
-                  <p key={`sp-${i}`}>{p}</p>
+                  <p key={`sp-${i}`} className="text-left md:text-justify-hyphen">
+                    {p}
+                  </p>
                 ))}
               </div>
             </div>

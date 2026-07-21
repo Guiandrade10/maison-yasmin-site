@@ -60,7 +60,9 @@ export default function About() {
         <Container>
           <div className="mx-auto max-w-3xl space-y-5 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
             {t.paragraphs.map((p, i) => (
-              <p key={`s-${i}`}>{p}</p>
+              <p key={`s-${i}`} className="text-left md:text-justify-hyphen">
+                {p}
+              </p>
             ))}
             <p className="pt-4 font-serif text-lg italic text-[rgb(var(--azul-safira))]">
               {t.signature}

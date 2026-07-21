@@ -32,12 +32,16 @@ export default function Venues() {
           <div className="mt-8 grid gap-6 md:grid-cols-2 md:gap-10">
             <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
               {t.intro.map((p, i) => (
-                <p key={`in-${i}`}>{p}</p>
+                <p key={`in-${i}`} className="text-left md:text-justify-hyphen">
+                  {p}
+                </p>
               ))}
             </div>
             <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
               {t.intro2.map((p, i) => (
-                <p key={`in2-${i}`}>{p}</p>
+                <p key={`in2-${i}`} className="text-left md:text-justify-hyphen">
+                  {p}
+                </p>
               ))}
             </div>
           </div>
@@ -50,12 +54,16 @@ export default function Venues() {
           <div className="mt-8 grid gap-6 md:grid-cols-2 md:gap-10">
             <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
               {t.algarveP1.map((p, i) => (
-                <p key={`ap1-${i}`}>{p}</p>
+                <p key={`ap1-${i}`} className="text-left md:text-justify-hyphen">
+                  {p}
+                </p>
               ))}
             </div>
             <div className="space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
               {t.algarveP2.map((p, i) => (
-                <p key={`ap2-${i}`}>{p}</p>
+                <p key={`ap2-${i}`} className="text-left md:text-justify-hyphen">
+                  {p}
+                </p>
               ))}
               <p className="font-serif text-lg italic text-[rgb(var(--azul-safira))]">
                 {t.algarveTagline}
@@ -70,7 +78,9 @@ export default function Venues() {
           <SectionHeading eyebrow={t.approachEyebrow} title={t.approachTitle} />
           <div className="mt-8 space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
             {t.approachIntro.map((p, i) => (
-              <p key={`ai-${i}`}>{p}</p>
+              <p key={`ai-${i}`} className="text-left md:text-justify-hyphen">
+                {p}
+              </p>
             ))}
             <p className="pt-2">{t.approachListLead}</p>
             <ul className="ml-5 list-disc space-y-2">
@@ -78,7 +88,7 @@ export default function Venues() {
                 <li key={li}>{li}</li>
               ))}
             </ul>
-            <p>{t.approachClose}</p>
+            <p className="text-left md:text-justify-hyphen">{t.approachClose}</p>
           </div>
         </Container>
       </section>
@@ -143,7 +153,9 @@ export default function Venues() {
             />
             <div className="md:col-span-7 space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
               {t.roleParagraphs.map((p, i) => (
-                <p key={`rp-${i}`}>{p}</p>
+                <p key={`rp-${i}`} className="text-left md:text-justify-hyphen">
+                  {p}
+                </p>
               ))}
             </div>
           </div>
@@ -160,7 +172,9 @@ export default function Venues() {
             />
             <div className="md:col-span-7 space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
               {t.partnersParagraphs.map((p, i) => (
-                <p key={`pp-${i}`}>{p}</p>
+                <p key={`pp-${i}`} className="text-left md:text-justify-hyphen">
+                  {p}
+                </p>
               ))}
             </div>
           </div>
@@ -177,7 +191,9 @@ export default function Venues() {
             />
             <div className="md:col-span-7 space-y-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] md:text-base">
               {t.beyondParagraphs.map((p, i) => (
-                <p key={`bp-${i}`}>{p}</p>
+                <p key={`bp-${i}`} className="text-left md:text-justify-hyphen">
+                  {p}
+                </p>
               ))}
               <p className="pt-4 font-serif text-lg italic text-[rgb(var(--azul-safira))]">
                 {t.beyondSignature}
