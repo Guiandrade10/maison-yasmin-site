@@ -1,9 +1,13 @@
 import { Component, type ReactNode } from 'react'
 
+import { getWhatsappUrl } from '@/config/site'
+
 type Props = { children: ReactNode }
 
 type State = { hasError: boolean }
 
+// Class component, so it can't call useLang. Fallback copy is English and we
+// use the English pre-filled WhatsApp message — good enough for an error boundary.
 export class ErrorBoundary extends Component<Props, State> {
   state: State = { hasError: false }
 
@@ -23,12 +27,14 @@ export class ErrorBoundary extends Component<Props, State> {
             Something went wrong.
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-[rgb(var(--azul-safira))] opacity-75">
-            Please refresh the page. If the issue continues, write to us at{' '}
+            Please refresh the page. If the issue continues,{' '}
             <a
               className="underline underline-offset-4"
-              href="mailto:hello@maisonyasmini.com"
+              href={getWhatsappUrl('en')}
+              target="_blank"
+              rel="noreferrer noopener"
             >
-              hello@maisonyasmini.com
+              message us on WhatsApp
             </a>
             .
           </p>
