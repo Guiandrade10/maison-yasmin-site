@@ -1,3 +1,5 @@
+import type { Lang } from '@/i18n/routes'
+
 export const siteConfig = {
   name: 'Maison Yasmini',
   tagline: 'Where every detail tells a love story.',
@@ -5,12 +7,16 @@ export const siteConfig = {
   contactEmail: 'hello@maisonyasmini.com',
   // TODO(client): replace with the studio's real Instagram handle.
   instagramUrl: 'https://www.instagram.com/',
-  // TODO(client): provide the studio's WhatsApp number in international format (no + or spaces).
-  // Placeholder points to a WhatsApp Business chat link — replace before publishing.
-  whatsappUrl: 'https://wa.me/351000000000',
-  // TODO(client): set the production form endpoint (Formspree, Web3Forms, or equivalent).
-  // Placeholder ID makes the form request return an error — expected until a real endpoint is configured.
-  formEndpoint: 'https://formspree.io/f/mrbkxxxx',
+  whatsappUrl: 'https://wa.me/351967870651',
   // TODO(client): confirm final domain.
   siteUrl: 'https://maisonyasmini.com',
 } as const
+
+const WHATSAPP_MESSAGES: Record<Lang, string> = {
+  en: "Hello! I'd love to know more about planning my wedding in the Algarve with Maison Yasmini.",
+  pt: 'Olá! Gostaria de saber mais sobre a organização do meu casamento no Algarve com a Maison Yasmini.',
+}
+
+export function getWhatsappUrl(lang: Lang): string {
+  return `${siteConfig.whatsappUrl}?text=${encodeURIComponent(WHATSAPP_MESSAGES[lang])}`
+}

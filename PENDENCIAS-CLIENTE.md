@@ -10,10 +10,10 @@
 
 | # | Item | O que precisamos | Onde entra |
 | --- | --- | --- | --- |
-| 1 | **Número de WhatsApp** | Número em formato internacional, sem + e sem espaços (ex.: `351912345678`) | Botões de contacto, footer, página Contact |
-| 2 | **E-mail de contacto** | Confirmar que `hello@maisonyasmini.com` existe e está a ser lido (ou indicar o correto) | Formulário, fallback "Prefer email?", JSON-LD |
-| 3 | **Formulário** | Autorização para criarmos conta Formspree (grátis) em nome da Maison Yasmini, ou credenciais de fornecedor preferido | Página Contact — hoje o envio devolve erro |
+| 2 | **E-mail de contacto** | Confirmar que `hello@maisonyasmini.com` existe e está a ser lido (ou indicar o correto) | Página Contact (alternativa), footer, JSON-LD |
 | 4 | **Instagram real** | O @ da conta | Header, footer e dados estruturados |
+
+> Itens resolvidos: **WhatsApp** (nº real da cliente `+351 967 870 651` integrado em botões, footer e página Contact) e **formulário** (substituído por captação direta via WhatsApp, com mensagem pré-preenchida por idioma).
 
 ## 🔴 Domínio
 

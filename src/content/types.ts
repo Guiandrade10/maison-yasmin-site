@@ -50,37 +50,13 @@ export type PillarCopy = { id: string; title: string; description: string }
 
 export type PrivacySection = { title: string; paragraphs: string[] }
 
-export type ContactFormCopy = {
-  labelNames: string
-  labelEmail: string
-  labelCountry: string
-  labelWeddingDate: string
-  labelGuests: string
-  guestsPlaceholder: string
-  labelService: string
-  serviceOptions: string[]
-  labelVenueSelected: string
-  venueSelectedOptions: { yes: string; notYet: string }
-  labelInspiration: string
-  inspirationPlaceholder: string
-  labelMessage: string
-  honeypotLabel: string
-  submitIdle: string
-  submitSending: string
-  errorNames: string
-  errorEmailRequired: string
-  errorEmailInvalid: string
-  errorRetry: string
-  errorGeneric: string
-  thankYouTitle: string
-  thankYouBody: string
-  preferEmail: string
-  preferWhatsAppQuestion: string
-  preferWhatsAppLink: string
-  privacyLine: {
+export type ContactWhatsAppCopy = {
+  invitation: string
+  buttonLabel: string
+  responseTime: string
+  emailAlt: {
     lead: string
-    linkLabel: string
-    tail: string
+    linkAriaLabel: string
   }
 }
 
@@ -351,7 +327,7 @@ export type SiteContent = {
     eyebrow: string
     title: string
     description: string
-    form: ContactFormCopy
+    whatsapp: ContactWhatsAppCopy
     isProvisional?: boolean
   }
 

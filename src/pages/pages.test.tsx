@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 
@@ -17,6 +17,9 @@ import Services from '@/pages/Services'
 import Venues from '@/pages/Venues'
 import VenueCategory from '@/pages/VenueCategory'
 import WhyMaisonYasmini from '@/pages/WhyMaisonYasmini'
+import { enContent } from '@/content/en'
+import { ptContent } from '@/content/pt'
+import { LangProvider } from '@/i18n/LangContext'
 
 const renderRoute = (path: string, node: React.ReactElement, routePath = '*') =>
   render(
@@ -24,6 +27,17 @@ const renderRoute = (path: string, node: React.ReactElement, routePath = '*') =>
       <Routes>
         <Route path={routePath} element={node} />
       </Routes>
+    </MemoryRouter>,
+  )
+
+const renderLocalizedRoute = (path: string, node: React.ReactElement, routePath = '*') =>
+  render(
+    <MemoryRouter initialEntries={[path]}>
+      <LangProvider>
+        <Routes>
+          <Route path={routePath} element={node} />
+        </Routes>
+      </LangProvider>
     </MemoryRouter>,
   )
 
@@ -115,9 +129,30 @@ describe('Page smoke tests', () => {
     expect(getByText('Article not found')).toBeInTheDocument()
   })
 
-  it('Contact (Get in Touch) renders without crashing', () => {
-    const { container } = renderRoute('/contact', <Contact />)
-    expect(container.firstChild).toBeTruthy()
+  it('Contact (EN) shows a WhatsApp CTA with the English pre-filled message', () => {
+    renderLocalizedRoute('/contact', <Contact />)
+    const link = screen.getByRole('link', {
+      name: enContent.contact.whatsapp.buttonLabel,
+    })
+    expect(link).toHaveAttribute(
+      'href',
+      "https://wa.me/351967870651?text=Hello!%20I'd%20love%20to%20know%20more%20about%20planning%20my%20wedding%20in%20the%20Algarve%20with%20Maison%20Yasmini.",
+    )
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noreferrer noopener')
+  })
+
+  it('Contact (PT) shows a WhatsApp CTA with the Portuguese pre-filled message', () => {
+    renderLocalizedRoute('/pt/contacto', <Contact />)
+    const link = screen.getByRole('link', {
+      name: ptContent.contact.whatsapp.buttonLabel,
+    })
+    expect(link).toHaveAttribute(
+      'href',
+      'https://wa.me/351967870651?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20organiza%C3%A7%C3%A3o%20do%20meu%20casamento%20no%20Algarve%20com%20a%20Maison%20Yasmini.',
+    )
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noreferrer noopener')
   })
 
   it('Privacy renders without crashing', () => {
