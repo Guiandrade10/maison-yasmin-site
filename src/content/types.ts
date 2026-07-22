@@ -87,7 +87,6 @@ export type SiteContent = {
     rightsPrefix: string
     rightsSuffix: string
     whatsappLabel: string
-    contactEmailAria: string
   }
 
   seo: {

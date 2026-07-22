@@ -60,7 +60,6 @@ export const ptContent: SiteContent = {
     rightsPrefix: '©',
     rightsSuffix: 'Todos os direitos reservados.',
     whatsappLabel: 'WhatsApp',
-    contactEmailAria: 'Email para a Maison Yasmini',
   },
 
   seo: {
