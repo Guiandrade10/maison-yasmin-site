@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-import { siteConfig } from '@/config/site'
+import { siteConfig, getWhatsappUrl } from '@/config/site'
 import { Container } from '@/components/Container'
 import { useLang } from '@/i18n/LangContext'
 
@@ -38,7 +38,7 @@ function Filete() {
 }
 
 export function SiteFooter() {
-  const { content, localizePath } = useLang()
+  const { content, localizePath, lang } = useLang()
   const primaryLinks = content.footer.primaryLinks.map((l) => ({
     to: localizePath(l.toEn),
     label: l.label,
@@ -122,7 +122,7 @@ export function SiteFooter() {
               {siteConfig.contactEmail}
             </a>
             <a
-              href={siteConfig.whatsappUrl}
+              href={getWhatsappUrl(lang)}
               target="_blank"
               rel="noreferrer noopener"
               className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
