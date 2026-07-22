@@ -1,7 +1,7 @@
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
 import { SectionHeading } from '@/components/SectionHeading'
-import { siteConfig, getWhatsappUrl } from '@/config/site'
+import { getWhatsappUrl } from '@/config/site'
 import { useSeo } from '@/hooks/useSeo'
 import { useLang } from '@/i18n/LangContext'
 
@@ -47,19 +47,8 @@ export default function Contact() {
                   </Button>
                 </div>
 
-                <div className="mt-6 space-y-2 text-xs leading-relaxed text-[rgb(var(--azul-safira))] opacity-80">
-                  <div>{w.responseTime}</div>
-                  <div>
-                    {w.emailAlt.lead}{' '}
-                    <a
-                      className="underline underline-offset-4"
-                      href={`mailto:${siteConfig.contactEmail}`}
-                      aria-label={w.emailAlt.linkAriaLabel}
-                    >
-                      {siteConfig.contactEmail}
-                    </a>
-                    .
-                  </div>
+                <div className="mt-6 text-xs leading-relaxed text-[rgb(var(--azul-safira))] opacity-80">
+                  {w.responseTime}
                 </div>
               </div>
             </div>

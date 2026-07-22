@@ -54,10 +54,6 @@ export type ContactWhatsAppCopy = {
   invitation: string
   buttonLabel: string
   responseTime: string
-  emailAlt: {
-    lead: string
-    linkAriaLabel: string
-  }
 }
 
 export type NavChild = { toEn: string; label: string }

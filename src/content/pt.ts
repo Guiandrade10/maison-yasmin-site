@@ -921,10 +921,6 @@ export const ptContent: SiteContent = {
         'A forma mais simples de começar é uma mensagem no WhatsApp. Contem-nos um pouco sobre a vossa celebração e seguimos a partir daí.',
       buttonLabel: 'Falar connosco no WhatsApp',
       responseTime: 'Respondemos habitualmente em dois dias úteis.',
-      emailAlt: {
-        lead: 'Preferem email? Escrevam para',
-        linkAriaLabel: 'Enviar email para a Maison Yasmini',
-      },
     },
   },
 

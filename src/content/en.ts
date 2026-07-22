@@ -943,10 +943,6 @@ export const enContent: SiteContent = {
         'The easiest way to start is a message on WhatsApp. Tell us a little about your celebration and we will take it from there.',
       buttonLabel: 'Message us on WhatsApp',
       responseTime: 'We usually reply within two working days.',
-      emailAlt: {
-        lead: 'Prefer email? Write to',
-        linkAriaLabel: 'Send email to Maison Yasmini',
-      },
     },
   },
 
