@@ -936,7 +936,7 @@ export const ptContent: SiteContent = {
       {
         title: 'Quem somos',
         paragraphs: [
-          'A Maison Yasmini é um atelier boutique de wedding planning sediado no Algarve, Portugal. Podem contactar-nos por email em __EMAIL__.',
+          'A Maison Yasmini é um atelier boutique de wedding planning sediado no Algarve, Portugal. Podem contactar-nos por __CONTACT__.',
         ],
       },
       {
@@ -967,7 +967,7 @@ export const ptContent: SiteContent = {
       {
         title: 'Os vossos direitos',
         paragraphs: [
-          'Ao abrigo do RGPD, podem pedir a qualquer momento para aceder, retificar ou eliminar os vossos dados pessoais, ou para restringir ou opor-se ao respetivo tratamento. Escrevam para __EMAIL__ e responderemos no prazo de trinta dias. Se sentirem que não tratámos bem um pedido, podem apresentar reclamação à Comissão Nacional de Proteção de Dados (CNPD).',
+          'Ao abrigo do RGPD, podem pedir a qualquer momento para aceder, retificar ou eliminar os vossos dados pessoais, ou para restringir ou opor-se ao respetivo tratamento. Escrevam-nos por __CONTACT__ e responderemos no prazo de trinta dias. Se sentirem que não tratámos bem um pedido, podem apresentar reclamação à Comissão Nacional de Proteção de Dados (CNPD).',
         ],
       },
       {
