@@ -10,10 +10,12 @@
 
 | # | Item | O que precisamos | Onde entra |
 | --- | --- | --- | --- |
-| 2 | **E-mail de contacto** | Confirmar que `hello@maisonyasmini.com` existe e está a ser lido (ou indicar o correto) | Página Contact (alternativa), footer, JSON-LD |
 | 4 | **Instagram real** | O @ da conta | Header, footer e dados estruturados |
 
-> Itens resolvidos: **WhatsApp** (nº real da cliente `+351 967 870 651` integrado em botões, footer e página Contact) e **formulário** (substituído por captação direta via WhatsApp, com mensagem pré-preenchida por idioma).
+> Itens resolvidos:
+> - **WhatsApp** (nº real da cliente `+351 967 870 651` integrado em botões, footer e página Contact, com mensagem pré-preenchida por idioma).
+> - **Formulário** (substituído por captação direta via WhatsApp).
+> - **E-mail** (removido do site — WhatsApp passa a ser o **canal único** de contacto porque a cliente não tem acesso a `hello@maisonyasmini.com`. Um e-mail morto publicado seria pior do que nenhum). Se a cliente vier a ter um e-mail oficial, deve ser reposto na **Política de Privacidade** (`src/pages/Privacy.tsx`, ver comentário no helper `renderWithContact`) como canal para o exercício de direitos RGPD, e reavaliada a reintrodução no rodapé, na página Contact e no JSON-LD do `index.html` (hoje declara `telephone`).
 
 ## 🔴 Domínio
 

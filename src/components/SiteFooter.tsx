@@ -113,23 +113,14 @@ export function SiteFooter() {
           <span>
             {content.footer.rightsPrefix} {new Date().getFullYear()} {siteConfig.name}. {content.footer.rightsSuffix}
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <a
-              href={`mailto:${siteConfig.contactEmail}`}
-              aria-label={content.footer.contactEmailAria}
-              className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
-            >
-              {siteConfig.contactEmail}
-            </a>
-            <a
-              href={getWhatsappUrl(lang)}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
-            >
-              {content.footer.whatsappLabel}
-            </a>
-          </div>
+          <a
+            href={getWhatsappUrl(lang)}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-[rgba(167,183,209,0.85)] no-underline transition-opacity hover:opacity-80"
+          >
+            {content.footer.whatsappLabel}
+          </a>
         </div>
       </Container>
     </footer>

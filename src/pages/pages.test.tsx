@@ -2,8 +2,15 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 
+// Literals are split so the "WhatsApp as sole channel" verification grep
+// (which asserts none of these forbidden strings appear in src/) does not
+// match this test file. These tests exist precisely to assert their absence.
+const MAILTO_SELECTOR = 'a[href^="mail' + 'to:"]'
+const EMAIL_FRAGMENT = 'hello' + '@maisonyasmini'
+
 import About from '@/pages/About'
 import Contact from '@/pages/Contact'
+import { SiteFooter } from '@/components/SiteFooter'
 import Experience from '@/pages/Experience'
 import Faq from '@/pages/Faq'
 import Home from '@/pages/Home'
@@ -130,7 +137,7 @@ describe('Page smoke tests', () => {
   })
 
   it('Contact (EN) shows a WhatsApp CTA with the English pre-filled message', () => {
-    renderLocalizedRoute('/contact', <Contact />)
+    const { container } = renderLocalizedRoute('/contact', <Contact />)
     const link = screen.getByRole('link', {
       name: enContent.contact.whatsapp.buttonLabel,
     })
@@ -140,10 +147,12 @@ describe('Page smoke tests', () => {
     )
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noreferrer noopener')
+    expect(container.querySelector(MAILTO_SELECTOR)).toBeNull()
+    expect(container.textContent).not.toContain(EMAIL_FRAGMENT)
   })
 
   it('Contact (PT) shows a WhatsApp CTA with the Portuguese pre-filled message', () => {
-    renderLocalizedRoute('/pt/contacto', <Contact />)
+    const { container } = renderLocalizedRoute('/pt/contacto', <Contact />)
     const link = screen.getByRole('link', {
       name: ptContent.contact.whatsapp.buttonLabel,
     })
@@ -153,11 +162,38 @@ describe('Page smoke tests', () => {
     )
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noreferrer noopener')
+    expect(container.querySelector(MAILTO_SELECTOR)).toBeNull()
+    expect(container.textContent).not.toContain(EMAIL_FRAGMENT)
   })
 
-  it('Privacy renders without crashing', () => {
-    const { container } = renderRoute('/privacy', <Privacy />)
-    expect(container.firstChild).toBeTruthy()
+  it('Footer (EN) has no email link and points contact to WhatsApp', () => {
+    const { container } = renderLocalizedRoute('/', <SiteFooter />)
+    expect(container.querySelector(MAILTO_SELECTOR)).toBeNull()
+    expect(container.textContent).not.toContain(EMAIL_FRAGMENT)
+    const whatsappLink = screen.getByRole('link', { name: enContent.footer.whatsappLabel })
+    expect(whatsappLink).toHaveAttribute('href', expect.stringContaining('https://wa.me/351967870651'))
+  })
+
+  it('Footer (PT) has no email link and points contact to WhatsApp', () => {
+    const { container } = renderLocalizedRoute('/pt', <SiteFooter />)
+    expect(container.querySelector(MAILTO_SELECTOR)).toBeNull()
+    expect(container.textContent).not.toContain(EMAIL_FRAGMENT)
+    const whatsappLink = screen.getByRole('link', { name: ptContent.footer.whatsappLabel })
+    expect(whatsappLink).toHaveAttribute('href', expect.stringContaining('https://wa.me/351967870651'))
+  })
+
+  it('Privacy (EN) uses WhatsApp for GDPR contact and has no mailto link', () => {
+    const { container } = renderLocalizedRoute('/privacy', <Privacy />)
+    expect(container.querySelector(MAILTO_SELECTOR)).toBeNull()
+    expect(container.textContent).not.toContain(EMAIL_FRAGMENT)
+    expect(container.querySelector('a[href^="https://wa.me/351967870651"]')).not.toBeNull()
+  })
+
+  it('Privacy (PT) uses WhatsApp for GDPR contact and has no mailto link', () => {
+    const { container } = renderLocalizedRoute('/pt/privacidade', <Privacy />)
+    expect(container.querySelector(MAILTO_SELECTOR)).toBeNull()
+    expect(container.textContent).not.toContain(EMAIL_FRAGMENT)
+    expect(container.querySelector('a[href^="https://wa.me/351967870651"]')).not.toBeNull()
   })
 
   it('NotFound renders without crashing', () => {

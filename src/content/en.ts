@@ -57,7 +57,6 @@ export const enContent: SiteContent = {
     rightsPrefix: '©',
     rightsSuffix: 'All rights reserved.',
     whatsappLabel: 'WhatsApp',
-    contactEmailAria: 'Email Maison Yasmini',
   },
 
   seo: {
@@ -942,11 +941,7 @@ export const enContent: SiteContent = {
       invitation:
         'The easiest way to start is a message on WhatsApp. Tell us a little about your celebration and we will take it from there.',
       buttonLabel: 'Message us on WhatsApp',
-      responseTime: 'We usually reply within two working days.',
-      emailAlt: {
-        lead: 'Prefer email? Write to',
-        linkAriaLabel: 'Send email to Maison Yasmini',
-      },
+      responseTime: 'Every enquiry is read and answered by Yasmini herself.',
     },
   },
 
@@ -961,7 +956,7 @@ export const enContent: SiteContent = {
       {
         title: 'Who we are',
         paragraphs: [
-          'Maison Yasmini is a boutique wedding planning studio based in the Algarve, Portugal. We can be reached by email at __EMAIL__.',
+          'Maison Yasmini is a boutique wedding planning studio based in the Algarve, Portugal. You can reach us on __CONTACT__.',
         ],
       },
       {
@@ -992,7 +987,7 @@ export const enContent: SiteContent = {
       {
         title: 'Your rights',
         paragraphs: [
-          'Under GDPR, you can ask to access, correct or delete your personal data at any time, or to restrict or object to its processing. Write to __EMAIL__ and we will respond within thirty days. If you feel we have not handled a request well, you can also complain to the Portuguese data protection authority (CNPD).',
+          'Under GDPR, you can ask to access, correct or delete your personal data at any time, or to restrict or object to its processing. Message us on __CONTACT__ and we will respond within thirty days. If you feel we have not handled a request well, you can also complain to the Portuguese data protection authority (CNPD).',
         ],
       },
       {
