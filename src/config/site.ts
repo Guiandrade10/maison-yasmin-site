@@ -3,8 +3,6 @@ import type { Lang } from '@/i18n/routes'
 export const siteConfig = {
   name: 'Maison Yasmini',
   tagline: 'Where every detail tells a love story.',
-  // TODO(client): confirm real contact email before publishing.
-  contactEmail: 'hello@maisonyasmini.com',
   // TODO(client): replace with the studio's real Instagram handle.
   instagramUrl: 'https://www.instagram.com/',
   whatsappUrl: 'https://wa.me/351967870651',
