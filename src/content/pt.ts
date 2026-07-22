@@ -919,7 +919,7 @@ export const ptContent: SiteContent = {
       invitation:
         'A forma mais simples de começar é uma mensagem no WhatsApp. Contem-nos um pouco sobre a vossa celebração e seguimos a partir daí.',
       buttonLabel: 'Falar connosco no WhatsApp',
-      responseTime: 'Respondemos habitualmente em dois dias úteis.',
+      responseTime: 'Cada pedido é lido e respondido pela própria Yasmini.',
     },
   },
 

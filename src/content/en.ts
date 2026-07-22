@@ -941,7 +941,7 @@ export const enContent: SiteContent = {
       invitation:
         'The easiest way to start is a message on WhatsApp. Tell us a little about your celebration and we will take it from there.',
       buttonLabel: 'Message us on WhatsApp',
-      responseTime: 'We usually reply within two working days.',
+      responseTime: 'Every enquiry is read and answered by Yasmini herself.',
     },
   },
 
