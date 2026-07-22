@@ -912,51 +912,18 @@ export const ptContent: SiteContent = {
   },
 
   contact: {
-    // PROVISÓRIO — aguarda copy da cliente; tradução do EN aprovado
-    isProvisional: true,
     eyebrow: 'Contacte-nos',
     title: 'Comecem a Vossa Jornada',
     description:
-      'Partilhem a data, o número de convidados e o ambiente que têm em mente. Respondemos com clareza e os próximos passos.',
-    form: {
-      labelNames: 'NOMES',
-      labelEmail: 'EMAIL',
-      labelCountry: 'PAÍS',
-      labelWeddingDate: 'DATA DO CASAMENTO',
-      labelGuests: 'CONVIDADOS ESTIMADOS',
-      guestsPlaceholder: 'ex. 40',
-      labelService: 'SERVIÇO DE INTERESSE',
-      serviceOptions: [
-        'Wedding Planning & Coordination',
-        'Eventos Privados',
-        'Styling & Design',
-        'Ainda não decidido',
-      ],
-      labelVenueSelected: 'ESPAÇO JÁ ESCOLHIDO?',
-      venueSelectedOptions: { yes: 'Sim', notYet: 'Ainda não' },
-      labelInspiration: 'LINK DE INSPIRAÇÃO',
-      inspirationPlaceholder: 'Pinterest, Google Drive, Instagram…',
-      labelMessage: 'MENSAGEM',
-      honeypotLabel: 'Não preencham este campo',
-      submitIdle: 'Enviar pedido',
-      submitSending: 'A enviar…',
-      errorNames: 'Por favor indiquem os nomes do casal.',
-      errorEmailRequired: 'Por favor adicionem um email para podermos responder.',
-      errorEmailInvalid: 'Esse endereço de email não parece válido.',
-      errorRetry:
-        'Não foi possível enviar o vosso pedido neste momento. Tentem novamente daqui a instantes, ou escrevam-nos diretamente.',
-      errorGeneric:
-        'Algo correu mal do nosso lado. Por agora, escrevam-nos diretamente.',
-      thankYouTitle: 'Obrigada.',
-      thankYouBody:
-        'O vosso pedido está connosco. Respondemos em dois dias úteis a partir do Algarve.',
-      preferEmail: 'Preferem email? Escrevam para',
-      preferWhatsAppQuestion: 'Preferem WhatsApp?',
-      preferWhatsAppLink: 'Enviem-nos mensagem aqui',
-      privacyLine: {
-        lead: 'Ao enviar este pedido aceitam que possamos responder por email ou WhatsApp. Consultem a nossa ',
-        linkLabel: 'política de privacidade',
-        tail: '.',
+      'Partilhem a data, o número de convidados e o ambiente que têm em mente. Respondemos pessoalmente a partir do Algarve, com clareza e os próximos passos.',
+    whatsapp: {
+      invitation:
+        'A forma mais simples de começar é uma mensagem no WhatsApp. Contem-nos um pouco sobre a vossa celebração e seguimos a partir daí.',
+      buttonLabel: 'Falar connosco no WhatsApp',
+      responseTime: 'Respondemos habitualmente em dois dias úteis.',
+      emailAlt: {
+        lead: 'Preferem email? Escrevam para',
+        linkAriaLabel: 'Enviar email para a Maison Yasmini',
       },
     },
   },
